@@ -12,6 +12,7 @@ from urllib.request import Request, urlopen
 
 from ts_monitor.models import FetchError, InboxItem
 from ts_monitor.parsers import extract_index_links, inbox_item_from_dict, parse_official_bill_html, slug_id
+from ts_monitor.scrapers import parse_newsroom_html
 from ts_monitor.sources import Source, SourceCatalog, load_catalog
 from ts_monitor.timeutil import iso, now_pair, pair_from, parse_datetime
 
@@ -94,6 +95,8 @@ class Fetcher:
             return self._fetch_rss(source, since)
         if source.method == "official_page":
             return self._fetch_official_page(source)
+        if source.method in {"newsroom", "media_release_index"}:
+            return self._fetch_newsroom(source, since)
         return self._fetch_html_index(source, since)
 
     def fetch_all(self, since: str | None = None, official_only: bool = False) -> list[InboxItem]:
@@ -102,6 +105,33 @@ class Fetcher:
             if official_only and not source.official:
                 continue
             items.extend(self.fetch_source(source, since=since))
+        return items
+
+    def _fetch_newsroom(self, source: Source, since: str | None) -> list[InboxItem]:
+        body, final_url = self.get(source)
+        if body is None:
+            return []
+        rows = parse_newsroom_html(body, final_url or source.url, limit=self.catalog.fetch.max_index_links)
+        items: list[InboxItem] = []
+        for row in rows:
+            published = row.get("published_date")
+            if not self._after_since(published, since):
+                continue
+            items.append(
+                inbox_item_from_dict(
+                    {
+                        "id": slug_id(f"{source.id}-{row.get('url') or row.get('headline')}"),
+                        "headline": row.get("headline") or "",
+                        "outlet": source.name,
+                        "published_date": published,
+                        "url": row.get("url"),
+                        "official_document_url": row.get("url") if source.official else None,
+                        "source_id": source.id,
+                        "source_kind": source.role,
+                        "jurisdiction_hint": source.jurisdiction,
+                    }
+                )
+            )
         return items
 
     def _after_since(self, published: str | None, since: str | None) -> bool:

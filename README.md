@@ -45,7 +45,21 @@ ts-monitor run --since 2026-11-24 \
 
 `ts-monitor propose` emits patches only, reading the written inbox (or `--file`).
 
-Useful flags are `--register`, `--sources` and `--out`.
+`ts-monitor regulators` prints the regulator map counts. Add `--json` for a machine-readable summary.
+
+`ts-monitor run` also fetches the official newsroom, media-release, bill and consultation pages listed in `config/regulators.yaml`, unless `--skip-regulators` is set. Pass `--regulators PATH` to use another map file.
+
+Useful flags are `--register`, `--sources`, `--regulators`, `--skip-regulators` and `--out`.
+
+## Regulator and ministry map
+
+`config/regulators.yaml` is a versioned, sourced map of online-safety, child-safety, platform, gaming and AI-service regulators and the relevant ministries, legislatures and gazettes in the priority markets. Other markets are included only where the instrument register or an official page retrieved for this map supplied evidence. The map is not a claim to have mapped every regulator on earth.
+
+As of 27 November 2026, 02:02 Hong Kong time (Asia/Hong_Kong, UTC+8) the map lists 53 bodies, 25 spokespersons named on official pages retrieved that day, two personal X handles, four institutional X handles and 66 scrape targets. A name or handle is listed only when an official page retrieved for this map named that person or identified that handle. Roster leads that could not be re-verified were left off.
+
+Official pages that returned 403, 429 or 404, timed out or failed to connect are still listed and still have scraper targets. Those failures are recorded. They are not treated as evidence that the page does not exist.
+
+See `docs/REGULATOR-MAP.md` for the full list, the official pages that could not be retrieved live from this environment and the names and handles left unverified.
 
 ## Outputs
 

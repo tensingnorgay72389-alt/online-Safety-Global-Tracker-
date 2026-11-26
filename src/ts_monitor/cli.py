@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
-from ts_monitor.paths import default_out_dir, default_register_path, default_sources_path
+from ts_monitor.paths import default_out_dir, default_register_path, default_regulators_path, default_sources_path
 from ts_monitor.pipeline import ingest_path, load_context, run_pipeline
 from ts_monitor.fetchers import Fetcher
 from ts_monitor.matcher import match_all
+from ts_monitor.regulators import load_regulator_map, merge_source_catalog, sources_from_regulators
 from ts_monitor.writers import dump, write_inbox, write_proposals
 
 
@@ -25,6 +27,7 @@ def build_parser() -> argparse.ArgumentParser:
     common = argparse.ArgumentParser(add_help=False)
     common.add_argument("--register", type=Path, default=None, help="Path to the register snapshot JSON.")
     common.add_argument("--sources", type=Path, default=None, help="Path to sources.yaml.")
+    common.add_argument("--regulators", type=Path, default=None, help="Path to regulators.yaml.")
     common.add_argument("--out", type=Path, default=None, help="Output directory (default: ./out).")
 
     sub = parser.add_subparsers(dest="command", required=True)
@@ -35,6 +38,7 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--file", type=Path, default=None, help="Ingest this JSON file or fixture directory instead of fetching.")
     run.add_argument("--offline", action="store_true", help="Do not fetch the network. Requires --file unless the inbox already exists.")
     run.add_argument("--official-only", action="store_true", help="When fetching, only request official sources.")
+    run.add_argument("--skip-regulators", action="store_true", help="Do not add scrape targets from the regulator map.")
 
     ingest = sub.add_parser("ingest", parents=[common], help="Ingest a Word-report-like JSON file or fixture items.")
     ingest.add_argument("--file", type=Path, required=True, help="Path to a JSON file or a directory of JSON files.")
@@ -43,6 +47,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     propose = sub.add_parser("propose", parents=[common], help="Emit patches only from the written inbox.")
     propose.add_argument("--file", type=Path, default=None, help="Optional inbox file or fixture path. Defaults to out/inbox/items.json.")
+
+    regs = sub.add_parser("regulators", parents=[common], help="Show the regulator map counts or write a JSON summary.")
+    regs.add_argument("--json", action="store_true", help="Write a JSON summary to standard output.")
 
     return parser
 
@@ -53,7 +60,43 @@ def main(argv: list[str] | None = None) -> int:
     out_dir = _out_dir(str(args.out) if args.out else None)
     register_path = Path(args.register) if args.register else default_register_path()
     sources_path = Path(args.sources) if args.sources else default_sources_path()
+    regulators_path = Path(args.regulators) if getattr(args, "regulators", None) else default_regulators_path()
     register, catalog = load_context(register_path, sources_path)
+    regulator_map = load_regulator_map(regulators_path) if regulators_path.is_file() else None
+
+    if args.command == "regulators":
+        if regulator_map is None:
+            print(f"No regulator map found at {regulators_path}", file=sys.stderr)
+            return 1
+        counts = regulator_map.counts()
+        if args.json:
+            payload = {
+                "version": regulator_map.version,
+                "as_of": regulator_map.as_of,
+                "counts": counts,
+                "bodies": [
+                    {
+                        "id": body.id,
+                        "jurisdiction": body.jurisdiction,
+                        "body_type": body.body_type,
+                        "official_name": body.official_name,
+                        "official_homepage": body.official_homepage,
+                        "spokespersons": [person.name for person in body.spokespersons],
+                        "scrape_targets": len(body.scrape_targets),
+                        "spokesperson_status": body.spokesperson_status,
+                    }
+                    for body in regulator_map.bodies
+                ],
+            }
+            print(json.dumps(payload, indent=2, ensure_ascii=False))
+        else:
+            print(
+                f"Regulator map {regulator_map.version} (as of {regulator_map.as_of}): "
+                f"{counts['bodies']} bodies, {counts['spokespersons']} sourced spokespersons, "
+                f"{counts['personal_handles']} personal handles listed on official pages, "
+                f"{counts['scrape_targets']} scrape targets."
+            )
+        return 0
 
     if args.command == "run":
         errors = []
@@ -65,6 +108,8 @@ def main(argv: list[str] | None = None) -> int:
                 parser.error("--offline requires --file or an existing out/inbox/items.json")
             items = ingest_path(inbox_path)
         else:
+            if regulator_map is not None and not args.skip_regulators:
+                catalog = merge_source_catalog(catalog, sources_from_regulators(regulator_map))
             fetcher = Fetcher(catalog=catalog)
             items = fetcher.fetch_all(since=args.since, official_only=bool(args.official_only))
             errors = fetcher.errors

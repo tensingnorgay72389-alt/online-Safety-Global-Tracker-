@@ -1,0 +1,70 @@
+version: 'test'
+as_of: Test fixture, not a live retrieval
+notes: >
+  Test double of the regulator map. This file is not an official register.
+  The unverified handle below is intentional, so the loader can be shown to drop it.
+bodies:
+- id: test-regulator
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: regulator
+  official_name: Example Regulator
+  official_homepage: https://example.invalid/regulator
+  newsroom_url: https://example.invalid/regulator/news
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Jane Example
+    role: Chair
+    source_url: https://example.invalid/regulator/leadership
+    official_profile_url: https://example.invalid/regulator/leadership
+    x_handle: JaneExampleOfficial
+    x_handle_url: https://x.com/JaneExampleOfficial
+    x_handle_status: listed_on_official_page
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+  scrape_targets:
+  - id: test-regulator-news
+    url: https://example.invalid/regulator/news
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: Example Regulator news
+- id: test-ministry
+  jurisdiction: AU
+  jurisdiction_name: Australia
+  body_type: ministry
+  official_name: Example Ministry
+  official_homepage: https://example.invalid/ministry
+  media_release_url: https://example.invalid/ministry/media-releases
+  spokesperson_status: unverified
+  spokespersons:
+  - name: Unverified Person
+    role: Minister
+    source_url: https://example.invalid/ministry
+    x_handle: GuessedHandle
+    x_handle_url: https://x.com/GuessedHandle
+    x_handle_status: unverified
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+  scrape_targets:
+  - id: test-ministry-releases
+    url: https://example.invalid/ministry/media-releases
+    method: media_release_index
+    role: ministerial_release
+    auto_apply_eligible: true
+    official: true
+    name: Example Ministry media releases
+- id: test-missing-spokesperson
+  jurisdiction: ID
+  jurisdiction_name: Indonesia
+  body_type: ministry
+  official_name: Example Portal
+  official_homepage: https://example.invalid/portal
+  spokesperson_status: no_named_official_on_retrieved_page
+  spokespersons: []
+  scrape_targets:
+  - id: test-portal-home
+    url: https://example.invalid/portal
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true

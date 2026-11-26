@@ -1,0 +1,1618 @@
+version: '2026-11-27'
+as_of: 27 November 2026, 02:02 Hong Kong time (Asia/Hong_Kong, UTC+8)
+notes: Sourced map of online-safety, child-safety, platform, gaming and AI-service regulators, relevant
+  ministries, official newsroom, bill and media-release pages, and named key spokespersons in the priority
+  markets plus other markets evidenced in the instrument register or on official pages retrieved this
+  run. This is not a claim to have mapped every regulator on earth. A spokesperson is listed only when
+  an official page retrieved on 27 November 2026 named that person in the stated role. A personal or institutional
+  X handle is listed only when that official page clearly identified the handle. Roster leads that could
+  not be re-verified against a retrieved official page were left off. A 403, timeout or connection failure
+  is not evidence that a page does not exist. Those official URLs are retained and remain scrape targets.
+  Brand-mention watching is out of scope. Ministerial language such as 'becomes law' is not enactment.
+bodies:
+- id: us-ftc
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: regulator
+  official_name: Federal Trade Commission
+  official_homepage: https://www.ftc.gov/
+  newsroom_url: https://www.ftc.gov/news-events
+  leadership_url: https://www.ftc.gov/about-ftc/commissioners
+  official_x_handle: FTC
+  official_x_handle_url: https://twitter.com/FTC
+  official_x_handle_source_url: https://www.ftc.gov/about-ftc/commissioners
+  evidence:
+  - Register instruments US-COPPA-RULE-2025 and US-TAKEITDOWN-2025 record FTC enforcement of federal child-privacy
+    and notice-and-removal duties.
+  - Official commissioners page retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. Homepage, news events page and commissioners
+    page were retrieved.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Andrew N. Ferguson
+    role: Chairman of the Federal Trade Commission
+    source_url: https://www.ftc.gov/about-ftc/commissioners
+    official_profile_url: https://www.ftc.gov/about-ftc/commissioners
+    appointed: '2024-04-02'
+    x_handle: AFergusonFTC
+    x_handle_url: https://x.com/AFergusonFTC
+    notes: The official commissioners page states that Andrew N. Ferguson is Chairman and was sworn in
+      on 2 April 2024. The same table row contains an official X link to https://x.com/AFergusonFTC.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: listed_on_official_page
+  - name: Mark R. Meador
+    role: Commissioner, Federal Trade Commission
+    source_url: https://www.ftc.gov/about-ftc/commissioners
+    official_profile_url: https://www.ftc.gov/about-ftc/commissioners
+    appointed: '2025-04-16'
+    x_handle: MeadorFTC
+    x_handle_url: https://x.com/MeadorFTC
+    notes: The official commissioners page states that Mark R. Meador is a Commissioner and was sworn
+      in on 16 April 2025. The same table row contains an official X link to https://x.com/MeadorFTC.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: listed_on_official_page
+  scrape_targets:
+  - id: us-ftc-news
+    url: https://www.ftc.gov/news-events
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: FTC news and events
+  - id: us-ftc-home
+    url: https://www.ftc.gov/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: FTC homepage
+- id: us-congress
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: parliament
+  official_name: United States Congress
+  official_homepage: https://www.congress.gov/
+  bill_or_consultation_url: https://www.congress.gov/
+  evidence:
+  - Register instruments US-HR-7757-2026 and US-TAKEITDOWN-2025 cite congress.gov official bill and public-law
+    pages.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: us-congress-bills
+    url: https://www.congress.gov/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Congress.gov
+  notes: A bill board, not a regulator. Named members of Congress are not recorded as agency spokespersons.
+- id: us-fcc
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: regulator
+  official_name: Federal Communications Commission
+  official_homepage: https://www.fcc.gov/
+  leadership_url: https://www.fcc.gov/about/leadership
+  evidence:
+  - Official FCC leadership URL was used as a fetch target because it is the official leadership page
+    of the federal communications regulator. The page itself returned HTTP 403 this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: us-fcc-leadership
+    url: https://www.fcc.gov/about/leadership
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: FCC leadership
+  notes: Roster leads for a named chair were not copied. The official leadership page was not retrieved
+    this run.
+- id: us-ca-legislature
+  jurisdiction: US-CA
+  jurisdiction_name: United States - California
+  body_type: parliament
+  official_name: California Legislative Information
+  official_homepage: https://leginfo.legislature.ca.gov/
+  bill_or_consultation_url: https://leginfo.legislature.ca.gov/
+  evidence:
+  - Register instruments US-CA-SB243-2025 and US-CA-AB1043-2025 cite official LegInfo pages.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: us-ca-leginfo
+    url: https://leginfo.legislature.ca.gov/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: us-ny-governor
+  jurisdiction: US-NY
+  jurisdiction_name: United States - New York
+  body_type: executive
+  official_name: Governor of New York
+  official_homepage: https://www.governor.ny.gov/
+  newsroom_url: https://www.governor.ny.gov/
+  evidence:
+  - Register instruments US-NY-SAFE-2024, US-NY-GBL47-2025 and US-NY-WARN-2025 cite official governor.ny.gov
+    pages.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: no_named_official_recorded_from_homepage
+  spokespersons: []
+  scrape_targets:
+  - id: us-ny-governor-home
+    url: https://www.governor.ny.gov/
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  notes: The homepage was retrieved. No governor name was copied from a general homepage into the spokesperson
+    list. A dedicated official biography page was not isolated this run.
+- id: us-tx-legislature
+  jurisdiction: US-TX
+  jurisdiction_name: United States - Texas
+  body_type: parliament
+  official_name: Texas Legislature Online
+  official_homepage: https://capitol.texas.gov/
+  bill_or_consultation_url: https://capitol.texas.gov/
+  evidence:
+  - The existing source catalogue already listed capitol.texas.gov for Texas instruments in the register.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: us-tx-capitol
+    url: https://capitol.texas.gov/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: us-mn-revisor
+  jurisdiction: US-MN
+  jurisdiction_name: United States - Minnesota
+  body_type: parliament
+  official_name: Minnesota Office of the Revisor of Statutes
+  official_homepage: https://www.revisor.mn.gov/
+  bill_or_consultation_url: https://www.revisor.mn.gov/
+  evidence:
+  - Register instrument US-MN-CH111-2026 cites an official revisor.mn.gov chaptered-law page.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: us-mn-revisor
+    url: https://www.revisor.mn.gov/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: us-va-lis
+  jurisdiction: US-VA
+  jurisdiction_name: United States - Virginia
+  body_type: parliament
+  official_name: Virginia Legislative Information System
+  official_homepage: https://law.lis.virginia.gov/
+  bill_or_consultation_url: https://law.lis.virginia.gov/
+  evidence:
+  - Register instrument US-VA-59.1-577.1 cites an official LIS Code page.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: us-va-lis
+    url: https://law.lis.virginia.gov/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: uk-ofcom
+  jurisdiction: GB
+  jurisdiction_name: United Kingdom
+  body_type: regulator
+  official_name: Ofcom
+  official_homepage: https://www.ofcom.org.uk/
+  leadership_url: https://www.ofcom.org.uk/about-ofcom/structure-and-leadership/ofcom-board
+  newsroom_url: https://www.ofcom.org.uk/
+  bill_or_consultation_url: https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/intimate-image-abuse-takedown
+  evidence:
+  - Register instrument UK-OSA-2023 names Ofcom as regulator.
+  - The existing source catalogue already listed the official homepage, board page, contact page and the
+    intimate-image consultation page.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured. Homepage,
+    board, contact and consultation pages were requested.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: uk-ofcom-home
+    url: https://www.ofcom.org.uk/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  - id: uk-ofcom-ii-consultation
+    url: https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/intimate-image-abuse-takedown
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  notes: Roster leads for a chair, chief executive and online-safety group director were not copied, because
+    the official board page was not retrieved this run.
+- id: uk-ico
+  jurisdiction: GB
+  jurisdiction_name: United Kingdom
+  body_type: regulator
+  official_name: Information Commissioner's Office
+  official_homepage: https://ico.org.uk/
+  bill_or_consultation_url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/
+  evidence:
+  - Register instrument UK-CHILDRENS-CODE-2021 cites the official ICO Children's Code page and states
+    that the ICO enforces the code.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: uk-ico-home
+    url: https://ico.org.uk/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  - id: uk-ico-code
+    url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: uk-dcms
+  jurisdiction: GB
+  jurisdiction_name: United Kingdom
+  body_type: ministry
+  official_name: Department for Culture, Media and Sport
+  official_homepage: https://www.gov.uk/government/organisations/department-for-culture-media-and-sport
+  leadership_url: https://www.gov.uk/government/people/lisa-nandy
+  newsroom_url: https://www.gov.uk/government/organisations/department-for-culture-media-and-sport
+  evidence:
+  - Official GOV.UK department page retrieved this run.
+  - Official GOV.UK biography of the Secretary of State retrieved this run.
+  - The official DSIT closure page states that former DSIT responsibilities were split across BIST, DCMS
+    and the Cabinet Office.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Lisa Nandy
+    role: Secretary of State for Digital, Culture, Media and Sport
+    source_url: https://www.gov.uk/government/people/lisa-nandy
+    official_profile_url: https://www.gov.uk/government/people/lisa-nandy
+    appointed: '2026-07-20'
+    notes: The official GOV.UK biography states that Lisa Nandy was appointed Secretary of State for Digital,
+      Culture, Media and Sport on 20 July 2026. No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: uk-dcms-org
+    url: https://www.gov.uk/government/organisations/department-for-culture-media-and-sport
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: DCMS organisation page
+  notes: The official biography uses the title Secretary of State for Digital, Culture, Media and Sport.
+    A personal X handle was not listed on the official page and is not recorded.
+- id: uk-dsit-closed
+  jurisdiction: GB
+  jurisdiction_name: United Kingdom
+  body_type: ministry
+  official_name: Department for Science, Innovation and Technology (closed)
+  official_homepage: https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology
+  evidence:
+  - Official GOV.UK organisation page retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: department_closed
+  spokespersons: []
+  scrape_targets: []
+  notes: The official GOV.UK page states that DSIT existed until 2026 and that its responsibilities were
+    split across the Department for Business, Innovation, Science and Trade (BIST), the Department for
+    Culture, Media and Sport (DCMS) and the Cabinet Office. It is recorded for provenance only and is
+    not a live scrape target.
+- id: uk-parliament
+  jurisdiction: GB
+  jurisdiction_name: United Kingdom
+  body_type: parliament
+  official_name: UK Parliament bills and legislation
+  official_homepage: https://www.parliament.uk/
+  bill_or_consultation_url: https://bills.parliament.uk/
+  evidence:
+  - The existing source catalogue already listed parliament.uk, bills.parliament.uk, legislation.gov.uk,
+    committees.parliament.uk and hansard.parliament.uk.
+  retrieval_notes:
+  - legislation.gov.uk and gov.uk were retrieved this run.
+  - bills.parliament.uk returned HTTP 403. This official URL returned HTTP 403 from this environment on
+    27 November 2026, Hong Kong time. That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: uk-bills
+    url: https://bills.parliament.uk/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  - id: uk-legislation
+    url: https://www.legislation.gov.uk/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: eu-dg-connect
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: ministry
+  official_name: European Commission, Directorate-General for Communications Networks, Content and Technology
+  official_homepage: https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en
+  leadership_url: https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en
+  newsroom_url: https://digital-strategy.ec.europa.eu/
+  evidence:
+  - Register instruments EU-DSA-2022, EU-AIA-2024, EU-KIDS-2026 and related Commission proposals are official
+    EU digital-policy instruments.
+  - Official DG CONNECT leadership page and the Shaping Europe's digital future site were retrieved this
+    run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. The dedicated Executive Vice-President
+    biography page returned HTTP 429 and was not used as a source. The name and title below come from
+    the retrieved DG CONNECT leadership page.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Henna Virkkunen
+    role: Executive Vice-President, Communications Networks, Content and Technology
+    source_url: https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en
+    official_profile_url: https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en
+    notes: The official DG CONNECT leadership and organisation block retrieved this run lists Executive
+      Vice-President Henna Virkkunen. A dedicated biography page returned HTTP 429 and is not treated
+      as missing.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  - name: Roberto Viola
+    role: Director-General, Communications Networks, Content and Technology
+    source_url: https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en
+    official_profile_url: https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en
+    notes: The official DG CONNECT leadership and organisation block retrieved this run lists Director-General
+      Roberto Viola.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: eu-digital-strategy
+    url: https://digital-strategy.ec.europa.eu/
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: Shaping Europe's digital future
+- id: eu-ai-office
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: regulator
+  official_name: European AI Office
+  official_homepage: https://digital-strategy.ec.europa.eu/en/miscellaneous/lucilla-sioli
+  leadership_url: https://digital-strategy.ec.europa.eu/en/miscellaneous/lucilla-sioli
+  evidence:
+  - Official European Commission digital-strategy speaker page for the Director of the European AI Office
+    retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Lucilla Sioli
+    role: Director of the European AI Office, European Commission
+    source_url: https://digital-strategy.ec.europa.eu/en/miscellaneous/lucilla-sioli
+    official_profile_url: https://digital-strategy.ec.europa.eu/en/miscellaneous/lucilla-sioli
+    notes: The official page retrieved this run, with a publication date of 27 August 2026, names Dr.
+      Lucilla Sioli as Director of the European AI Office within DG CONNECT.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: eu-ai-office-sioli
+    url: https://digital-strategy.ec.europa.eu/en/miscellaneous/lucilla-sioli
+    method: official_page
+    role: regulator_newsroom
+    auto_apply_eligible: false
+    official: true
+    name: European AI Office, Director biography
+  notes: The official profile page is recorded as the leadership source. A separate AI Office homepage
+    was not isolated beyond the digital-strategy site.
+- id: eu-commission-spokespersons
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: ministry
+  official_name: European Commission spokespersons' service
+  official_homepage: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+  leadership_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+  evidence:
+  - Official Commission spokespersons' service directory retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Paula Pinho
+    role: European Commission Chief Spokesperson
+    source_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    official_profile_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    notes: Named on the official spokespersons' service directory retrieved this run.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  - name: Thomas Regnier
+    role: Spokesperson (Tech Sovereignty, Defence, Space, Disinformation)
+    source_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    official_profile_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    notes: Named as a Spokesperson on the official directory, with listed responsibilities including Tech
+      Sovereignty, Defence, Space and Disinformation.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  - name: Nika Blazevic
+    role: Press officer (Tech Sovereignty)
+    source_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    official_profile_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    notes: Named as a press officer on the official directory, with listed responsibilities including
+      Tech Sovereignty.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  - name: Patricia Poropat
+    role: Press officer (Tech Sovereignty, Disinformation)
+    source_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    official_profile_url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    notes: Named as a press officer on the official directory, with listed responsibilities including
+      Tech Sovereignty and Disinformation.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: eu-commission-spokespersons-directory
+    url: https://commission.europa.eu/about/contact/press-services/press-contacts/commissions-spokespersons-service_en
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: European Commission spokespersons service
+  notes: Only the chief spokesperson and the tech-portfolio press contacts listed on the official directory
+    are recorded here. Other officials on the same directory were not copied into this key-spokesperson
+    list.
+- id: eu-eurlex
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: gazette
+  official_name: EUR-Lex
+  official_homepage: https://eur-lex.europa.eu/
+  bill_or_consultation_url: https://eur-lex.europa.eu/
+  evidence:
+  - Register instruments EU-DSA-2022, EU-AIA-2024 and EU-KIDS-2026 cite official EUR-Lex addresses.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: eu-eurlex
+    url: https://eur-lex.europa.eu/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: eu-home-affairs
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: ministry
+  official_name: European Commission, Directorate-General for Migration and Home Affairs
+  official_homepage: https://home-affairs.ec.europa.eu/news/commission-welcomes-political-agreement-criminal-law-rules-fight-child-sexual-abuse-2026-06-29_en
+  newsroom_url: https://home-affairs.ec.europa.eu/news/commission-welcomes-political-agreement-criminal-law-rules-fight-child-sexual-abuse-2026-06-29_en
+  evidence:
+  - Register instrument EU-CSAM-DIR-2026 cites this official Commission news page.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: eu-home-affairs-csam
+    url: https://home-affairs.ec.europa.eu/news/commission-welcomes-political-agreement-criminal-law-rules-fight-child-sexual-abuse-2026-06-29_en
+    method: official_page
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+- id: au-esafety
+  jurisdiction: AU
+  jurisdiction_name: Australia
+  body_type: regulator
+  official_name: eSafety Commissioner
+  official_homepage: https://www.esafety.gov.au/
+  newsroom_url: https://www.esafety.gov.au/newsroom
+  media_release_url: https://www.esafety.gov.au/newsroom/media-releases
+  leadership_url: https://www.esafety.gov.au/about-us/about-the-commissioner
+  evidence:
+  - Register instruments AU-OSA-2021, AU-OSA-2024, AU-DDOC-2026 and AU-SE-SMMA-2026 confer or expand powers
+    of the eSafety Commissioner.
+  - The existing source catalogue already listed the official newsroom.
+  retrieval_notes:
+  - This official URL timed out from this environment on 27 November 2026, Hong Kong time. That failure
+    is not evidence that the page does not exist. A scraper target is still configured. The homepage,
+    newsroom, media-releases index and commissioner biography were requested.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: au-esafety-newsroom
+    url: https://www.esafety.gov.au/newsroom
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: eSafety newsroom
+  - id: au-esafety-media
+    url: https://www.esafety.gov.au/newsroom/media-releases
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: eSafety media releases
+  notes: A roster lead naming a commissioner was not copied, because the official commissioner page timed
+    out this run.
+- id: au-acma
+  jurisdiction: AU
+  jurisdiction_name: Australia
+  body_type: regulator
+  official_name: Australian Communications and Media Authority
+  official_homepage: https://www.acma.gov.au/
+  leadership_url: https://www.acma.gov.au/authority
+  evidence:
+  - Official ACMA authority page was used as a fetch target as the official leadership page of the communications
+    regulator.
+  retrieval_notes:
+  - This official URL timed out from this environment on 27 November 2026, Hong Kong time. That failure
+    is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: au-acma-home
+    url: https://www.acma.gov.au/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  - id: au-acma-authority
+    url: https://www.acma.gov.au/authority
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  notes: A roster lead naming a chair was not copied, because the official authority page timed out this
+    run.
+- id: au-minister-communications
+  jurisdiction: AU
+  jurisdiction_name: Australia
+  body_type: ministry
+  official_name: Minister for Communications
+  official_homepage: https://minister.infrastructure.gov.au/wells
+  media_release_url: https://minister.infrastructure.gov.au/wells/media-releases
+  evidence:
+  - The existing source catalogue already listed the official ministerial media-release page for the Digital
+    Duty of Care statement.
+  - Register notes for AU-DDOC-2026 record a ministerial statement on commencement timing.
+  retrieval_notes:
+  - This official URL timed out from this environment on 27 November 2026, Hong Kong time. That failure
+    is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: au-minister-wells-releases
+    url: https://minister.infrastructure.gov.au/wells/media-releases
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Minister for Communications media releases
+  - id: au-minister-ddoc-release
+    url: https://minister.infrastructure.gov.au/wells/media-release/australias-digital-duty-care-becomes-law
+    method: official_page
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Digital Duty of Care media release
+  notes: Ministerial language such as 'becomes law' is not Royal Assent and must not be auto-applied.
+    A roster lead naming the minister was not copied, because the official minister pages timed out this
+    run.
+- id: au-parliament
+  jurisdiction: AU
+  jurisdiction_name: Australia
+  body_type: parliament
+  official_name: Parliament of Australia and Federal Register of Legislation
+  official_homepage: https://www.legislation.gov.au/
+  bill_or_consultation_url: https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553
+  evidence:
+  - Register instruments including AU-DDOC-2026 and AU-OSA-2021 cite official ParlInfo and legislation.gov.au
+    pages.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. legislation.gov.au was retrieved.
+  - The official DDoC bill homepage on parlinfo.aph.gov.au returned HTTP 403. This official URL returned
+    HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not evidence that
+    the page does not exist. A scraper target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: au-legislation
+    url: https://www.legislation.gov.au/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  - id: au-parlinfo-ddoc
+    url: https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Digital Duty of Care bill homepage r7553
+- id: sg-mddi
+  jurisdiction: SG
+  jurisdiction_name: Singapore
+  body_type: ministry
+  official_name: Ministry of Digital Development and Information
+  official_homepage: https://www.mddi.gov.sg/
+  newsroom_url: https://www.mddi.gov.sg/newsroom/
+  leadership_url: https://www.mddi.gov.sg/who-we-are/political-office-holders/
+  evidence:
+  - Official MDDI homepage and political office holders page retrieved this run. The holders page was
+    last updated on 27 July 2026 and the site footer was last updated on 24 November 2026.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Josephine Teo
+    role: Minister for Digital Development and Information and Minister-in-charge of Cybersecurity and
+      Smart Nation Group
+    source_url: https://www.mddi.gov.sg/who-we-are/political-office-holders/
+    official_profile_url: https://www.mddi.gov.sg/who-we-are/political-office-holders/
+    notes: Named on the official MDDI political office holders page retrieved this run. Other political
+      office holders appear on the same page and are not all copied into this key-spokesperson list. No
+      personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: sg-mddi-newsroom
+    url: https://www.mddi.gov.sg/newsroom/
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MDDI newsroom
+- id: sg-imda
+  jurisdiction: SG
+  jurisdiction_name: Singapore
+  body_type: regulator
+  official_name: Infocomm Media Development Authority
+  official_homepage: https://www.imda.gov.sg/
+  newsroom_url: https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches
+  leadership_url: https://www.mddi.gov.sg/newsroom/new-chief-executive-appointments-in-the-infocomm-media-development--authority-and-the-national-library-and-archives-board/
+  evidence:
+  - Register instruments SG-OSO-2024 and SG-ADS-COP-2025 are official IMDA codes.
+  - Official IMDA homepage and the official MDDI appointment release were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Ng Cher Pong
+    role: Chief Executive Officer, Infocomm Media Development Authority
+    source_url: https://www.mddi.gov.sg/newsroom/new-chief-executive-appointments-in-the-infocomm-media-development--authority-and-the-national-library-and-archives-board/
+    official_profile_url: https://www.mddi.gov.sg/newsroom/new-chief-executive-appointments-in-the-infocomm-media-development--authority-and-the-national-library-and-archives-board/
+    appointed: '2025-11-01'
+    notes: The official MDDI appointment release retrieved this run states that Ng Cher Pong would be
+      appointed CEO of IMDA from 1 November 2025, succeeding Lew Chuen Hong. No later official leadership
+      roster contradicting that appointment was retrieved this run. No personal X handle was listed on
+      that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: sg-imda-press
+    url: https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: IMDA press releases, factsheets and speeches
+- id: sg-pdpc
+  jurisdiction: SG
+  jurisdiction_name: Singapore
+  body_type: regulator
+  official_name: Personal Data Protection Commission
+  official_homepage: https://www.pdpc.gov.sg/
+  evidence:
+  - Register instrument SG-PDPA-2012 is Singapore's personal data statute, cited for its child-data framework.
+  - The official PDPC homepage was retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: no_named_official_on_retrieved_page
+  spokespersons: []
+  scrape_targets:
+  - id: sg-pdpc-home
+    url: https://www.pdpc.gov.sg/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  notes: The official homepage was retrieved. No commissioner or chief executive name was taken from that
+    homepage into the spokesperson list.
+- id: sg-online-safety-commission
+  jurisdiction: SG
+  jurisdiction_name: Singapore
+  body_type: commission
+  official_name: Online Safety Commission
+  official_homepage: null
+  bill_or_consultation_url: https://sso.agc.gov.sg/Act/OSRAA2025
+  evidence:
+  - Register instrument SG-OSRAA-2025, sourced to the official Singapore Statutes Online text, records
+    that the Act establishes the Online Safety Commission.
+  retrieval_notes:
+  - The official statute URL on Singapore Statutes Online returned HTTP 403 this run. This official URL
+    returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not evidence
+    that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: sg-osraa-statute
+    url: https://sso.agc.gov.sg/Act/OSRAA2025
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  notes: No separate official commission homepage was recorded beyond the statute URL. No spokesperson
+    is listed.
+- id: sg-sso
+  jurisdiction: SG
+  jurisdiction_name: Singapore
+  body_type: gazette
+  official_name: Singapore Statutes Online
+  official_homepage: https://sso.agc.gov.sg/
+  bill_or_consultation_url: https://sso.agc.gov.sg/
+  evidence:
+  - Register instruments including SG-PDPA-2012, SG-POFMA-2019, SG-OCHA-2023 and SG-OSRAA-2025 cite official
+    SSO pages.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: sg-sso
+    url: https://sso.agc.gov.sg/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: in-meity
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: ministry
+  official_name: Ministry of Electronics and Information Technology
+  official_homepage: https://www.meity.gov.in/
+  leadership_url: https://www.meity.gov.in/ministry/our-team
+  evidence:
+  - Register instruments IN-DPDP-2023, IN-PROGA-2025, IN-IT-RULES-2026 and IN-PROG-RULES-2026 cite official
+    MeitY pages or uploads.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: in-meity-home
+    url: https://www.meity.gov.in/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  - id: in-meity-team
+    url: https://www.meity.gov.in/ministry/our-team
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+  notes: Roster leads naming a minister, minister of state and secretary were not copied, because the
+    official team page was not retrieved this run.
+- id: in-online-gaming-authority
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: regulator
+  official_name: Online Gaming Authority of India
+  official_homepage: null
+  bill_or_consultation_url: https://www.meity.gov.in/static/uploads/2026/04/7e0b02d37fd07f81fa48578a9996aa85.pdf
+  evidence:
+  - Register instrument IN-PROG-RULES-2026, sourced to an official MeitY gazette-rules upload, records
+    that the rules establish procedures for the Online Gaming Authority of India.
+  retrieval_notes:
+  - The parent MeitY homepage returned HTTP 403 this run. The official rules URL is retained from the
+    register.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: in-prog-rules
+    url: https://www.meity.gov.in/static/uploads/2026/04/7e0b02d37fd07f81fa48578a9996aa85.pdf
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  notes: No separate official authority homepage was recorded beyond the official rules upload. No spokesperson
+    is listed.
+- id: in-egazette
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: gazette
+  official_name: Gazette of India
+  official_homepage: https://egazette.gov.in/
+  bill_or_consultation_url: https://egazette.gov.in/
+  evidence:
+  - The existing source catalogue already listed the official gazette as an India instrument board.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: in-egazette
+    url: https://egazette.gov.in/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: my-mcmc
+  jurisdiction: MY
+  jurisdiction_name: Malaysia
+  body_type: regulator
+  official_name: Malaysian Communications and Multimedia Commission
+  official_homepage: https://www.mcmc.gov.my/
+  newsroom_url: https://www.mcmc.gov.my/en/media/press-releases
+  leadership_url: https://www.mcmc.gov.my/en/about-us/commission-members
+  bill_or_consultation_url: https://www.mcmc.gov.my/en/onsa/under-16
+  evidence:
+  - Register instruments MY-ONSA-2025, MY-CPC-2026 and MY-RMC-2026 cite official MCMC pages or PDFs.
+  - Official homepage, commission-members page and ONSA page were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Tan Sri Mohamad Salim Bin Fateh Din
+    role: Chairman of the Commission
+    source_url: https://www.mcmc.gov.my/en/about-us/commission-members
+    official_profile_url: https://www.mcmc.gov.my/en/about-us/commission-members
+    notes: Named as Chairman of the Commission on the official commission-members page retrieved this
+      run. Other commission members appear on the same page and are not all copied into this key-spokesperson
+      list. No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: my-mcmc-press
+    url: https://www.mcmc.gov.my/en/media/press-releases
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: MCMC press releases
+  - id: my-mcmc-onsa
+    url: https://www.mcmc.gov.my/en/onsa/under-16
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  notes: A communications ministry official homepage was not established this run, so no ministry body
+    or minister name is recorded for Malaysia.
+- id: jp-digital-agency
+  jurisdiction: JP
+  jurisdiction_name: Japan
+  body_type: ministry
+  official_name: Digital Agency
+  official_homepage: https://www.digital.go.jp/
+  leadership_url: https://www.digital.go.jp/en/about/member/furukawatoshiharu
+  newsroom_url: https://www.digital.go.jp/
+  evidence:
+  - Official Digital Agency homepage and the official English biography of the Minister for Digital Transformation
+    were retrieved this run. The biography page was last updated on 29 September 2026.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: FURUKAWA Toshiharu
+    role: Minister for Digital Transformation
+    source_url: https://www.digital.go.jp/en/about/member/furukawatoshiharu
+    official_profile_url: https://www.digital.go.jp/en/about/member/furukawatoshiharu
+    notes: The official English biography retrieved this run, last updated 29 September 2026, names FURUKAWA
+      Toshiharu as Minister for Digital Transformation, and also lists concurrent titles including Minister
+      in charge of Promoting AI and Digital Reform, Minister in charge of Cybersecurity, Minister in charge
+      of Content Strategy, and Minister of State for Special Missions. No personal X handle was listed
+      on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: jp-digital-home
+    url: https://www.digital.go.jp/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+- id: jp-mic
+  jurisdiction: JP
+  jurisdiction_name: Japan
+  body_type: ministry
+  official_name: Ministry of Internal Affairs and Communications
+  official_homepage: https://www.soumu.go.jp/
+  evidence:
+  - Register instrument JP-MIC-GL-2026 concerns draft Japanese ministry guidelines. The official MIC homepage
+    was retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: no_named_official_on_retrieved_page
+  spokespersons: []
+  scrape_targets:
+  - id: jp-soumu-home
+    url: https://www.soumu.go.jp/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  notes: The official homepage was retrieved. No minister name was taken from that homepage into the spokesperson
+    list.
+- id: kr-kmcc
+  jurisdiction: KR
+  jurisdiction_name: Korea
+  body_type: regulator
+  official_name: Korea Media and Communications Commission
+  official_homepage: https://www.kmcc.go.kr/
+  leadership_url: https://www.kmcc.go.kr/user.do?dc=K04020102&page=A04020102
+  evidence:
+  - Official KMCC chair introduction page retrieved this run, in the official government domain of the
+    commission.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. The chair introduction page was retrieved.
+    The generic homepage response was unusually short and is not used as a leadership source.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Jong-Cheol Kim
+    role: Chair, Korea Media and Communications Commission
+    source_url: https://www.kmcc.go.kr/user.do?dc=K04020102&page=A04020102
+    official_profile_url: https://www.kmcc.go.kr/user.do?dc=K04020102&page=A04020102
+    notes: The official chair introduction page retrieved this run names 방송미디어통신위원회 위원장 김 종 철 (金鍾鐵, Jong-Cheol
+      Kim). No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: kr-kmcc-home
+    url: https://www.kmcc.go.kr/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+- id: kr-msit
+  jurisdiction: KR
+  jurisdiction_name: Korea
+  body_type: ministry
+  official_name: Ministry of Science and ICT
+  official_homepage: https://www.msit.go.kr/
+  evidence:
+  - Register instrument KR-BILL-2221679-2026 is a Korean legislative proposal on social network age duties.
+    The official MSIT homepage was used as a fetch target for the responsible science and ICT ministry.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: kr-msit-home
+    url: https://www.msit.go.kr/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+  notes: A roster lead naming a minister was not copied, because the official MSIT homepage was not retrieved
+    this run.
+- id: kr-lawmaking
+  jurisdiction: KR
+  jurisdiction_name: Korea
+  body_type: parliament
+  official_name: Korean National Assembly legislative opinion portal
+  official_homepage: https://opinion.lawmaking.go.kr/
+  bill_or_consultation_url: https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2221679/detailRP
+  evidence:
+  - Register instrument KR-BILL-2221679-2026 cites this official legislative-opinion portal page.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: kr-lawmaking-home
+    url: https://opinion.lawmaking.go.kr/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  - id: kr-bill-2221679
+    url: https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2221679/detailRP
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: id-komdigi
+  jurisdiction: ID
+  jurisdiction_name: Indonesia
+  body_type: ministry
+  official_name: Ministry of Communication and Digital Affairs (Kementerian Komunikasi dan Digital)
+  official_homepage: https://portal.komdigi.go.id/
+  newsroom_url: https://portal.komdigi.go.id/
+  evidence:
+  - Register instrument ID-PERMEN-9-2026 is an official ministerial regulation (Permen Komdigi) on peraturan.bpk.go.id.
+  - The official Komdigi portal was retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. portal.komdigi.go.id was retrieved.
+  - www.komdigi.go.id returned HTTP 403. This official URL returned HTTP 403 from this environment on
+    27 November 2026, Hong Kong time. That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: no_named_official_on_retrieved_page
+  spokespersons: []
+  scrape_targets:
+  - id: id-komdigi-portal
+    url: https://portal.komdigi.go.id/
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+  notes: The official portal was retrieved. No minister name was present on that page, so no spokesperson
+    is listed. A roster lead was not copied.
+- id: id-bpk
+  jurisdiction: ID
+  jurisdiction_name: Indonesia
+  body_type: gazette
+  official_name: Peraturan BPK
+  official_homepage: https://peraturan.bpk.go.id/
+  bill_or_consultation_url: https://peraturan.bpk.go.id/Details/346040/permenkomdigi-no-9-tahun-2026
+  evidence:
+  - Register instrument ID-PERMEN-9-2026 cites this official BPK regulation page.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: id-bpk
+    url: https://peraturan.bpk.go.id/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: br-mcom
+  jurisdiction: BR
+  jurisdiction_name: Brazil
+  body_type: ministry
+  official_name: Ministry of Communications (Ministério das Comunicações)
+  official_homepage: https://www.gov.br/mcom/pt-br
+  newsroom_url: https://www.gov.br/mcom/pt-br/noticias
+  leadership_url: https://www.gov.br/mcom/pt-br/acesso-a-informacao/perguntas-frequentes/o-ministerio-das-comunicacoes/quem-e-o-ministro-das
+  evidence:
+  - Official MCom homepage retrieved this run, including official news paths under gov.br/mcom.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. The dedicated 'who is the minister' URL
+    returned HTTP 404 and is retained only as a previously cited official address.
+  spokesperson_status: no_named_official_on_retrieved_page
+  spokespersons: []
+  scrape_targets:
+  - id: br-mcom-news
+    url: https://www.gov.br/mcom/pt-br/noticias
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MCom news
+  notes: The official homepage was retrieved. It refers to the minister of communications without a name
+    in the retrieved text used for this map, so no spokesperson is listed.
+- id: br-anpd
+  jurisdiction: BR
+  jurisdiction_name: Brazil
+  body_type: regulator
+  official_name: National Data Protection Authority (ANPD)
+  official_homepage: https://www.gov.br/anpd/pt-br
+  leadership_url: https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/quem-e-quem/diretor-presidente-waldemar-goncalves-ortunho-junior
+  evidence:
+  - Official ANPD homepage and official Director-President biography were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Waldemar Gonçalves Ortunho Junior
+    role: Director-President, ANPD
+    source_url: https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/quem-e-quem/diretor-presidente-waldemar-goncalves-ortunho-junior
+    official_profile_url: https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/quem-e-quem/diretor-presidente-waldemar-goncalves-ortunho-junior
+    notes: The official biography retrieved this run, modified on 29 April 2026, states that Waldemar
+      Gonçalves Ortunho Junior is Director-President of ANPD and describes a mandate (2020–2026). No later
+      official page extending or ending that mandate was retrieved this run. No personal X handle was
+      listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: br-anpd-home
+    url: https://www.gov.br/anpd/pt-br
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+- id: br-anatel
+  jurisdiction: BR
+  jurisdiction_name: Brazil
+  body_type: regulator
+  official_name: National Telecommunications Agency (Anatel)
+  official_homepage: https://www.gov.br/anatel/pt-br
+  newsroom_url: https://www.gov.br/anatel/pt-br/assuntos/noticias/alexandre-freire-assumiu-nessa-quinta-feira-5-11-a-presidencia-da-anatel
+  evidence:
+  - Official Anatel homepage and official 6 November 2026 news page on the interim presidency were retrieved
+    this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Alexandre Freire
+    role: Interim president of the Anatel Board of Directors
+    source_url: https://www.gov.br/anatel/pt-br/assuntos/noticias/alexandre-freire-assumiu-nessa-quinta-feira-5-11-a-presidencia-da-anatel
+    official_profile_url: https://www.gov.br/anatel/pt-br/assuntos/noticias/alexandre-freire-assumiu-nessa-quinta-feira-5-11-a-presidencia-da-anatel
+    appointed: '2026-11-05'
+    notes: The official news page, published on 6 November 2026, states that counsellor Alexandre Freire
+      assumed, on Thursday 5 November, on an interim basis, the presidency of Anatel's Board of Directors,
+      following the end of Carlos Baigorri's mandate on 4 November. No personal X handle was listed on
+      that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: br-anatel-home
+    url: https://www.gov.br/anatel/pt-br
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+- id: br-planalto
+  jurisdiction: BR
+  jurisdiction_name: Brazil
+  body_type: gazette
+  official_name: Presidência da República, planalto.gov.br
+  official_homepage: https://www.planalto.gov.br/
+  bill_or_consultation_url: https://www.planalto.gov.br/
+  evidence:
+  - Register instruments BR-ECA-2025 and BR-DEC-12880-2026 cite official planalto.gov.br statute and decree
+    pages.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: br-planalto
+    url: https://www.planalto.gov.br/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: ca-canadian-heritage
+  jurisdiction: CA
+  jurisdiction_name: Canada
+  body_type: ministry
+  official_name: Canadian Heritage (Canadian Identity and Culture portfolio)
+  official_homepage: https://www.canada.ca/en/canadian-heritage.html
+  newsroom_url: https://www.canada.ca/en/canadian-heritage/news.html
+  leadership_url: https://www.canada.ca/en/canadian-heritage.html
+  bill_or_consultation_url: https://www.canada.ca/en/canadian-heritage/services/safe-social-media-act.html
+  official_x_handle: CdnHeritage
+  official_x_handle_url: https://x.com/CdnHeritage
+  official_x_handle_source_url: https://www.canada.ca/en/canadian-heritage.html
+  evidence:
+  - Register instrument CA-C34-2026 is sponsored, on the official LEGISinfo page, by the Minister of Canadian
+    Identity and Culture, and the official fact sheet lives on canada.ca/canadian-heritage.
+  - Official department, news and fact-sheet pages were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Marc Miller
+    role: Minister of Canadian Identity and Culture and Minister responsible for Official Languages
+    source_url: https://www.canada.ca/en/canadian-heritage.html
+    official_profile_url: https://www.canada.ca/en/canadian-heritage.html
+    notes: The official Canadian Heritage homepage retrieved this run names The Honourable Marc Miller
+      as Minister of Canadian Identity and Culture and Minister responsible for Official Languages. The
+      same official page lists the institutional X account @CdnHeritage. No personal X handle for the
+      minister was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: ca-heritage-news
+    url: https://www.canada.ca/en/canadian-heritage/news.html
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Canadian Heritage news
+  - id: ca-c34-fact
+    url: https://www.canada.ca/en/canadian-heritage/services/safe-social-media-act.html
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: ca-ised
+  jurisdiction: CA
+  jurisdiction_name: Canada
+  body_type: ministry
+  official_name: Innovation, Science and Economic Development Canada
+  official_homepage: https://ised-isde.canada.ca/site/ised/en/our-ministers
+  leadership_url: https://ised-isde.canada.ca/site/ised/en/our-ministers
+  evidence:
+  - Official ISED ministers page retrieved this run, including the Minister of Artificial Intelligence
+    and Digital Innovation.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Mélanie Joly
+    role: Minister of Industry and Minister responsible for Canada Economic Development for Quebec Regions
+    source_url: https://ised-isde.canada.ca/site/ised/en/our-ministers
+    official_profile_url: https://ised-isde.canada.ca/site/ised/en/our-ministers
+    notes: Named on the official ISED ministers page retrieved this run. No personal X handle was listed
+      on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  - name: Evan Solomon
+    role: Minister of Artificial Intelligence and Digital Innovation and Minister responsible for the
+      Federal Economic Development Agency for Southern Ontario
+    source_url: https://ised-isde.canada.ca/site/ised/en/our-ministers
+    official_profile_url: https://ised-isde.canada.ca/site/ised/en/our-ministers
+    notes: Named on the official ISED ministers page retrieved this run. No personal X handle was listed
+      on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: ca-ised-ministers
+    url: https://ised-isde.canada.ca/site/ised/en/our-ministers
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+- id: ca-parliament
+  jurisdiction: CA
+  jurisdiction_name: Canada
+  body_type: parliament
+  official_name: Parliament of Canada
+  official_homepage: https://www.parl.ca/
+  bill_or_consultation_url: https://www.parl.ca/legisinfo/en/bill/45-1/c-34
+  evidence:
+  - Register instrument CA-C34-2026 cites the official LEGISinfo bill page, which was retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: ca-parl-c34
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-34
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: mx-sidof
+  jurisdiction: MX
+  jurisdiction_name: Mexico
+  body_type: gazette
+  official_name: Diario Oficial de la Federación / SIDOF
+  official_homepage: https://sidof.segob.gob.mx/
+  bill_or_consultation_url: https://sidof.segob.gob.mx/notas/docFuente/5801237
+  evidence:
+  - Register instrument MX-EDS-2026 cites the official SIDOF note for the 14 October 2026 presidential
+    decree.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: mx-sidof
+    url: https://sidof.segob.gob.mx/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  notes: No official regulator or ministry leadership page for Mexico was retrieved this run. A roster
+    lead for an agency incumbent was not copied.
+- id: tr-mevzuat
+  jurisdiction: TR
+  jurisdiction_name: Turkey
+  body_type: gazette
+  official_name: mevzuat.gov.tr
+  official_homepage: https://www.mevzuat.gov.tr/
+  bill_or_consultation_url: https://www.mevzuat.gov.tr/MevzuatMetin/1.5.7578.htm
+  evidence:
+  - Register instruments TR-LAW-7578-2026 and TR-YON-SAS-2026 cite official mevzuat.gov.tr texts.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: tr-mevzuat
+    url: https://www.mevzuat.gov.tr/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+  notes: The official legislation site was retrieved. No official regulator or ministry leadership page
+    was recorded in this map, so no spokesperson is listed.
+- id: fr-cnil
+  jurisdiction: FR
+  jurisdiction_name: France
+  body_type: regulator
+  official_name: Commission Nationale de l'Informatique et des Libertés
+  official_homepage: https://www.cnil.fr/
+  newsroom_url: https://www.cnil.fr/fr/espace-presse
+  leadership_url: https://www.cnil.fr/fr/commissaire/marie-laure-denis
+  official_x_handle: CNIL
+  official_x_handle_url: http://twitter.com/cnil
+  official_x_handle_source_url: https://www.cnil.fr/fr/commissaire/marie-laure-denis
+  evidence:
+  - Register instrument FR-SMA-2023 records French minors-protection measures.
+  - Official CNIL president biography retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Marie-Laure Denis
+    role: President of the CNIL
+    source_url: https://www.cnil.fr/fr/commissaire/marie-laure-denis
+    official_profile_url: https://www.cnil.fr/fr/commissaire/marie-laure-denis
+    appointed: '2019-02-02'
+    notes: The official CNIL biography retrieved this run states that Marie-Laure Denis has been president
+      of the CNIL since 2 February 2019, and that her mandate was renewed by presidential decree of 30
+      January 2024 for five years. The same official site lists an institutional Twitter/X link at http://twitter.com/cnil.
+      No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: fr-cnil-press
+    url: https://www.cnil.fr/fr/espace-presse
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: CNIL press space
+- id: fr-arcom
+  jurisdiction: FR
+  jurisdiction_name: France
+  body_type: regulator
+  official_name: Autorité de régulation de la communication audiovisuelle et numérique
+  official_homepage: https://www.arcom.fr/
+  leadership_url: https://www.arcom.fr/nous-connaitre/notre-institution/gouvernance
+  evidence:
+  - Official Arcom governance URL was used as a fetch target for the official audiovisual and digital
+    communications regulator. Register instrument FR-SMA-2023 records French social-media minors-protection
+    measures.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  spokespersons: []
+  scrape_targets:
+  - id: fr-arcom-gov
+    url: https://www.arcom.fr/nous-connaitre/notre-institution/gouvernance
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  notes: Roster leads naming a president or platform working-group lead were not copied, because the official
+    governance page was not retrieved this run.
+- id: gr-parliament
+  jurisdiction: GR
+  jurisdiction_name: Greece
+  body_type: parliament
+  official_name: Hellenic Parliament
+  official_homepage: https://www.hellenicparliament.gr/
+  bill_or_consultation_url: https://www.hellenicparliament.gr/nomothetiko-ergo/psifisthenta-nomoschedia?law_id=97e0885f-30fe-45f3-bbe9-b4de0151a84f
+  evidence:
+  - Register instrument GR-5350-2026 cites this official Hellenic Parliament enacted-bill page.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  spokespersons: []
+  scrape_targets:
+  - id: gr-law-5350
+    url: https://www.hellenicparliament.gr/nomothetiko-ergo/psifisthenta-nomoschedia?law_id=97e0885f-30fe-45f3-bbe9-b4de0151a84f
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: ae-cabinet
+  jurisdiction: AE
+  jurisdiction_name: United Arab Emirates
+  body_type: ministry
+  official_name: United Arab Emirates Cabinet
+  official_homepage: https://u.ae/en/about-the-uae/the-uae-government/the-uae-cabinet
+  leadership_url: https://u.ae/en/about-the-uae/the-uae-government/the-uae-cabinet
+  bill_or_consultation_url: https://uaelegislation.gov.ae/en/legislations/4506
+  evidence:
+  - Register instruments AE-FD-26-2025 and AE-CR-106-2026 cite official u.ae and uaelegislation.gov.ae
+    pages.
+  - Official UAE Cabinet page retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time. The Cabinet page was retrieved.
+  - The child digital safety explainer could not be retrieved (connection error). The legislation page
+    returned HTTP 403.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Omar bin Sultan Al Olama
+    role: Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications
+    source_url: https://u.ae/en/about-the-uae/the-uae-government/the-uae-cabinet
+    official_profile_url: https://u.ae/en/about-the-uae/the-uae-government/the-uae-cabinet
+    notes: The official UAE Cabinet page retrieved this run names His Excellency Omar bin Sultan Al Olama
+      as Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications.
+      No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: ae-cabinet
+    url: https://u.ae/en/about-the-uae/the-uae-government/the-uae-cabinet
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+  - id: ae-legislation-4506
+    url: https://uaelegislation.gov.ae/en/legislations/4506
+    method: official_page
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+- id: ie-cnam
+  jurisdiction: IE
+  jurisdiction_name: Ireland
+  body_type: regulator
+  official_name: Coimisiún na Meán
+  official_homepage: https://www.cnam.ie/
+  newsroom_url: https://www.cnam.ie/
+  leadership_url: https://www.cnam.ie/statement-on-the-appointment-of-sinead-mcsweeney-as-online-safety-commissioner/
+  official_x_handle: CNaM_ie
+  official_x_handle_url: https://twitter.com/CNaM_ie
+  official_x_handle_source_url: https://www.cnam.ie/
+  evidence:
+  - Official homepage and official 17 November 2026 appointment statement were retrieved this run.
+  - The official eSafety GOSRN release of 25 November 2026, already used in the monitoring fixtures, records
+    Coimisiún na Meán as GOSRN Chair.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Sinéad McSweeney
+    role: Online Safety Commissioner, Coimisiún na Meán
+    source_url: https://www.cnam.ie/statement-on-the-appointment-of-sinead-mcsweeney-as-online-safety-commissioner/
+    official_profile_url: https://www.cnam.ie/statement-on-the-appointment-of-sinead-mcsweeney-as-online-safety-commissioner/
+    appointed: '2026-11-17'
+    notes: The official appointment statement, dated 17 November 2026, welcomes the appointment of Sinéad
+      McSweeney as Online Safety Commissioner and states that she will oversee the Policy, Research and
+      Strategy Division. No personal X handle was listed on that official page. The official homepage
+      lists an institutional account at https://twitter.com/CNaM_ie.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  - name: John Evans
+    role: Digital Services Commissioner, Coimisiún na Meán
+    source_url: https://www.cnam.ie/statement-on-the-appointment-of-sinead-mcsweeney-as-online-safety-commissioner/
+    official_profile_url: https://www.cnam.ie/statement-on-the-appointment-of-sinead-mcsweeney-as-online-safety-commissioner/
+    notes: The same official appointment statement states that the Online Safety Commissioner will work
+      in tandem with the Digital Services Commissioner John Evans on the implementation of Ireland's Online
+      Safety Framework. No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: ie-cnam-home
+    url: https://www.cnam.ie/
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+  - id: ie-cnam-mcsweeney
+    url: https://www.cnam.ie/statement-on-the-appointment-of-sinead-mcsweeney-as-online-safety-commissioner/
+    method: official_page
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+- id: cn-cac
+  jurisdiction: CN
+  jurisdiction_name: China
+  body_type: regulator
+  official_name: Cyberspace Administration of China
+  official_homepage: https://www.cac.gov.cn/
+  leadership_url: https://www.cac.gov.cn/2026-11/02/c_1795373067575190.htm
+  evidence:
+  - Register instrument CN-PIPL-2021 records China's personal-information statute, including minor-protection
+    provisions.
+  - Official CAC homepage and a 2 November 2026 official signed article were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, Hong Kong time.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Zhuang Rongwen
+    role: Director of the Cyberspace Administration of China and Director of the State Internet Information
+      Office
+    source_url: https://www.cac.gov.cn/2026-11/02/c_1795373067575190.htm
+    official_profile_url: https://www.cac.gov.cn/2026-11/02/c_1795373067575190.htm
+    notes: The official signed article dated 2 November 2026, retrieved this run from cac.gov.cn, identifies
+      庄荣文 (Zhuang Rongwen) as 中央宣传部副部长，中央网信办主任、国家网信办主任 (Vice Minister of the Central Propaganda Department,
+      and Director of the Cyberspace Administration of China and the State Internet Information Office).
+      No X handle is recorded.
+    source_retrieved_at: '2026-11-27T02:02:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: cn-cac-home
+    url: https://www.cac.gov.cn/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true

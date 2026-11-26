@@ -43,5 +43,9 @@ def default_vocabularies_path() -> Path:
     return config_dir() / "vocabularies.yaml"
 
 
+def default_regulators_path() -> Path:
+    return config_dir() / "regulators.yaml"
+
+
 def default_out_dir() -> Path:
     return repo_root() / "out"

@@ -5,7 +5,7 @@ This note is the operating process for a human operator or a companion routine. 
 ## Daily (weekday) loop
 
 1. Refresh the register snapshot in `data/register_snapshot.json` if patches were applied since the last run.
-2. Run `ts-monitor run --since YYYY-MM-DD`, using the day after the previous successful window. On a machine without network access, pass `--file` and `--offline` to replay a Word-report-like JSON export or the fixtures.
+2. Run `ts-monitor run --since YYYY-MM-DD`, using the day after the previous successful window. That command also covers the official pages in `config/regulators.yaml`. On a machine without network access, pass `--file` and `--offline` to replay a Word-report-like JSON export or the fixtures.
 3. Read `out/inbox/fetch_errors.json` if it exists. A 403 or a timeout is not evidence that the official page has disappeared. Retry later or open the URL in a browser. Do not invent a status from the failure.
 4. Review `out/proposals/proposals.json` for the full set, including `news_only` items.
 5. Review `out/significant/proposals.json` for candidates that the classifier marked both significant and auto-apply eligible.
@@ -60,9 +60,13 @@ Items from a Tencent Mentions section are retained as `news_only` unless they al
 
 ## Fetching
 
-`config/sources.yaml` lists official and news endpoints, the fetch method (`rss`, `html_index` or `official_page`), the jurisdiction and whether a hit can ever be auto-applied. Only official sources can be auto-applied, and only when the classifier also finds a qualifying instrument event. News sources are for discovery.
+`config/sources.yaml` lists official and news endpoints, the fetch method (`rss`, `html_index`, `official_page`, `newsroom` or `media_release_index`), the jurisdiction and whether a hit can ever be auto-applied. Only official sources can be auto-applied, and only when the classifier also finds a qualifying instrument event. News sources are for discovery.
+
+`config/regulators.yaml` is the sourced regulator and ministry map. `ts-monitor run` merges those official scrape targets into the source catalogue, deduplicating by host and path, unless `--skip-regulators` is set. Official newsroom and media-release indexes are parsed by the newsroom scraper. RSS or official JSON is used where a source already lists it. Ministerial media releases stay ineligible for auto-apply. Ministerial language such as "becomes law" is not enactment.
 
 Fetches use a short timeout and a declared user-agent. Optional environment variables are `TS_MONITOR_USER_AGENT` and `TS_MONITOR_HTTP_TIMEOUT`. An optional `CONGRESS_GOV_API_KEY` may be used later if Congress.gov HTML is not enough. Never commit a token.
+
+See `docs/REGULATOR-MAP.md` for what is mapped, what is scraped, which official pages could not be retrieved live from this environment and which roster names or handles were left unverified.
 
 ## Provenance
 
