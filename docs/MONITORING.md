@@ -2,6 +2,8 @@
 
 This note is the operating process for a human operator or a companion routine. The backend discovers and classifies Trust and Safety regulatory items. It does not itself update any dashboard.
 
+The live tracker that this backend is built to update is the working 2026 Trust and Safety instrument register at https://cursor.com/canvas/store-ebf3ffb9-7e41-4683-935a-adf799982e56/6246d529-8c4f-4535-9f6a-670da7b635fa. This repository does not edit that Page automatically.
+
 ## Daily (weekday) loop
 
 1. Refresh the register snapshot in `data/register_snapshot.json` if patches were applied since the last run.
@@ -60,9 +62,9 @@ Items from a Tencent Mentions section are retained as `news_only` unless they al
 
 ## Fetching
 
-`config/sources.yaml` lists official and news endpoints, the fetch method (`rss`, `html_index`, `official_page`, `newsroom` or `media_release_index`), the jurisdiction and whether a hit can ever be auto-applied. Only official sources can be auto-applied, and only when the classifier also finds a qualifying instrument event. News sources are for discovery.
+`config/sources.yaml` lists official and news endpoints, the fetch method (`rss`, `html_index`, `official_page`, `newsroom` or `media_release_index`), the jurisdiction and whether a hit can ever be auto-applied. Only official sources can be auto-applied, and only when the classifier also finds a qualifying instrument event. News sources are for discovery. Official legislative records (Hansard, the Congressional Record, official debates and parliament newsrooms) use the role `legislative_record`. Those items may be collected so that on-the-record comments by named politicians can be reviewed. They are never auto-apply eligible.
 
-`config/regulators.yaml` is the sourced regulator and ministry map. `ts-monitor run` merges those official scrape targets into the source catalogue, deduplicating by host and path, unless `--skip-regulators` is set. Official newsroom and media-release indexes are parsed by the newsroom scraper. RSS or official JSON is used where a source already lists it. Ministerial media releases stay ineligible for auto-apply. Ministerial language such as "becomes law" is not enactment.
+`config/regulators.yaml` is the sourced regulator and ministry map. `ts-monitor run` merges those official scrape targets into the source catalogue, deduplicating by host and path, unless `--skip-regulators` is set. Official newsroom and media-release indexes are parsed by the newsroom scraper. RSS or official JSON is used where a source already lists it. Ministerial media releases and official legislative records of political comments stay ineligible for auto-apply. Ministerial language such as "becomes law" is not enactment.
 
 Fetches use a short timeout and a declared user-agent. Optional environment variables are `TS_MONITOR_USER_AGENT` and `TS_MONITOR_HTTP_TIMEOUT`. An optional `CONGRESS_GOV_API_KEY` may be used later if Congress.gov HTML is not enough. Never commit a token.
 

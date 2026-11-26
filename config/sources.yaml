@@ -114,8 +114,9 @@ sources:
     method: html_index
     jurisdiction: GB
     official: true
-    auto_apply_eligible: true
-    role: instrument
+    auto_apply_eligible: false
+    role: legislative_record
+    notes: Official parliamentary record of member and minister comments. Collected for monitoring. Never auto-applied to the register.
 
   - id: uk-gov
     name: GOV.UK

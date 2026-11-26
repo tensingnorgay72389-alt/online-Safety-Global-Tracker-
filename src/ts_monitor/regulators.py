@@ -196,7 +196,7 @@ def sources_from_regulators(reg_map: RegulatorMap) -> list[Source]:
         for target in body.scrape_targets:
             role = target.role
             auto = target.auto_apply_eligible
-            if role == "ministerial_release":
+            if role in {"ministerial_release", "legislative_record"}:
                 auto = False
             sources.append(
                 Source(

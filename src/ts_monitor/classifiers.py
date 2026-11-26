@@ -103,9 +103,9 @@ def is_ministerial_or_news_becomes_law(item: InboxItem, catalog: SourceCatalog) 
     if not _BECOMES_LAW.search(text):
         return False
     role = source_kind_for(item.primary_url(), catalog, item.source_kind)
-    if role in {"ministerial_release", "news", "statement"}:
+    if role in {"ministerial_release", "news", "statement", "legislative_record"}:
         return True
-    if item.source_kind in {"ministerial", "ministerial_release", "news", "statement"}:
+    if item.source_kind in {"ministerial", "ministerial_release", "news", "statement", "legislative_record"}:
         return True
     # A "becomes law" headline on a non-instrument page is treated as insufficient for Assent.
     if role != "instrument":

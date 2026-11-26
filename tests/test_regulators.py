@@ -20,12 +20,12 @@ SAMPLE = FIXTURES / "regulators" / "sample_map.yaml"
 def test_live_map_loads_with_sourced_spokespersons_only():
     reg_map = load_regulator_map(ROOT / "config" / "regulators.yaml")
     counts = reg_map.counts()
-    assert counts["bodies"] == 53
-    assert counts["spokespersons"] == 25
+    assert counts["bodies"] == 108
+    assert counts["spokespersons"] == 28
     assert counts["personal_handles"] == 2
-    assert counts["institutional_handles"] == 4
-    assert counts["scrape_targets"] == 66
-    assert len({body.id for body in reg_map.bodies}) == 53
+    assert counts["institutional_handles"] == 5
+    assert counts["scrape_targets"] == 175
+    assert len({body.id for body in reg_map.bodies}) == 108
     for body in reg_map.bodies:
         assert body.body_type in ALLOWED_BODY_TYPES
         for person in body.spokespersons:
@@ -95,3 +95,41 @@ def test_regulators_cli_json(capsys):
     assert payload["counts"]["personal_handles"] == 1
     missing = next(body for body in payload["bodies"] if body["id"] == "test-missing-spokesperson")
     assert missing["spokespersons"] == []
+
+
+def test_legislative_record_sources_are_never_auto_apply_eligible():
+    from ts_monitor.regulators import load_regulator_map, sources_from_regulators
+
+    sources = sources_from_regulators(load_regulator_map(ROOT / "config" / "regulators.yaml"))
+    records = [source for source in sources if source.role == "legislative_record"]
+    assert records
+    assert all(source.auto_apply_eligible is False for source in records)
+    assert all(source.official is True for source in records)
+
+
+def test_mcmc_india_and_asean_official_targets_are_mapped():
+    from ts_monitor.regulators import load_regulator_map
+
+    reg_map = load_regulator_map(ROOT / "config" / "regulators.yaml")
+    mcmc_urls = {target.url for target in reg_map.by_id("my-mcmc").scrape_targets}
+    assert "https://www.mcmc.gov.my/en/media/press-releases" in mcmc_urls
+    assert "https://www.mcmc.gov.my/en/media/announcements" in mcmc_urls
+    assert "https://www.mcmc.gov.my/en/onsa/resources/public-consultation" in mcmc_urls
+    assert reg_map.by_id("my-komunikasi") is not None
+    assert reg_map.by_id("in-trai").spokespersons[0].name == "Anil Kumar Lahoti"
+    assert reg_map.by_id("in-mib").spokespersons[0].name == "Ashwini Vaishnaw"
+    assert any(target.url.endswith("/ls/legislation/bills") for target in reg_map.by_id("in-parliament").scrape_targets)
+    asean = {"BN", "KH", "ID", "LA", "MY", "MM", "PH", "SG", "TH", "VN"}
+    present = {body.jurisdiction for body in reg_map.bodies}
+    assert asean <= present
+    assert "TL" in present
+    assert reg_map.by_id("us-house") is not None
+    assert reg_map.by_id("eu-parliament") is not None
+
+
+def test_readme_includes_live_tracker_link():
+    text = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "https://cursor.com/canvas/store-ebf3ffb9-7e41-4683-935a-adf799982e56/6246d529-8c4f-4535-9f6a-670da7b635fa" in text
+    assert "Live tracker" in text or "live tracker" in text
+    # The published vocabulary dashboard must not be presented as this tracker.
+    assert "not this tracker" in text.lower() or "is not this tracker" in text

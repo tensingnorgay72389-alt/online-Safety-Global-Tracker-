@@ -6,11 +6,22 @@ Significant draft bills and official status changes are marked for automatic app
 
 This repository does not edit any Grok Bot Page or any other external dashboard. It produces verified, typed JSON that can be applied out of band after an official-source check.
 
+## Live tracker
+
+This backend is built to update the working 2026 Trust and Safety instrument register, which is the live tracker for this project:
+
+https://cursor.com/canvas/store-ebf3ffb9-7e41-4683-935a-adf799982e56/6246d529-8c4f-4535-9f6a-670da7b635fa
+
+The repository does not edit that Page automatically. It writes typed JSON patches that can be applied out of band after an official-source check.
+
+The register uses published category labels and visual conventions from the Global Trust and Safety Dashboard vocabularies as a reference. That published dashboard is a vocabulary and visual reference only. It is not this tracker: https://patriciayyzhai.github.io/global-trust-safety-dashboard/
+
+
 ## What is in scope
 
-Priority markets are the United States (federal and notable states), the United Kingdom, the European Union and Australia, then Singapore, India, Malaysia, Japan, Korea, Indonesia, Brazil, Canada, Mexico and Turkey. Precedent-setting developments in other markets are also recorded.
+Priority markets are the United States (federal and notable states), the United Kingdom, the European Union and Australia, then Singapore, India, Malaysia, Japan, Korea, Indonesia, Brazil, Canada, Mexico and Turkey. The official map also covers all ASEAN member states and Timor-Leste where an official legislative source was retrieved. Additional EU institutions and sourced EU member-state bodies are included where official URLs were sourced. Official legislatures, bill trackers and parliamentary records are included so that proposed and drafting-stage bills and on-the-record political comments can be reviewed. Precedent-setting developments in other markets are also recorded.
 
-Out of scope are brand mention watching (including a dedicated Tencent Mentions scrape), general cybersecurity, data protection with no online-safety hook, AI industrial policy, election campaigning except where the item is about platform rules, AI content or enforcement and political or company statements that do not change an instrument's legal status.
+Out of scope are brand mention watching (including a dedicated Tencent Mentions scrape), general cybersecurity, data protection with no online-safety hook, AI industrial policy, election campaigning except where the item is about platform rules, AI content or enforcement, campaign websites and invented politician social accounts. Official legislative records of member or minister comments are collected but are never auto-applied. Political or company statements that do not change an instrument's legal status stay in the inbox.
 
 ## Install and test
 
@@ -55,7 +66,7 @@ Useful flags are `--register`, `--sources`, `--regulators`, `--skip-regulators` 
 
 `config/regulators.yaml` is a versioned, sourced map of online-safety, child-safety, platform, gaming and AI-service regulators and the relevant ministries, legislatures and gazettes in the priority markets. Other markets are included only where the instrument register or an official page retrieved for this map supplied evidence. The map is not a claim to have mapped every regulator on earth.
 
-As of 27 November 2026, 02:02 Hong Kong time (Asia/Hong_Kong, UTC+8) the map lists 53 bodies, 25 spokespersons named on official pages retrieved that day, two personal X handles, four institutional X handles and 66 scrape targets. A name or handle is listed only when an official page retrieved for this map named that person or identified that handle. Roster leads that could not be re-verified were left off.
+As of 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8) the map lists 108 bodies, 28 spokespersons named on official pages retrieved for the map, two personal X handles, five institutional X handles and 175 scrape targets. A name or handle is listed only when an official page retrieved for this map named that person or identified that handle. Roster leads that could not be re-verified were left off.
 
 Official pages that returned 403, 429 or 404, timed out or failed to connect are still listed and still have scraper targets. Those failures are recorded. They are not treated as evidence that the page does not exist.
 

@@ -1,12 +1,15 @@
-version: '2026-11-27'
-as_of: 27 November 2026, 02:02 Hong Kong time (Asia/Hong_Kong, UTC+8)
+version: 2026-11-27-legislature-sea
+as_of: 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8)
 notes: Sourced map of online-safety, child-safety, platform, gaming and AI-service regulators, relevant
-  ministries, official newsroom, bill and media-release pages, and named key spokespersons in the priority
-  markets plus other markets evidenced in the instrument register or on official pages retrieved this
-  run. This is not a claim to have mapped every regulator on earth. A spokesperson is listed only when
-  an official page retrieved on 27 November 2026 named that person in the stated role. A personal or institutional
-  X handle is listed only when that official page clearly identified the handle. Roster leads that could
-  not be re-verified against a retrieved official page were left off. A 403, timeout or connection failure
+  ministries, official newsroom, bill and media-release pages, national legislatures (including houses
+  of representatives and official bill and debate records) and named key spokespersons in the priority
+  markets, all ASEAN member states, Timor-Leste where an official legislative source was retrieved, and
+  EU institutions and sourced EU member-state bodies. This is not a claim to have mapped every regulator
+  on earth. A spokesperson is listed only when an official page retrieved for this map named that person
+  in the stated role. A personal or institutional X handle is listed only when that official page clearly
+  identified the handle. Official legislative records (Hansard, congressional record, official debates
+  and parliament newsrooms) are collected so that on-the-record member and minister comments can be reviewed.
+  Those records are never auto-applied to the register. A 403, 429, 404, timeout or connection failure
   is not evidence that a page does not exist. Those official URLs are retained and remain scrape targets.
   Brand-mention watching is out of scope. Ministerial language such as 'becomes law' is not enactment.
 bodies:
@@ -80,6 +83,8 @@ bodies:
   retrieval_notes:
   - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
     failure is not evidence that the page does not exist. A scraper target is still configured.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    govinfo BILLS collection was retrieved. congress.gov again returned HTTP 403.
   spokesperson_status: official_leadership_page_not_retrieved
   spokespersons: []
   scrape_targets:
@@ -90,6 +95,13 @@ bodies:
     auto_apply_eligible: true
     official: true
     name: Congress.gov
+  - id: us-govinfo-bills
+    url: https://www.govinfo.gov/app/collection/BILLS
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: govinfo federal bills
   notes: A bill board, not a regulator. Named members of Congress are not recorded as agency spokespersons.
 - id: us-fcc
   jurisdiction: US
@@ -104,6 +116,9 @@ bodies:
   retrieval_notes:
   - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
     failure is not evidence that the page does not exist. A scraper target is still configured.
+  - Official FCC News and Events and Media Relations URLs were requested this run and returned HTTP 403.
+    This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
   spokesperson_status: official_leadership_page_not_retrieved
   spokespersons: []
   scrape_targets:
@@ -114,8 +129,23 @@ bodies:
     auto_apply_eligible: true
     official: true
     name: FCC leadership
+  - id: us-fcc-news
+    url: https://www.fcc.gov/news-events
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: FCC News and Events
+  - id: us-fcc-media
+    url: https://www.fcc.gov/media-relations
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: FCC Media Relations
   notes: Roster leads for a named chair were not copied. The official leadership page was not retrieved
     this run.
+  newsroom_url: https://www.fcc.gov/news-events
 - id: us-ca-legislature
   jurisdiction: US-CA
   jurisdiction_name: United States - California
@@ -229,7 +259,7 @@ bodies:
   official_name: Ofcom
   official_homepage: https://www.ofcom.org.uk/
   leadership_url: https://www.ofcom.org.uk/about-ofcom/structure-and-leadership/ofcom-board
-  newsroom_url: https://www.ofcom.org.uk/
+  newsroom_url: https://www.ofcom.org.uk/news-and-updates
   bill_or_consultation_url: https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/intimate-image-abuse-takedown
   evidence:
   - Register instrument UK-OSA-2023 names Ofcom as regulator.
@@ -239,6 +269,9 @@ bodies:
   - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
     failure is not evidence that the page does not exist. A scraper target is still configured. Homepage,
     board, contact and consultation pages were requested.
+  - The official Ofcom news and updates URL was requested this run and returned HTTP 403. This official
+    URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not
+    evidence that the page does not exist. A scraper target is still configured.
   spokesperson_status: official_leadership_page_not_retrieved
   spokespersons: []
   scrape_targets:
@@ -254,6 +287,13 @@ bodies:
     role: instrument
     auto_apply_eligible: true
     official: true
+  - id: uk-ofcom-news
+    url: https://www.ofcom.org.uk/news-and-updates
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: Ofcom news and updates
   notes: Roster leads for a chair, chief executive and online-safety group director were not copied, because
     the official board page was not retrieved this run.
 - id: uk-ico
@@ -269,6 +309,9 @@ bodies:
   retrieval_notes:
   - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
     failure is not evidence that the page does not exist. A scraper target is still configured.
+  - The official ICO media centre URL was requested this run and returned HTTP 403. This official URL
+    returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not evidence
+    that the page does not exist. A scraper target is still configured.
   spokesperson_status: official_leadership_page_not_retrieved
   spokespersons: []
   scrape_targets:
@@ -284,6 +327,14 @@ bodies:
     role: instrument
     auto_apply_eligible: true
     official: true
+  - id: uk-ico-media
+    url: https://ico.org.uk/about-the-ico/media-centre
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: ICO media centre
+  newsroom_url: https://ico.org.uk/about-the-ico/media-centre
 - id: uk-dcms
   jurisdiction: GB
   jurisdiction_name: United Kingdom
@@ -354,6 +405,9 @@ bodies:
   - bills.parliament.uk returned HTTP 403. This official URL returned HTTP 403 from this environment on
     27 November 2026, Hong Kong time. That failure is not evidence that the page does not exist. A scraper
     target is still configured.
+  - Official House of Commons, House of Lords and Hansard URLs were requested this run and returned HTTP
+    403. This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time.
+    That failure is not evidence that the page does not exist. A scraper target is still configured.
   spokesperson_status: not_applicable_legislature_board
   spokespersons: []
   scrape_targets:
@@ -369,6 +423,27 @@ bodies:
     role: instrument
     auto_apply_eligible: true
     official: true
+  - id: uk-hansard
+    url: https://hansard.parliament.uk/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Hansard
+  - id: uk-commons
+    url: https://www.parliament.uk/business/commons/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Commons
+  - id: uk-lords
+    url: https://www.parliament.uk/business/lords/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Lords
 - id: eu-dg-connect
   jurisdiction: EU
   jurisdiction_name: European Union
@@ -525,6 +600,8 @@ bodies:
   - Register instruments EU-DSA-2022, EU-AIA-2024 and EU-KIDS-2026 cite official EUR-Lex addresses.
   retrieval_notes:
   - Official page retrieved on 27 November 2026, Hong Kong time.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    Official Journal direct-access page was retrieved.
   spokesperson_status: not_applicable_legislature_board
   spokespersons: []
   scrape_targets:
@@ -534,6 +611,13 @@ bodies:
     role: instrument
     auto_apply_eligible: true
     official: true
+  - id: eu-oj
+    url: https://eur-lex.europa.eu/oj/direct-access.html
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Official Journal of the European Union
 - id: eu-home-affairs
   jurisdiction: EU
   jurisdiction_name: European Union
@@ -669,6 +753,9 @@ bodies:
   - The official DDoC bill homepage on parlinfo.aph.gov.au returned HTTP 403. This official URL returned
     HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not evidence that
     the page does not exist. A scraper target is still configured.
+  - Official APH, Hansard and bills URLs were requested this run and returned HTTP 403. This official
+    URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not
+    evidence that the page does not exist. A scraper target is still configured.
   spokesperson_status: not_applicable_legislature_board
   spokespersons: []
   scrape_targets:
@@ -685,6 +772,27 @@ bodies:
     auto_apply_eligible: true
     official: true
     name: Digital Duty of Care bill homepage r7553
+  - id: au-aph
+    url: https://www.aph.gov.au/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Parliament of Australia
+  - id: au-hansard
+    url: https://www.aph.gov.au/Parliamentary_Business/Hansard
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Australian Hansard
+  - id: au-bills
+    url: https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Australian bills and legislation
 - id: sg-mddi
   jurisdiction: SG
   jurisdiction_name: Singapore
@@ -838,6 +946,9 @@ bodies:
   retrieval_notes:
   - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
     failure is not evidence that the page does not exist. A scraper target is still configured.
+  - The official MeitY press-release archive URL was requested this run and returned HTTP 403. This official
+    URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That failure is not
+    evidence that the page does not exist. A scraper target is still configured.
   spokesperson_status: official_leadership_page_not_retrieved
   spokespersons: []
   scrape_targets:
@@ -853,6 +964,13 @@ bodies:
     role: ministerial_release
     auto_apply_eligible: false
     official: true
+  - id: in-meity-press
+    url: https://www.meity.gov.in/archives?page=press-release
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MeitY press-release archive
   notes: Roster leads naming a minister, minister of state and secretary were not copied, because the
     official team page was not retrieved this run.
 - id: in-online-gaming-authority
@@ -915,6 +1033,8 @@ bodies:
   - Official homepage, commission-members page and ONSA page were retrieved this run.
   retrieval_notes:
   - Official page retrieved on 27 November 2026, Hong Kong time.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). Additional
+    official media, consultation and legislation index pages on mcmc.gov.my were retrieved.
   spokesperson_status: verified_on_official_page
   spokespersons:
   - name: Tan Sri Mohamad Salim Bin Fateh Din
@@ -942,6 +1062,34 @@ bodies:
     role: instrument
     auto_apply_eligible: true
     official: true
+  - id: my-mcmc-announcements
+    url: https://www.mcmc.gov.my/en/media/announcements
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: MCMC announcements
+  - id: my-mcmc-onsa-consult
+    url: https://www.mcmc.gov.my/en/onsa/resources/public-consultation
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: MCMC Online Safety Act public consultation
+  - id: my-mcmc-info-paper
+    url: https://www.mcmc.gov.my/en/resources/reports/information-paper
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: MCMC information papers and consultation papers
+  - id: my-mcmc-acts
+    url: https://www.mcmc.gov.my/en/legal/acts
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: MCMC legislation
   notes: A communications ministry official homepage was not established this run, so no ministry body
     or minister name is recorded for Malaysia.
 - id: jp-digital-agency
@@ -951,12 +1099,14 @@ bodies:
   official_name: Digital Agency
   official_homepage: https://www.digital.go.jp/
   leadership_url: https://www.digital.go.jp/en/about/member/furukawatoshiharu
-  newsroom_url: https://www.digital.go.jp/
+  newsroom_url: https://www.digital.go.jp/en/news
   evidence:
   - Official Digital Agency homepage and the official English biography of the Minister for Digital Transformation
     were retrieved this run. The biography page was last updated on 29 September 2026.
   retrieval_notes:
   - Official page retrieved on 27 November 2026, Hong Kong time.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    English news index was retrieved.
   spokesperson_status: verified_on_official_page
   spokespersons:
   - name: FURUKAWA Toshiharu
@@ -979,6 +1129,13 @@ bodies:
     role: ministerial_release
     auto_apply_eligible: false
     official: true
+  - id: jp-digital-news
+    url: https://www.digital.go.jp/en/news
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Digital Agency news
 - id: jp-mic
   jurisdiction: JP
   jurisdiction_name: Japan
@@ -990,6 +1147,8 @@ bodies:
     was retrieved this run.
   retrieval_notes:
   - Official page retrieved on 27 November 2026, Hong Kong time.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    English press-release index was retrieved.
   spokesperson_status: no_named_official_on_retrieved_page
   spokespersons: []
   scrape_targets:
@@ -999,6 +1158,13 @@ bodies:
     role: regulator_newsroom
     auto_apply_eligible: true
     official: true
+  - id: jp-mic-press
+    url: https://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/pressrelease/index.html
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MIC English press releases
   notes: The official homepage was retrieved. No minister name was taken from that homepage into the spokesperson
     list.
 - id: kr-kmcc
@@ -1046,6 +1212,8 @@ bodies:
   - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
     (connection or transport error). That failure is not evidence that the page does not exist. A scraper
     target is still configured.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    English press-release list was retrieved. The generic MSIT homepage still could not be retrieved earlier.
   spokesperson_status: official_leadership_page_not_retrieved
   spokespersons: []
   scrape_targets:
@@ -1055,8 +1223,16 @@ bodies:
     role: ministerial_release
     auto_apply_eligible: false
     official: true
+  - id: kr-msit-press
+    url: https://www.msit.go.kr/eng/bbs/list.do?mId=4&mPid=2&sCode=eng
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MSIT English press releases
   notes: A roster lead naming a minister was not copied, because the official MSIT homepage was not retrieved
     this run.
+  newsroom_url: https://www.msit.go.kr/eng/bbs/list.do?mId=4&mPid=2&sCode=eng
 - id: kr-lawmaking
   jurisdiction: KR
   jurisdiction_name: Korea
@@ -1302,6 +1478,9 @@ bodies:
     and Digital Innovation.
   retrieval_notes:
   - Official page retrieved on 27 November 2026, Hong Kong time.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    ISED media room was retrieved, including the official government news-release Atom feed linked from
+    that page.
   spokesperson_status: verified_on_official_page
   spokespersons:
   - name: Mélanie Joly
@@ -1332,6 +1511,21 @@ bodies:
     role: ministerial_release
     auto_apply_eligible: false
     official: true
+  - id: ca-ised-media
+    url: https://ised-isde.canada.ca/site/ised/en/media-room
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: ISED media room
+  - id: ca-ised-releases-atom
+    url: https://api.io.canada.ca/io-server/gc/news/en/v2?type=newsreleases&dept=departmentofindustry&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Innovation,%20Science%20and%20Economic%20Development%20Canada
+    method: rss
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: ISED official news-release Atom feed
+  newsroom_url: https://ised-isde.canada.ca/site/ised/en/media-room
 - id: ca-parliament
   jurisdiction: CA
   jurisdiction_name: Canada
@@ -1343,6 +1537,8 @@ bodies:
   - Register instrument CA-C34-2026 cites the official LEGISinfo bill page, which was retrieved this run.
   retrieval_notes:
   - Official page retrieved on 27 November 2026, Hong Kong time.
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    LEGISinfo bill-tracker index was retrieved.
   spokesperson_status: not_applicable_legislature_board
   spokespersons: []
   scrape_targets:
@@ -1352,6 +1548,13 @@ bodies:
     role: instrument
     auto_apply_eligible: true
     official: true
+  - id: ca-legisinfo
+    url: https://www.parl.ca/legisinfo/en
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: LEGISinfo bill tracker
 - id: mx-sidof
   jurisdiction: MX
   jurisdiction_name: Mexico
@@ -1616,3 +1819,1456 @@ bodies:
     role: regulator_newsroom
     auto_apply_eligible: true
     official: true
+- id: us-house
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: parliament
+  official_name: United States House of Representatives
+  official_homepage: https://www.house.gov/
+  evidence:
+  - Official House of Representatives homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: us-house-home
+    url: https://www.house.gov/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: US House of Representatives
+  spokespersons: []
+- id: us-senate
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: parliament
+  official_name: United States Senate
+  official_homepage: https://www.senate.gov/
+  evidence:
+  - Official Senate homepage is the established official domain for the United States Senate.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: us-senate-home
+    url: https://www.senate.gov/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: US Senate
+  spokespersons: []
+- id: us-congressional-record
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: parliament
+  official_name: Congressional Record (govinfo)
+  official_homepage: https://www.govinfo.gov/app/collection/CREC
+  bill_or_consultation_url: https://www.govinfo.gov/app/collection/CREC
+  evidence:
+  - Official govinfo Congressional Record collection retrieved this run. This is the official record of
+    on-the-record member comments.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: us-crec
+    url: https://www.govinfo.gov/app/collection/CREC
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Congressional Record
+  spokespersons: []
+- id: us-commerce
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: ministry
+  official_name: United States Department of Commerce
+  official_homepage: https://www.commerce.gov/
+  newsroom_url: https://www.commerce.gov/news
+  leadership_url: https://www.commerce.gov/about/leadership
+  evidence:
+  - Official Department of Commerce homepage, news and leadership URLs were requested as official ministry
+    pages.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured. The homepage,
+    news index and leadership page all returned HTTP 403.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: us-commerce-home
+    url: https://www.commerce.gov/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Department of Commerce
+  - id: us-commerce-news
+    url: https://www.commerce.gov/news
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Department of Commerce news
+  notes: A roster lead naming a Secretary was not copied, because the official leadership page was not
+    retrieved this run.
+  spokespersons: []
+- id: us-ntia
+  jurisdiction: US
+  jurisdiction_name: United States
+  body_type: regulator
+  official_name: National Telecommunications and Information Administration
+  official_homepage: https://www.ntia.gov/
+  newsroom_url: https://www.ntia.gov/newsroom
+  evidence:
+  - Official NTIA homepage retrieved this run, including official Newsroom and Press Releases links.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    newsroom URL linked from the homepage returned HTTP 403 and remains a scrape target. A guessed /news
+    path returned HTTP 404 and is not used.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Arielle Roth
+    role: Assistant Secretary, National Telecommunications and Information Administration
+    source_url: https://www.ntia.gov/
+    official_profile_url: https://www.ntia.gov/
+    notes: 'The official NTIA homepage retrieved this run lists items referring to Assistant Secretary
+      Arielle Roth, including ''Remarks of Assistant Secretary Arielle Roth'' and ''Assistant Secretary
+      Roth: One Year of Results at NTIA''. No personal X handle was listed on that official page.'
+    source_retrieved_at: '2026-11-27T02:50:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: us-ntia-home
+    url: https://www.ntia.gov/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: NTIA homepage
+  - id: us-ntia-newsroom
+    url: https://www.ntia.gov/newsroom
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: NTIA newsroom
+  - id: us-ntia-press
+    url: https://www.ntia.gov/newsroom?type=press_releases
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: NTIA press releases
+- id: eu-parliament
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: parliament
+  official_name: European Parliament
+  official_homepage: https://www.europarl.europa.eu/
+  newsroom_url: https://www.europarl.europa.eu/news/en
+  bill_or_consultation_url: https://oeil.europarl.europa.eu/oeil/en/
+  evidence:
+  - Official European Parliament Legislative Observatory was retrieved this run. The Parliament homepage
+    and press room are official europarl.europa.eu URLs.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The Legislative
+    Observatory was retrieved.
+  - The European Parliament homepage and press room returned HTTP 403. This official URL returned HTTP
+    403 from this environment on 27 November 2026, Hong Kong time. That failure is not evidence that the
+    page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: eu-ep-home
+    url: https://www.europarl.europa.eu/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: European Parliament
+  - id: eu-ep-news
+    url: https://www.europarl.europa.eu/news/en
+    method: newsroom
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: European Parliament press room
+  - id: eu-oeil
+    url: https://oeil.europarl.europa.eu/oeil/en/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Legislative Observatory
+  spokespersons: []
+- id: eu-council
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: ministry
+  official_name: Council of the European Union
+  official_homepage: https://www.consilium.europa.eu/
+  newsroom_url: https://www.consilium.europa.eu/en/press/
+  evidence:
+  - Official Council and Council press URLs on consilium.europa.eu were requested as the official Council
+    of the EU site.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: eu-council-home
+    url: https://www.consilium.europa.eu/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Council of the European Union
+  - id: eu-council-press
+    url: https://www.consilium.europa.eu/en/press/
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Council press
+  spokespersons: []
+- id: eu-edps
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: regulator
+  official_name: European Data Protection Supervisor
+  official_homepage: https://www.edps.europa.eu/
+  newsroom_url: https://www.edps.europa.eu/press-publications/press-news_en
+  evidence:
+  - Official EDPS homepage and press-news URLs on edps.europa.eu were requested as the official EU data-protection
+    supervisor site.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: eu-edps-home
+    url: https://www.edps.europa.eu/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: EDPS
+  - id: eu-edps-news
+    url: https://www.edps.europa.eu/press-publications/press-news_en
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: EDPS press and news
+  spokespersons: []
+- id: eu-edpb
+  jurisdiction: EU
+  jurisdiction_name: European Union
+  body_type: regulator
+  official_name: European Data Protection Board
+  official_homepage: https://www.edpb.europa.eu/
+  newsroom_url: https://www.edpb.europa.eu/news/news_en
+  evidence:
+  - Official EDPB homepage and news index were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: eu-edpb-home
+    url: https://www.edpb.europa.eu/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: EDPB
+  - id: eu-edpb-news
+    url: https://www.edpb.europa.eu/news/news_en
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: EDPB news
+  notes: The official homepage was retrieved. A chair or spokesperson name was not recorded from that
+    page, so no spokesperson is listed.
+  spokespersons: []
+- id: de-bundestag
+  jurisdiction: DE
+  jurisdiction_name: Germany
+  body_type: parliament
+  official_name: German Bundestag
+  official_homepage: https://www.bundestag.de/en
+  evidence:
+  - Official Bundestag English homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: de-bundestag-home
+    url: https://www.bundestag.de/en
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: German Bundestag
+  spokespersons: []
+- id: de-bnetza
+  jurisdiction: DE
+  jurisdiction_name: Germany
+  body_type: regulator
+  official_name: Bundesnetzagentur (Federal Network Agency)
+  official_homepage: https://www.bundesnetzagentur.de/EN/Home/home_node.html
+  newsroom_url: https://www.bundesnetzagentur.de/EN/Home/EN/General/Press/PressReleases/start.html
+  evidence:
+  - Official Bundesnetzagentur English homepage and Press Releases index were retrieved this run, or linked
+    from the retrieved official homepage.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The bare
+    domain path https://www.bundesnetzagentur.de/ returned HTTP 404. The official English homepage and
+    German institutional page were retrieved.
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: de-bnetza-home
+    url: https://www.bundesnetzagentur.de/EN/Home/home_node.html
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: Bundesnetzagentur
+  - id: de-bnetza-press
+    url: https://www.bundesnetzagentur.de/EN/Home/EN/General/Press/PressReleases/start.html
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: Bundesnetzagentur press releases
+  spokespersons: []
+- id: it-agcom
+  jurisdiction: IT
+  jurisdiction_name: Italy
+  body_type: regulator
+  official_name: Autorità per le Garanzie nelle Comunicazioni
+  official_homepage: https://www.agcom.it/
+  evidence:
+  - Official AGCOM homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: it-agcom-home
+    url: https://www.agcom.it/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: AGCOM
+  spokespersons: []
+- id: es-cnmc
+  jurisdiction: ES
+  jurisdiction_name: Spain
+  body_type: regulator
+  official_name: Comisión Nacional de los Mercados y la Competencia
+  official_homepage: https://www.cnmc.es/en
+  evidence:
+  - Official CNMC English homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: es-cnmc-home
+    url: https://www.cnmc.es/en
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: CNMC
+  spokespersons: []
+- id: nl-acm
+  jurisdiction: NL
+  jurisdiction_name: Netherlands
+  body_type: regulator
+  official_name: Netherlands Authority for Consumers and Markets
+  official_homepage: https://www.acm.nl/en
+  evidence:
+  - Official ACM English homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: nl-acm-home
+    url: https://www.acm.nl/en
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: ACM
+  spokespersons: []
+- id: ie-oireachtas
+  jurisdiction: IE
+  jurisdiction_name: Ireland
+  body_type: parliament
+  official_name: Houses of the Oireachtas
+  official_homepage: https://www.oireachtas.ie/
+  newsroom_url: https://www.oireachtas.ie/en/press-centre/news-and-features/
+  bill_or_consultation_url: https://www.oireachtas.ie/en/bills/
+  official_x_handle: OireachtasNews
+  official_x_handle_url: http://twitter.com/OireachtasNews
+  official_x_handle_source_url: https://www.oireachtas.ie/
+  evidence:
+  - Official Oireachtas homepage retrieved this run, including official Bills and Debates indexes and
+    an institutional Twitter/X link.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: ie-oireachtas-home
+    url: https://www.oireachtas.ie/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Houses of the Oireachtas
+  - id: ie-oireachtas-bills
+    url: https://www.oireachtas.ie/en/bills/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Oireachtas bills
+  - id: ie-oireachtas-debates
+    url: https://www.oireachtas.ie/en/debates/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Oireachtas debates
+  spokespersons: []
+- id: fr-assemblee
+  jurisdiction: FR
+  jurisdiction_name: France
+  body_type: parliament
+  official_name: Assemblée nationale
+  official_homepage: https://www.assemblee-nationale.fr/
+  evidence:
+  - Official Assemblée nationale homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: fr-assemblee-home
+    url: https://www.assemblee-nationale.fr/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Assemblée nationale
+  spokespersons: []
+- id: fr-senat
+  jurisdiction: FR
+  jurisdiction_name: France
+  body_type: parliament
+  official_name: Sénat
+  official_homepage: https://www.senat.fr/
+  evidence:
+  - Official French Senate homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: fr-senat-home
+    url: https://www.senat.fr/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Sénat
+  spokespersons: []
+- id: my-komunikasi
+  jurisdiction: MY
+  jurisdiction_name: Malaysia
+  body_type: ministry
+  official_name: Ministry of Communications (Kementerian Komunikasi)
+  official_homepage: https://www.komunikasi.gov.my/en/
+  newsroom_url: https://www.komunikasi.gov.my/en/public/news
+  evidence:
+  - The official Ministry of Communications portal is at komunikasi.gov.my. Official English homepage
+    and public news URLs were requested this run.
+  retrieval_notes:
+  - The official URLs responded with a short browser-fingerprint reload script rather than a readable
+    homepage. That response is not evidence that the official portal does not exist. Scraper targets are
+    still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: my-kk-home
+    url: https://www.komunikasi.gov.my/en/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Ministry of Communications
+  - id: my-kk-news
+    url: https://www.komunikasi.gov.my/en/public/news
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Ministry of Communications news
+  notes: No spokesperson is listed, because a readable official leadership page was not retrieved this
+    run. A name was not copied from secondary coverage or from an MCMC photo-gallery slug.
+  spokespersons: []
+- id: my-digital
+  jurisdiction: MY
+  jurisdiction_name: Malaysia
+  body_type: ministry
+  official_name: Ministry of Digital (Kementerian Digital)
+  official_homepage: https://www.digital.gov.my/
+  newsroom_url: https://www.digital.gov.my/en-GB/siaran
+  evidence:
+  - Official Ministry of Digital homepage and announcements index were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: my-digital-home
+    url: https://www.digital.gov.my/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Ministry of Digital
+  - id: my-digital-siaran
+    url: https://www.digital.gov.my/en-GB/siaran
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Ministry of Digital announcements
+  notes: The official homepage and announcements index were retrieved. A current minister name was not
+    present in the text used for this map, so no spokesperson is listed.
+  spokespersons: []
+- id: my-parliament
+  jurisdiction: MY
+  jurisdiction_name: Malaysia
+  body_type: parliament
+  official_name: Parliament of Malaysia
+  official_homepage: https://www.parlimen.gov.my/
+  newsroom_url: https://www.parlimen.gov.my/siaran-media.html?lang=en&uweb=web
+  evidence:
+  - The official Parliament of Malaysia portal and its official press-releases page live on parlimen.gov.my.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured. Both the official portal and the official press-releases page failed to
+    connect from this environment.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: my-parlimen-home
+    url: https://www.parlimen.gov.my/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Parliament of Malaysia
+  - id: my-parlimen-press
+    url: https://www.parlimen.gov.my/siaran-media.html?lang=en&uweb=web
+    method: newsroom
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Parliament of Malaysia press releases
+  spokespersons: []
+- id: in-trai
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: regulator
+  official_name: Telecom Regulatory Authority of India
+  official_homepage: https://trai.gov.in/
+  newsroom_url: https://www.trai.gov.in/notifications/press-release
+  evidence:
+  - Official TRAI homepage and press-release index were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). https://www.trai.gov.in/
+    (with www) did not connect on a first request. The official homepage at https://trai.gov.in/ and the
+    press-release index on www.trai.gov.in were retrieved.
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Anil Kumar Lahoti
+    role: Chairman, Telecom Regulatory Authority of India
+    source_url: https://trai.gov.in/
+    official_profile_url: https://trai.gov.in/
+    notes: The official TRAI homepage retrieved this run names Shri Anil Kumar Lahoti as Chairman of the
+      Telecom Regulatory Authority of India. No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:50:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: in-trai-home
+    url: https://trai.gov.in/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: TRAI
+  - id: in-trai-press
+    url: https://www.trai.gov.in/notifications/press-release
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: TRAI press releases
+- id: in-mib
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: ministry
+  official_name: Ministry of Information and Broadcasting
+  official_homepage: https://mib.gov.in/en
+  evidence:
+  - Official Ministry of Information and Broadcasting English homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: verified_on_official_page
+  spokespersons:
+  - name: Ashwini Vaishnaw
+    role: Cabinet Minister, Ministry of Information and Broadcasting
+    source_url: https://mib.gov.in/en
+    official_profile_url: https://mib.gov.in/en
+    notes: The official ministry homepage retrieved this run names Shri Ashwini Vaishnaw as Hon'ble Cabinet
+      Minister. No personal X handle was listed on that official page.
+    source_retrieved_at: '2026-11-27T02:50:00+08:00'
+    x_handle_status: not_listed_on_official_page
+    x_handle: null
+    x_handle_url: null
+  scrape_targets:
+  - id: in-mib-home
+    url: https://mib.gov.in/en
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Ministry of Information and Broadcasting
+- id: in-cert-in
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: regulator
+  official_name: Indian Computer Emergency Response Team
+  official_homepage: https://www.cert-in.org.in/
+  newsroom_url: https://www.cert-in.org.in/s2cMainServlet?pageid=PRESSLIST
+  evidence:
+  - Official CERT-In homepage and press list URLs on cert-in.org.in were requested as the official national
+    computer emergency response team under MeitY.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: in-certin-home
+    url: https://www.cert-in.org.in/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: CERT-In
+  - id: in-certin-press
+    url: https://www.cert-in.org.in/s2cMainServlet?pageid=PRESSLIST
+    method: newsroom
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: CERT-In press
+  spokespersons: []
+- id: in-dpbi
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: regulator
+  official_name: Data Protection Board of India
+  official_homepage: https://dpbi.gov.in/
+  evidence:
+  - The official Press Information Bureau release of 14 November 2026, and the official MeitY site, identify
+    https://dpbi.gov.in as the Data Protection Board of India portal.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured. Both https://dpbi.gov.in/
+    and https://www.dpbi.gov.in/ returned HTTP 403.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: in-dpbi-home
+    url: https://dpbi.gov.in/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: Data Protection Board of India
+  spokespersons: []
+- id: in-parliament
+  jurisdiction: IN
+  jurisdiction_name: India
+  body_type: parliament
+  official_name: Parliament of India (Digital Sansad)
+  official_homepage: https://sansad.in/
+  bill_or_consultation_url: https://sansad.in/ls/legislation/bills
+  evidence:
+  - Official Digital Sansad homepage, Lok Sabha site and official Lok Sabha and Rajya Sabha bills indexes
+    were retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The official
+    sansad.gov.in address did not connect. The Rajya Sabha homepage at https://sansad.in/rs did not connect,
+    but the official Rajya Sabha bills index was retrieved.
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: in-sansad-home
+    url: https://sansad.in/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Digital Sansad
+  - id: in-ls
+    url: https://sansad.in/ls
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Lok Sabha
+  - id: in-ls-bills
+    url: https://sansad.in/ls/legislation/bills
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Lok Sabha bills
+  - id: in-rs-bills
+    url: https://sansad.in/rs/legislation/bills
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Rajya Sabha bills
+  spokespersons: []
+- id: sg-parliament
+  jurisdiction: SG
+  jurisdiction_name: Singapore
+  body_type: parliament
+  official_name: Parliament of Singapore
+  official_homepage: https://www.parliament.gov.sg/
+  newsroom_url: https://www.parliament.gov.sg/newsroom/press-releases
+  bill_or_consultation_url: https://www.parliament.gov.sg/parliamentary-business/bills-introduced
+  evidence:
+  - Official Parliament of Singapore homepage retrieved this run, including official bills, Official Reports
+    and press-release links.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: sg-parliament-home
+    url: https://www.parliament.gov.sg/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Parliament of Singapore
+  - id: sg-parliament-bills
+    url: https://www.parliament.gov.sg/parliamentary-business/bills-introduced
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Bills introduced
+  - id: sg-parliament-official-reports
+    url: https://www.parliament.gov.sg/parliamentary-business/official-reports
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Official Reports (parliamentary debates)
+  - id: sg-parliament-sprs
+    url: https://sprs.parl.gov.sg/search/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Singapore Parliamentary Reporting System
+  - id: sg-parliament-press
+    url: https://www.parliament.gov.sg/newsroom/press-releases
+    method: newsroom
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Parliament press releases
+  spokespersons: []
+- id: id-dpr
+  jurisdiction: ID
+  jurisdiction_name: Indonesia
+  body_type: parliament
+  official_name: Dewan Perwakilan Rakyat Republik Indonesia
+  official_homepage: https://www.dpr.go.id/
+  evidence:
+  - Official DPR RI portal retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: id-dpr-home
+    url: https://www.dpr.go.id/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: DPR RI
+  spokespersons: []
+- id: ph-congress
+  jurisdiction: PH
+  jurisdiction_name: Philippines
+  body_type: parliament
+  official_name: House of Representatives of the Philippines
+  official_homepage: https://econgress.gov.ph/
+  evidence:
+  - Official Congress of the Philippines site at econgress.gov.ph was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: ph-congress-home
+    url: https://econgress.gov.ph/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Representatives of the Philippines
+  spokespersons: []
+- id: ph-senate
+  jurisdiction: PH
+  jurisdiction_name: Philippines
+  body_type: parliament
+  official_name: Senate of the Philippines
+  official_homepage: https://web.senate.gov.ph/
+  evidence:
+  - Official Senate of the Philippines site at senate.gov.ph was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: ph-senate-home
+    url: https://web.senate.gov.ph/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Senate of the Philippines
+  spokespersons: []
+- id: ph-dict
+  jurisdiction: PH
+  jurisdiction_name: Philippines
+  body_type: ministry
+  official_name: Department of Information and Communications Technology
+  official_homepage: https://dict.gov.ph/
+  evidence:
+  - Official DICT homepage at dict.gov.ph was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: ph-dict-home
+    url: https://dict.gov.ph/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: DICT
+  spokespersons: []
+- id: ph-ntc
+  jurisdiction: PH
+  jurisdiction_name: Philippines
+  body_type: regulator
+  official_name: National Telecommunications Commission
+  official_homepage: https://ntc.gov.ph/
+  evidence:
+  - Official NTC homepage at ntc.gov.ph was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: ph-ntc-home
+    url: https://ntc.gov.ph/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: NTC
+  spokespersons: []
+- id: ph-gazette
+  jurisdiction: PH
+  jurisdiction_name: Philippines
+  body_type: gazette
+  official_name: Official Gazette of the Republic of the Philippines
+  official_homepage: https://www.officialgazette.gov.ph/
+  evidence:
+  - Official Gazette at officialgazette.gov.ph was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: ph-gazette-home
+    url: https://www.officialgazette.gov.ph/
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: Official Gazette of the Philippines
+  spokespersons: []
+- id: th-parliament
+  jurisdiction: TH
+  jurisdiction_name: Thailand
+  body_type: parliament
+  official_name: National Assembly of Thailand (รัฐสภา)
+  official_homepage: https://www.parliament.go.th/
+  evidence:
+  - Official parliament.go.th homepage retrieved this run. The official title on the page is รัฐสภา.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: th-parliament-home
+    url: https://www.parliament.go.th/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Thailand
+  spokespersons: []
+- id: th-nbtc
+  jurisdiction: TH
+  jurisdiction_name: Thailand
+  body_type: regulator
+  official_name: Office of the National Broadcasting and Telecommunications Commission
+  official_homepage: https://www.nbtc.go.th/en/
+  evidence:
+  - Official NBTC English homepage at nbtc.go.th was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: th-nbtc-home
+    url: https://www.nbtc.go.th/en/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: NBTC
+  spokespersons: []
+- id: th-mdes
+  jurisdiction: TH
+  jurisdiction_name: Thailand
+  body_type: ministry
+  official_name: Ministry of Digital Economy and Society
+  official_homepage: https://www.mdes.go.th/
+  evidence:
+  - Official MDES homepage at mdes.go.th was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: th-mdes-home
+    url: https://www.mdes.go.th/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MDES
+  spokespersons: []
+- id: vn-mst
+  jurisdiction: VN
+  jurisdiction_name: Vietnam
+  body_type: ministry
+  official_name: Ministry of Science and Technology (Bộ Khoa học và Công nghệ)
+  official_homepage: https://mst.gov.vn/
+  newsroom_url: https://mst.gov.vn/tin-tuc-su-kien.htm
+  bill_or_consultation_url: https://mst.gov.vn/van-ban-phap-luat.htm
+  evidence:
+  - A request for the official www.mic.gov.vn address redirected this run to the official portal of the
+    Ministry of Science and Technology at https://mst.gov.vn/, whose retrieved homepage includes official
+    news and legal-document indexes and a posts and telecommunications news section.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). https://mic.gov.vn/
+    did not connect. https://www.mic.gov.vn/ redirected to https://mst.gov.vn/. The official MIC hostname
+    is retained as a scrape target in case it serves a distinct official page later.
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: vn-mst-home
+    url: https://mst.gov.vn/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Ministry of Science and Technology
+  - id: vn-mst-news
+    url: https://mst.gov.vn/tin-tuc-su-kien.htm
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MST news and events
+  - id: vn-mst-telecom-news
+    url: https://mst.gov.vn/tin-tuc-su-kien/buu-chinh-vien-thong.htm
+    method: newsroom
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MST posts and telecommunications news
+  - id: vn-mst-legal
+    url: https://mst.gov.vn/van-ban-phap-luat.htm
+    method: html_index
+    role: instrument
+    auto_apply_eligible: true
+    official: true
+    name: MST legal documents
+  - id: vn-mic
+    url: https://mic.gov.vn/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: mic.gov.vn official hostname
+  notes: No minister name was recorded from the retrieved official homepage, so no spokesperson is listed.
+  spokespersons: []
+- id: vn-national-assembly
+  jurisdiction: VN
+  jurisdiction_name: Vietnam
+  body_type: parliament
+  official_name: National Assembly of Viet Nam
+  official_homepage: https://quochoi.vn/
+  evidence:
+  - The official National Assembly site is at quochoi.vn, including an official English path at /en-US/Pages/default.aspx.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (transport or certificate error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured. https://quochoi.vn/ and the official English path could not be retrieved.
+    https://www.quochoi.vn/ failed a certificate check for that hostname.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: vn-na-home
+    url: https://quochoi.vn/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Viet Nam
+  - id: vn-na-en
+    url: https://quochoi.vn/en-US/Pages/default.aspx
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Viet Nam (English)
+  spokespersons: []
+- id: bn-aiti
+  jurisdiction: BN
+  jurisdiction_name: Brunei
+  body_type: regulator
+  official_name: Authority for Info-communications Technology Industry of Brunei Darussalam
+  official_homepage: https://www.aiti.gov.bn/
+  evidence:
+  - Official AITI homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: bn-aiti-home
+    url: https://www.aiti.gov.bn/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: AITI
+  spokespersons: []
+- id: bn-legislative-council
+  jurisdiction: BN
+  jurisdiction_name: Brunei
+  body_type: parliament
+  official_name: Jabatan Majlis-Majlis Mesyuarat
+  official_homepage: https://www.majlis-mesyuarat.gov.bn/
+  evidence:
+  - Official councils department homepage retrieved this run. The official title on the page is Jabatan
+    Majlis-Majlis Mesyuarat.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: bn-legco-home
+    url: https://www.majlis-mesyuarat.gov.bn/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Jabatan Majlis-Majlis Mesyuarat
+  spokespersons: []
+- id: kh-trc
+  jurisdiction: KH
+  jurisdiction_name: Cambodia
+  body_type: regulator
+  official_name: Telecommunication Regulator of Cambodia
+  official_homepage: https://trc.gov.kh/
+  evidence:
+  - Official TRC homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: kh-trc-home
+    url: https://trc.gov.kh/
+    method: html_index
+    role: regulator_newsroom
+    auto_apply_eligible: true
+    official: true
+    name: TRC
+  spokespersons: []
+- id: kh-mptc
+  jurisdiction: KH
+  jurisdiction_name: Cambodia
+  body_type: ministry
+  official_name: Ministry of Post and Telecommunications
+  official_homepage: https://www.mptc.gov.kh/
+  evidence:
+  - Official MPTC homepage at mptc.gov.kh was requested this run.
+  retrieval_notes:
+  - The official URL returned a 'Request Rejected' page rather than the ministry homepage. That response
+    is not evidence that the official site does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: kh-mptc-home
+    url: https://www.mptc.gov.kh/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: MPTC
+  spokespersons: []
+- id: kh-national-assembly
+  jurisdiction: KH
+  jurisdiction_name: Cambodia
+  body_type: parliament
+  official_name: National Assembly of the Kingdom of Cambodia
+  official_homepage: https://www.en.nac.org.kh/
+  evidence:
+  - Official English National Assembly homepage retrieved this run. The official title on the page is
+    The National Assembly of The Kingdom of Cambodia.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: kh-na-home
+    url: https://www.en.nac.org.kh/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Cambodia
+  spokespersons: []
+- id: la-national-assembly
+  jurisdiction: LA
+  jurisdiction_name: Laos
+  body_type: parliament
+  official_name: National Assembly of the Lao People's Democratic Republic
+  official_homepage: https://na.gov.la/
+  evidence:
+  - Official National Assembly homepage retrieved this run. The official title on the page is The National
+    Assembly of Lao PDR.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: la-na-home
+    url: https://na.gov.la/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Lao PDR
+  spokespersons: []
+- id: mm-ptd
+  jurisdiction: MM
+  jurisdiction_name: Myanmar
+  body_type: ministry
+  official_name: Posts and Telecommunications Department
+  official_homepage: https://www.ptd.gov.mm/
+  evidence:
+  - Official PTD homepage retrieved this run. The official title on the page is ဆက်သွယ်ရေးညွှန်ကြားမှု
+    ဦးစီးဌာန.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). The broader
+    myanmar.gov.mm government portal did not connect from this environment.
+  spokesperson_status: no_named_official_on_retrieved_page
+  scrape_targets:
+  - id: mm-ptd-home
+    url: https://www.ptd.gov.mm/
+    method: html_index
+    role: ministerial_release
+    auto_apply_eligible: false
+    official: true
+    name: Posts and Telecommunications Department
+  spokespersons: []
+- id: tl-parliament
+  jurisdiction: TL
+  jurisdiction_name: Timor-Leste
+  body_type: parliament
+  official_name: Parlamento Nacional
+  official_homepage: https://www.parlamento.tl/
+  evidence:
+  - Official National Parliament homepage retrieved this run. The official title on the page is Parlamento
+    Nacional. Timor-Leste is included only because this official legislative source was retrieved.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: tl-parliament-home
+    url: https://www.parlamento.tl/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Parlamento Nacional
+  spokespersons: []
+- id: ca-commons
+  jurisdiction: CA
+  jurisdiction_name: Canada
+  body_type: parliament
+  official_name: House of Commons of Canada
+  official_homepage: https://www.ourcommons.ca/
+  bill_or_consultation_url: https://www.parl.ca/LegisInfo/Home.aspx?Mode=1&Language=E
+  evidence:
+  - Official House of Commons homepage retrieved this run, including a link to the official LEGISinfo
+    bill tracker.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: ca-commons-home
+    url: https://www.ourcommons.ca/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Commons of Canada
+  spokespersons: []
+- id: ca-senate
+  jurisdiction: CA
+  jurisdiction_name: Canada
+  body_type: parliament
+  official_name: Senate of Canada
+  official_homepage: https://sencanada.ca/
+  evidence:
+  - Official Senate of Canada homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: ca-senate-home
+    url: https://sencanada.ca/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Senate of Canada
+  spokespersons: []
+- id: jp-house-of-representatives
+  jurisdiction: JP
+  jurisdiction_name: Japan
+  body_type: parliament
+  official_name: House of Representatives of Japan
+  official_homepage: https://www.shugiin.go.jp/internet/index.nsf/html/index_e.htm
+  evidence:
+  - Official English House of Representatives page retrieved this run. The generic shugiin.go.jp root
+    returned HTTP 500 and remains noted.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). https://www.shugiin.go.jp/
+    returned HTTP 500. The official English index was retrieved.
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: jp-shugiin-en
+    url: https://www.shugiin.go.jp/internet/index.nsf/html/index_e.htm
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Representatives of Japan
+  - id: jp-shugiin-home
+    url: https://www.shugiin.go.jp/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Representatives of Japan (root)
+  spokespersons: []
+- id: jp-house-of-councillors
+  jurisdiction: JP
+  jurisdiction_name: Japan
+  body_type: parliament
+  official_name: House of Councillors of Japan
+  official_homepage: https://www.sangiin.go.jp/
+  evidence:
+  - Official House of Councillors homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: jp-sangiin-home
+    url: https://www.sangiin.go.jp/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: House of Councillors of Japan
+  spokespersons: []
+- id: kr-national-assembly
+  jurisdiction: KR
+  jurisdiction_name: Korea
+  body_type: parliament
+  official_name: National Assembly of the Republic of Korea
+  official_homepage: https://korea.assembly.go.kr/
+  evidence:
+  - Official National Assembly Secretariat English site retrieved this run (redirected from korea.assembly.go.kr).
+    The generic www.assembly.go.kr address did not connect.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8). https://www.assembly.go.kr/
+    did not connect from this environment and remains a scrape target.
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: kr-assembly-en
+    url: https://korea.assembly.go.kr/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Korea
+  - id: kr-assembly-home
+    url: https://www.assembly.go.kr/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: National Assembly of Korea (assembly.go.kr)
+  spokespersons: []
+- id: br-camara
+  jurisdiction: BR
+  jurisdiction_name: Brazil
+  body_type: parliament
+  official_name: Câmara dos Deputados
+  official_homepage: https://www.camara.leg.br/
+  newsroom_url: https://www.camara.leg.br/noticias
+  evidence:
+  - Official Chamber of Deputies homepage retrieved this run, including the official news agency index.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: br-camara-home
+    url: https://www.camara.leg.br/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Câmara dos Deputados
+  - id: br-camara-news
+    url: https://www.camara.leg.br/noticias
+    method: newsroom
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Agência Câmara de Notícias
+  spokespersons: []
+- id: br-senado
+  jurisdiction: BR
+  jurisdiction_name: Brazil
+  body_type: parliament
+  official_name: Senado Federal
+  official_homepage: https://www25.senado.leg.br/
+  evidence:
+  - Official Federal Senate homepage retrieved this run.
+  retrieval_notes:
+  - Official page retrieved on 27 November 2026, 02:50 Hong Kong time (Asia/Hong_Kong, UTC+8).
+  spokesperson_status: not_applicable_legislature_board
+  scrape_targets:
+  - id: br-senado-home
+    url: https://www25.senado.leg.br/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Senado Federal
+  spokespersons: []
+- id: mx-diputados
+  jurisdiction: MX
+  jurisdiction_name: Mexico
+  body_type: parliament
+  official_name: Cámara de Diputados
+  official_homepage: https://www.diputados.gob.mx/
+  evidence:
+  - Official Chamber of Deputies site at diputados.gob.mx was requested this run.
+  retrieval_notes:
+  - This official URL could not be retrieved from this environment on 27 November 2026, Hong Kong time
+    (connection or transport error). That failure is not evidence that the page does not exist. A scraper
+    target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: mx-diputados-home
+    url: https://www.diputados.gob.mx/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Cámara de Diputados
+  spokespersons: []
+- id: mx-senado
+  jurisdiction: MX
+  jurisdiction_name: Mexico
+  body_type: parliament
+  official_name: Senado de la República
+  official_homepage: https://www.senado.gob.mx/
+  evidence:
+  - Official Mexican Senate site at senado.gob.mx was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 403 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: mx-senado-home
+    url: https://www.senado.gob.mx/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Senado de la República
+  spokespersons: []
+- id: tr-tbmm
+  jurisdiction: TR
+  jurisdiction_name: Turkey
+  body_type: parliament
+  official_name: Grand National Assembly of Turkey
+  official_homepage: https://www.tbmm.gov.tr/
+  evidence:
+  - Official TBMM site at tbmm.gov.tr was requested this run.
+  retrieval_notes:
+  - This official URL returned HTTP 500 from this environment on 27 November 2026, Hong Kong time. That
+    failure is not evidence that the page does not exist. A scraper target is still configured. An English
+    path at /en also failed to connect.
+  spokesperson_status: official_leadership_page_not_retrieved
+  scrape_targets:
+  - id: tr-tbmm-home
+    url: https://www.tbmm.gov.tr/
+    method: html_index
+    role: legislative_record
+    auto_apply_eligible: false
+    official: true
+    name: Grand National Assembly of Turkey
+  spokespersons: []
