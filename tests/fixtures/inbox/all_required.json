@@ -1,0 +1,109 @@
+{
+  "report_title": "Fixture pack for required classifier tests",
+  "items": [
+    {
+      "id": "fixture-audoc-passed-both-houses-2026-11-25",
+      "headline": "Online Safety Amendment (Digital Duty of Care) Bill 2026 — official status Passed Both Houses",
+      "outlet": "Parliament of Australia, ParlInfo bill homepage r7553",
+      "published_date": "2026-11-25",
+      "url": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553",
+      "official_document_url": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553",
+      "summary": "The official bill homepage records the status as Passed Both Houses. The House of Representatives agreed to the Senate amendments on 25 November 2026. Royal Assent is not listed. The instrument is not an Act and is not in force.",
+      "source_id": "au-parlinfo-ddoc",
+      "source_kind": "instrument",
+      "jurisdiction_hint": "AU",
+      "raw_status_text": "Passed Both Houses",
+      "raw_assent_listed": false,
+      "fetched_at": "2026-11-25T18:21:00+08:00",
+      "fetched_at_utc": "2026-11-25T10:21:00+00:00"
+    },
+    {
+      "id": "fixture-audoc-becomes-law-media-2026-11-25",
+      "headline": "Australia's Digital Duty of Care becomes law",
+      "outlet": "Office of the Hon Anika Wells MP, Minister for Communications",
+      "published_date": "2026-11-25",
+      "url": "https://minister.infrastructure.gov.au/wells/media-release/australias-digital-duty-care-becomes-law",
+      "summary": "Communications Minister Anika Wells issued a statement titled \"Australia's Digital Duty of Care becomes law,\" saying it will come into effect in 12 months. The official bill homepage still lists the status as Passed Both Houses and does not record Royal Assent.",
+      "source_id": "au-minister-communications",
+      "source_kind": "ministerial_release",
+      "jurisdiction_hint": "AU",
+      "official_document_url": null,
+      "raw_assent_listed": false,
+      "fetched_at": "2026-11-26T07:29:00+08:00",
+      "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+    },
+    {
+      "id": "fixture-ofcom-ii-consultation-2026-11-25",
+      "headline": "Ofcom consultation on proposed updates to Illegal Content Codes of Practice for intimate-image abuse takedown",
+      "outlet": "Ofcom",
+      "published_date": "2026-11-25",
+      "url": "https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/intimate-image-abuse-takedown",
+      "official_document_url": "https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/intimate-image-abuse-takedown",
+      "summary": "On 25 November 2026 Ofcom opened a consultation on proposed updates to its Illegal Content Codes of Practice and associated guidance on intimate image abuse, including AI-generated deepfakes. The consultation page states that the Crime and Policing Act 2026 introduced duties on service providers to take down reported intimate image content as soon as reasonably practicable, and no later than 48 hours, after receiving a report. Ofcom's proposals would apply to user-to-user and search services. This is a consultation on draft codes, not a final code and not the enactment of the statutory duty. Responses are invited by 5pm on 20 January 2027.",
+      "source_id": "uk-ofcom-ii-consultation",
+      "source_kind": "instrument",
+      "jurisdiction_hint": "GB",
+      "fetched_at": "2026-11-26T07:29:00+08:00",
+      "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+    },
+    {
+      "id": "fixture-gosrn-joint-statement-2026-11-25",
+      "headline": "Global regulators unite in Sydney to tackle AI-driven harms and expand international network",
+      "outlet": "eSafety Commissioner",
+      "published_date": "2026-11-25",
+      "url": "https://www.esafety.gov.au/newsroom/media-releases/global-regulators-unite-in-sydney-to-tackle-ai-driven-harms-and-expand-international-network",
+      "summary": "On 25 November 2026 the eSafety Commissioner published a release on meetings in Sydney of the Global Online Safety Regulators Network (GOSRN). Members endorsed a joint position statement on preventing the creation and spread of AI-generated child sexual abuse material and non-consensual intimate imagery, calling for greater accountability from technology companies, stronger safeguards in AI systems and coordinated regulatory action. The release does not announce a binding instrument, bill, act or statutory code.",
+      "source_id": "au-esafety-newsroom",
+      "source_kind": "regulator_newsroom",
+      "jurisdiction_hint": "AU",
+      "fetched_at": "2026-11-26T07:29:00+08:00",
+      "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+    },
+    {
+      "id": "fixture-us-senators-ai-safeguards-2026-11-25",
+      "headline": "US senators call for safeguards after reporting on unreleased frontier models",
+      "outlet": "Axios",
+      "published_date": "2026-11-25",
+      "url": "https://www.axios.com/2026/11/25/democrats-ai-safety-restrictions-openai-anthropic-axios",
+      "summary": "On 25 November 2026 Axios reported that Senators Mark Kelly, Brian Schatz and Chris Van Hollen and Senator Bernie Sanders had called for action following a 24 November report that staff at OpenAI and Anthropic fear some unreleased models cannot be safely released. Kelly said safeguards and independent examiners were needed now. These are statements, not the introduction or passage of legislation. No bill was introduced in this item.",
+      "source_id": "news-ap",
+      "source_kind": "statement",
+      "jurisdiction_hint": "US",
+      "fetched_at": "2026-11-26T07:29:00+08:00",
+      "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+    },
+    {
+      "id": "fixture-tencent-mentions-alibaba-agents-2026-10-13",
+      "headline": "Researchers Find ‘Chinese Fleet’ of Rogue AI Probing Alibaba",
+      "outlet": "Bloomberg",
+      "published_date": "2026-10-13",
+      "url": null,
+      "section": "Tencent Mentions",
+      "summary": "International media reported that AI agents operating through Tencent Cloud attempted to retrieve information from a mapping service. The item does not describe a bill, consultation, enacted rule or official enforcement action.",
+      "source_kind": "news",
+      "fetched_at": "2026-10-16T11:02:00+08:00",
+      "fetched_at_utc": "2026-10-16T03:02:00+00:00"
+    },
+    {
+      "id": "fixture-invalid-vocabulary-labels",
+      "headline": "Example item used only to test frozen vocabulary rejection",
+      "outlet": "Fixture",
+      "published_date": "2026-11-25",
+      "url": null,
+      "summary": "This fixture supplies labels that are not in the frozen dashboard enums.",
+      "source_kind": "news",
+      "proposed_fields": {
+        "status": "becomes_law",
+        "service_type_ids": [
+          "chatbot"
+        ],
+        "obligation_types": [
+          "age_assurance"
+        ],
+        "instrument_kind": "statute"
+      },
+      "fetched_at": "2026-11-26T07:29:00+08:00",
+      "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+    }
+  ]
+}

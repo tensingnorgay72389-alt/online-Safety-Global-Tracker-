@@ -1,0 +1,84 @@
+# Frozen Global Trust and Safety Dashboard vocabularies.
+# Use these labels exactly. Do not invent near-synonyms.
+# Category assignment is analytical judgement. Names, dates and status are sourced facts.
+
+status:
+  - proposed
+  - inactive
+  - under_review
+  - passed
+  - implementation_period
+  - effective
+  - enforced
+  - challenged
+  - enjoined
+  - repealed
+
+service_type_ids:
+  - social_media
+  - gaming
+  - ai_service
+  - direct_messaging
+  - app_store
+  - os_provider
+  - adult_content
+  - pornography
+  - online_marketplace
+  - streaming
+  - other
+
+obligation_type:
+  - age_registration
+  - age_verification
+  - age_estimation
+  - parental_consent
+  - access_restriction
+  - upstream_age_signal
+  - design_restrictions
+  - data_protection
+  - content_moderation
+  - reporting_obligation
+  - other
+
+milestone_type:
+  - proposed
+  - inactive
+  - introduced
+  - committee_review
+  - passed
+  - signed
+  - implementation_period
+  - effective
+  - enforced
+  - challenged
+  - enjoined
+  - repealed
+  - amended
+
+# Market-layer obligation identifiers. These are not regulation-level obligation types.
+market_obligation_ids:
+  - age_assurance
+  - parental_consent
+  - access_restriction
+  - design_restrictions
+  - data_protection
+  - content_moderation
+  - risk_assessment
+  - transparency_reporting
+  - user_empowerment
+  - ai_transparency
+
+instrument_kind:
+  - bill
+  - enacted
+  - in force
+  - guidance
+  - consultation
+  - other
+
+# Allowed proposal actions in this backend.
+proposal_action:
+  - new_instrument
+  - status_change
+  - milestone_add
+  - news_only

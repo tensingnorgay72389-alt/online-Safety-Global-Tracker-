@@ -1,0 +1,21 @@
+{
+  "id": "fixture-invalid-vocabulary-labels",
+  "headline": "Example item used only to test frozen vocabulary rejection",
+  "outlet": "Fixture",
+  "published_date": "2026-11-25",
+  "url": null,
+  "summary": "This fixture supplies labels that are not in the frozen dashboard enums.",
+  "source_kind": "news",
+  "proposed_fields": {
+    "status": "becomes_law",
+    "service_type_ids": [
+      "chatbot"
+    ],
+    "obligation_types": [
+      "age_assurance"
+    ],
+    "instrument_kind": "statute"
+  },
+  "fetched_at": "2026-11-26T07:29:00+08:00",
+  "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+}

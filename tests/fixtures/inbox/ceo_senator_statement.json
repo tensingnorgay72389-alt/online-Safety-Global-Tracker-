@@ -1,0 +1,13 @@
+{
+  "id": "fixture-us-senators-ai-safeguards-2026-11-25",
+  "headline": "US senators call for safeguards after reporting on unreleased frontier models",
+  "outlet": "Axios",
+  "published_date": "2026-11-25",
+  "url": "https://www.axios.com/2026/11/25/democrats-ai-safety-restrictions-openai-anthropic-axios",
+  "summary": "On 25 November 2026 Axios reported that Senators Mark Kelly, Brian Schatz and Chris Van Hollen and Senator Bernie Sanders had called for action following a 24 November report that staff at OpenAI and Anthropic fear some unreleased models cannot be safely released. Kelly said safeguards and independent examiners were needed now. These are statements, not the introduction or passage of legislation. No bill was introduced in this item.",
+  "source_id": "news-ap",
+  "source_kind": "statement",
+  "jurisdiction_hint": "US",
+  "fetched_at": "2026-11-26T07:29:00+08:00",
+  "fetched_at_utc": "2026-11-25T23:29:00+00:00"
+}

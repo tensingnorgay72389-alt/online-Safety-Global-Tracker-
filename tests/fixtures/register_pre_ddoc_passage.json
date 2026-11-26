@@ -1,0 +1,1797 @@
+{
+  "as_of": "Test snapshot representing the register before the 25 November 2026 official Passed Both Houses listing.",
+  "cutoff_register": "25 November 2026, 10:14 Hong Kong time (Asia/Hong_Kong, UTC+8)",
+  "cutoff_audoc": "25 November 2026, 18:21 Hong Kong time (Asia/Hong_Kong, UTC+8)",
+  "counts": {
+    "regulations": 73,
+    "obligations": 134,
+    "milestones": 80,
+    "markets": 31,
+    "heatmap_markets": 26
+  },
+  "regulations": [
+    {
+      "id": "EU-DSA-2022",
+      "name": "Digital Services Act (DSA) — Age Assurance and Minors-Protection Provisions",
+      "official_title": "Regulation (EU) 2022/2065 of the European Parliament and of the Council (Digital Services Act)",
+      "jid": "EU",
+      "jname": "European Union",
+      "year": 2022,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "online_marketplace",
+        "streaming",
+        "app_store"
+      ],
+      "source": "https://eur-lex.europa.eu/eli/reg/2022/2065/oj",
+      "effective": "2024-02-17",
+      "summary": "EU regulation imposing illegal-content, systemic-risk and minors-protection duties on intermediary services. It does not itself impose a general age-verification or parental-consent mandate. Very large platforms face audits, risk assessments and additional obligations. Fines may reach 6% of global annual turnover."
+    },
+    {
+      "id": "EU-AIA-2024",
+      "name": "EU AI Act — Child Safety, Transparency and High-Risk AI Provisions",
+      "official_title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act)",
+      "jid": "EU",
+      "jname": "European Union",
+      "year": 2024,
+      "status": "implementation_period",
+      "kind": "in force",
+      "services": [
+        "ai_service"
+      ],
+      "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "effective": null,
+      "summary": "EU regulation on AI systems with phased application. Relevant T&S duties include transparency for certain AI interactions and synthetic content, and prohibitions relating to certain harmful AI practices. Child-safety and high-risk rules apply according to the Act's staged commencements."
+    },
+    {
+      "id": "EU-DSA-GL-2025",
+      "name": "Commission Guidelines on Protection of Minors under the DSA",
+      "official_title": "Commission guidelines on Article 28 DSA (protection of minors) as referred to in the user's Excel (2025, non-binding)",
+      "jid": "EU",
+      "jname": "European Union",
+      "year": 2025,
+      "status": "under_review",
+      "kind": "guidance",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Non-binding Commission guidelines on protecting minors under the DSA, described in the source Excel as recommending private-by-default minors' accounts and limits on features that contribute to excessive use. The Excel recorded a 2026 review with an intent to convert them to binding requirements. Binding conversion was not independently verified at the research cutoff."
+    },
+    {
+      "id": "EU-CSAM-DIR-2026",
+      "name": "Revised Directive on combating child sexual abuse (political agreement)",
+      "official_title": "Revision of Directive 2011/93/EU (political agreement of June 2026, formal adoption not verified as complete)",
+      "jid": "EU",
+      "jname": "European Union",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "other",
+        "ai_service"
+      ],
+      "source": "https://home-affairs.ec.europa.eu/news/commission-welcomes-political-agreement-criminal-law-rules-fight-child-sexual-abuse-2026-06-29_en",
+      "effective": null,
+      "summary": "Provisional political agreement between the European Parliament and the Council on updating EU criminal-law rules on child sexual abuse, including conduct involving AI systems designed to generate CSAM or deepfake abuse material. Formal adoption was not verified as complete at the research cutoff."
+    },
+    {
+      "id": "EU-DFA-2026",
+      "name": "Digital Fairness Act (Commission proposal)",
+      "official_title": "Proposal for a Regulation on promoting fair business-to-consumer commercial practices in the offline and digital single market (Digital Fairness Act), COM(2026) 1100 final, 2026/0356 (COD)",
+      "jid": "EU",
+      "jname": "European Union",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming",
+        "other"
+      ],
+      "source": "https://commission.europa.eu/law/law-topic/consumer-protection-law/digital-fairness-act_en",
+      "effective": null,
+      "summary": "Commission proposal of 11 November 2026 for a consumer-protection regulation addressing dark patterns, addictive design, influencer marketing, unfair personalisation and related digital commercial practices. The June 2026 Excel anticipated this proposal. It is not enacted."
+    },
+    {
+      "id": "EU-KIDS-2026",
+      "name": "EU KIDS Act (Commission proposal)",
+      "official_title": "Proposal for a Regulation of the European Parliament and of the Council, EU KIDS ACT - 'EU Keeping Internet Digital Spaces Accountable and Trustworthy' (COM(2026) 681 final, 2026/0286 (COD))",
+      "jid": "EU",
+      "jname": "European Union",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "social_media",
+        "streaming",
+        "gaming",
+        "ai_service",
+        "app_store"
+      ],
+      "source": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52026PC0681",
+      "effective": null,
+      "summary": "Commission proposal for an EU regulation on delayed access to social media and video-sharing services, safety-by-design, age assurance and AI companions. Under the proposal, children under 13 would not access social media services (with a narrow parent-managed exception for certain child-friendly video-sharing). Ages 13 to under 15 would be limited to a guardian-managed mini account with restricted features and a one-hour daily cap. Independent accounts would be allowed from age 15. Online services and app stores would have to use privacy-preserving age checks. The proposal is not law."
+    },
+    {
+      "id": "UK-CHILDRENS-CODE-2021",
+      "name": "Age Appropriate Design Code (Children's Code)",
+      "official_title": "ICO Age Appropriate Design Code, issued under the Data Protection Act 2018",
+      "jid": "GB",
+      "jname": "United Kingdom",
+      "year": 2021,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming",
+        "ai_service"
+      ],
+      "source": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/",
+      "effective": null,
+      "summary": "UK statutory code of 15 standards on data protection design for services likely to be accessed by children, sitting under the Data Protection Act 2018 and enforced by the ICO."
+    },
+    {
+      "id": "UK-OSA-2023",
+      "name": "Online Safety Act 2023",
+      "official_title": "Online Safety Act 2023 (c. 50)",
+      "jid": "GB",
+      "jname": "United Kingdom",
+      "year": 2023,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "streaming",
+        "adult_content",
+        "pornography",
+        "gaming"
+      ],
+      "source": "https://www.legislation.gov.uk/ukpga/2023/50/contents",
+      "effective": null,
+      "summary": "UK statute imposing illegal-content and child-safety duties of care on user-to-user and search services, with Ofcom as regulator. Highly effective age assurance is required where needed to prevent under-18 access to pornography and other specified harmful content. Penalties may reach £18 million or 10% of qualifying worldwide revenue."
+    },
+    {
+      "id": "UK-CPA-2026",
+      "name": "Crime and Policing Act 2026 (power to bring AI chatbots within the Online Safety Act)",
+      "official_title": "Crime and Policing Act 2026 (c. 20)",
+      "jid": "GB",
+      "jname": "United Kingdom",
+      "year": 2026,
+      "status": "effective",
+      "kind": "enacted",
+      "services": [
+        "ai_service"
+      ],
+      "source": "https://www.legislation.gov.uk/ukpga/2026/20",
+      "effective": null,
+      "summary": "Enacted UK statute that includes a power to extend Online Safety Act illegal-content duties to AI chatbot services by secondary legislation. That secondary legislation had not been verified as laid at the research cutoff."
+    },
+    {
+      "id": "UK-CWSA-2026",
+      "name": "Children's Wellbeing and Schools Act 2026 (enabling powers for under-16 online restrictions)",
+      "official_title": "Children's Wellbeing and Schools Act 2026 (c. 21)",
+      "jid": "GB",
+      "jname": "United Kingdom",
+      "year": 2026,
+      "status": "effective",
+      "kind": "enacted",
+      "services": [
+        "social_media",
+        "gaming",
+        "os_provider"
+      ],
+      "source": "https://www.legislation.gov.uk/ukpga/2026/21",
+      "effective": null,
+      "summary": "Enacted UK statute conferring powers to require restrictions on children's access to specified online services or features, which the government has said it will use for an under-16 social media ban and related feature limits. The ban and feature rules themselves require secondary regulations that had not been verified as laid at the research cutoff."
+    },
+    {
+      "id": "AU-OSA-2021",
+      "name": "Online Safety Act 2021",
+      "official_title": "Online Safety Act 2021 (compilation including later amendments)",
+      "jid": "AU",
+      "jname": "Australia",
+      "year": 2021,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming",
+        "ai_service"
+      ],
+      "source": "https://www.legislation.gov.au/C2021A00076/2026-09-12/2026-09-12/text/original/pdf",
+      "effective": null,
+      "summary": "Australia's principal online safety statute. It confers takedown and investigative powers on the eSafety Commissioner, including 24-hour removal expectations for certain illegal content and a faster clock for serious CSAM cases as described in the source Excel."
+    },
+    {
+      "id": "AU-OSA-2024",
+      "name": "Online Safety Amendment (Social Media Minimum Age) Act 2024",
+      "official_title": "Online Safety Amendment (Social Media Minimum Age) Act 2024",
+      "jid": "AU",
+      "jname": "Australia",
+      "year": 2024,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.legislation.gov.au/C2024A00157/asmade",
+      "effective": "2025-12-10",
+      "summary": "Amendment to the Online Safety Act 2021 requiring age-restricted social media platforms to take reasonable steps to prevent children under 16 from holding accounts. Duties took effect on 10 December 2025. Penalties were later increased by the 2026 Strengthening Enforcement Act."
+    },
+    {
+      "id": "AU-DDOC-2026",
+      "name": "Online Safety Amendment (Digital Duty of Care) Bill 2026",
+      "official_title": "Online Safety Amendment (Digital Duty of Care) Bill 2026 (bill homepage r7553)",
+      "jid": "AU",
+      "jname": "Australia",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming",
+        "ai_service"
+      ],
+      "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553",
+      "effective": null,
+      "summary": "Government bill to amend the Online Safety Act 2021 to replace the industry-code and Basic Online Safety Expectations framework with a statutory digital duty of care and to expand eSafety's powers. The instrument remains a bill. It is not an Act and is not in force."
+    },
+    {
+      "id": "AU-SE-SMMA-2026",
+      "name": "Online Safety Amendment (Strengthening Enforcement for the Social Media Minimum Age) Act 2026",
+      "official_title": "Online Safety Amendment (Strengthening Enforcement for the Social Media Minimum Age) Act 2026 (C2026A00083)",
+      "jid": "AU",
+      "jname": "Australia",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.legislation.gov.au/C2026A00083/asmade/2026-09-11/text/original/pdf",
+      "effective": "2026-09-12",
+      "summary": "2026 amendment that strengthens enforcement of the social media minimum-age obligations, including higher civil penalties and broader eSafety powers to require information and to summon people for examination."
+    },
+    {
+      "id": "SG-PDPA-2012",
+      "name": "Personal Data Protection Act 2012 (child data provisions as cited in the source Excel)",
+      "official_title": "Personal Data Protection Act 2012",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2012,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "other"
+      ],
+      "source": "https://sso.agc.gov.sg/Act/PDPA2012",
+      "effective": null,
+      "summary": "Singapore's general personal data protection statute, cited in the source Excel for its child-data framework."
+    },
+    {
+      "id": "SG-POFMA-2019",
+      "name": "Protection from Online Falsehoods and Manipulation Act 2019",
+      "official_title": "Protection from Online Falsehoods and Manipulation Act 2019",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2019,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://sso.agc.gov.sg/Act/POFMA2019",
+      "effective": null,
+      "summary": "Singapore statute conferring correction and related directions in respect of false statements of fact online."
+    },
+    {
+      "id": "SG-OCHA-2023",
+      "name": "Online Criminal Harms Act 2023",
+      "official_title": "Online Criminal Harms Act 2023",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2023,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://sso.agc.gov.sg/Act/OCHA2023",
+      "effective": null,
+      "summary": "Singapore statute conferring powers to direct online services in relation to specified online criminal harms, including scam and impersonation activity."
+    },
+    {
+      "id": "SG-OSO-2024",
+      "name": "Code of Practice for Online Safety for Social Media Services",
+      "official_title": "IMDA Code of Practice for Online Safety for Social Media Services",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2023,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.imda.gov.sg/-/media/imda/files/regulations-and-licensing/regulations/codes-of-practice/codes-of-practice-media/code-of-practice-for-online-safety-social-media-services.pdf",
+      "effective": null,
+      "summary": "Legally binding IMDA code requiring designated social media services to mitigate specified harmful and egregious content and to meet safety-management duties. IMDA may place services under enhanced supervision for non-compliance."
+    },
+    {
+      "id": "SG-ADS-COP-2025",
+      "name": "Code of Practice for Online Safety for App Distribution Services",
+      "official_title": "IMDA Code of Practice for Online Safety for App Distribution Services",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "app_store"
+      ],
+      "source": "https://www.imda.gov.sg/-/media/imda/files/regulations-and-licensing/regulations/codes-of-practice/code-of-practice-app-distribution-services/code-of-practice-for-online-safety-app-distribution-services.pdf",
+      "effective": "2025-03-31",
+      "summary": "IMDA code requiring app distribution services to implement age-assurance and related child-safety measures for apps likely to be accessed by minors. Official commencement is 31 March 2025."
+    },
+    {
+      "id": "SG-OSRAA-2025",
+      "name": "Online Safety (Relief and Accountability) Act 2025",
+      "official_title": "Online Safety (Relief and Accountability) Act 2025 (Act 23 of 2025)",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "direct_messaging",
+        "other"
+      ],
+      "source": "https://sso.agc.gov.sg/Act/OSRAA2025",
+      "effective": "2026-06-29",
+      "summary": "Singapore statute establishing the Online Safety Commission and a victim-relief scheme, including platform content-removal powers and statutory torts. Phase one operations focus on intimate image abuse, image-based child abuse, doxxing, harassment and stalking. The Act and its 2026 regulations commenced on 29 June 2026."
+    },
+    {
+      "id": "SG-OSRAA-SI-2026",
+      "name": "OSRAA subsidiary regulations 2026 (S 396, S 397, S 400 to S 403, S 411 to S 413)",
+      "official_title": "Online Safety (Relief and Accountability) Regulations 2026 suite, including S 396/2026, S 397/2026, S 400/2026, S 401/2026, S 402/2026, S 403/2026, S 411/2026, S 412/2026 and S 413/2026",
+      "jid": "SG",
+      "jname": "Singapore",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://sso.agc.gov.sg/SL/OSRAA2025-S396-2026?DocDate=20260625&ViewType=Pdf",
+      "effective": "2026-06-29",
+      "summary": "2026 subsidiary legislation under OSRAA covering reports to the Commissioner, prescribed providers, online harm notices, damages in court proceedings, exclusion of liability, service of documents, end-user identity, and reconsideration and appeal. In force 29 June 2026."
+    },
+    {
+      "id": "MY-ONSA-2025",
+      "name": "Online Safety Act 2025 (Act 866)",
+      "official_title": "Online Safety Act 2025 [Act 866]",
+      "jid": "MY",
+      "jname": "Malaysia",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.mcmc.gov.my/en/onsa/under-16",
+      "effective": null,
+      "summary": "Malaysia's principal online safety statute. It underpins licensed social media duties on child protection, risk mitigation and online safety plans, including the statutory minimum-age framework given effect from 1 June 2026."
+    },
+    {
+      "id": "MY-CPC-2026",
+      "name": "Online Safety Act 2025: Child Protection Code",
+      "official_title": "Online Safety Act 2025: Child Protection Code (published 22 May 2026, effective 1 June 2026)",
+      "jid": "MY",
+      "jname": "Malaysia",
+      "year": 2026,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/ONSA-Child-Protection-Code_1.pdf",
+      "effective": "2026-06-01",
+      "summary": "MCMC code under the Online Safety Act 2025 requiring licensed social media services to implement effective age verification so that only users identified as 16 and above may register accounts and access age-appropriate features. In force 1 June 2026."
+    },
+    {
+      "id": "MY-GAMING-SUBCODE-2026",
+      "name": "CMCF draft Gaming Sub-Code (public consultation)",
+      "official_title": "Draft Gaming Sub-Code issued for consultation by the Communications and Multimedia Content Forum of Malaysia",
+      "jid": "MY",
+      "jname": "Malaysia",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "consultation",
+      "services": [
+        "gaming"
+      ],
+      "source": "https://www.businesstoday.com.my/2026/09/09/cmcf-seeks-public-feedback-on-new-gaming-safeguards-for-children-loot-boxes-and-in-game-spending/",
+      "effective": null,
+      "summary": "Public consultation by Malaysia's Communications and Multimedia Content Forum on a proposed Gaming Sub-Code covering age classification and assurance, parental controls, loot boxes and in-game spending, and related child-safety standards. Not verified as adopted at the research cutoff."
+    },
+    {
+      "id": "MY-OSP-REGS-2026",
+      "name": "Online Safety (Online Safety Plan) Regulations 2026, P.U. (A) 244",
+      "official_title": "Online Safety (Online Safety Plan) Regulations 2026 [P.U. (A) 244]",
+      "jid": "MY",
+      "jname": "Malaysia",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "2026 regulations under the Online Safety Act 2025 dealing with Online Safety Plans for licensed providers."
+    },
+    {
+      "id": "MY-RMC-2026",
+      "name": "Online Safety Act 2025: Risk Mitigation Code",
+      "official_title": "Online Safety Act 2025: Risk Mitigation Code (published 22 May 2026, effective 1 June 2026)",
+      "jid": "MY",
+      "jname": "Malaysia",
+      "year": 2026,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/MEDIA-STATEMENT_MCMC-INTRODUCES-NEW-ONLINE-SAFETY-CODES-220526.pdf",
+      "effective": "2026-06-01",
+      "summary": "MCMC code under the Online Safety Act 2025 requiring licensed service providers to implement risk assessments, content moderation, user safety controls and related platform-accountability measures. In force 1 June 2026."
+    },
+    {
+      "id": "ID-PP-17-2025",
+      "name": "Government Regulation No. 17 of 2025 on child protection in electronic systems (PP Tunas)",
+      "official_title": "Peraturan Pemerintah Nomor 17 Tahun 2025 (PP Tunas)",
+      "jid": "ID",
+      "jname": "Indonesia",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming"
+      ],
+      "source": null,
+      "effective": "2026-03-28",
+      "summary": "Indonesian government regulation on electronic-system governance for child protection, commonly called PP Tunas. It underpins the under-16 restriction on designated high-risk platforms and related children's data protections. Implementation was underway from March 2026, with platform examinations and account deactivations reported in monitoring reports."
+    },
+    {
+      "id": "ID-DEC-140-2026",
+      "name": "Decree 140/2026 (technical guidelines for the under-16 ban, as cited in the source Excel)",
+      "official_title": null,
+      "jid": "ID",
+      "jname": "Indonesia",
+      "year": 2026,
+      "status": "effective",
+      "kind": "other",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Instrument cited in the source Excel as a 2026 decree providing technical guidelines for Indonesia's under-16 social media restriction. Official title, number and URL were not independently verified."
+    },
+    {
+      "id": "ID-PERMEN-9-2026",
+      "name": "Ministerial Regulation Komdigi No. 9 of 2026 (implementing PP Tunas)",
+      "official_title": "Peraturan Menteri Komunikasi dan Digital Nomor 9 Tahun 2026",
+      "jid": "ID",
+      "jname": "Indonesia",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming"
+      ],
+      "source": "https://peraturan.bpk.go.id/Details/346040/permenkomdigi-no-9-tahun-2026",
+      "effective": null,
+      "summary": "2026 ministerial regulation implementing PP Tunas, including technical guidelines for the under-16 restriction and related duties such as mandatory self-assessments as described in the source Excel."
+    },
+    {
+      "id": "IN-DPDP-2023",
+      "name": "Digital Personal Data Protection Act 2023 (child provisions and draft rules)",
+      "official_title": "Digital Personal Data Protection Act, 2023",
+      "jid": "IN",
+      "jname": "India",
+      "year": 2023,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "social_media",
+        "gaming",
+        "other"
+      ],
+      "source": "https://www.meity.gov.in/",
+      "effective": null,
+      "summary": "India's general personal data protection statute, cited in the source Excel for its child definition, verifiable parental consent and restrictions on targeted advertising to children, which the Excel described as still tied to draft rules."
+    },
+    {
+      "id": "IN-PROGA-2025",
+      "name": "Promotion and Regulation of Online Gaming Act, 2025",
+      "official_title": "The Promotion and Regulation of Online Gaming Act, 2025 (Act No. 32 of 2025)",
+      "jid": "IN",
+      "jname": "India",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "gaming"
+      ],
+      "source": "https://www.meity.gov.in/static/uploads/2025/10/8a7f103cefc68ed8aaa2ebc9a2ed7c13.pdf",
+      "effective": "2026-05-01",
+      "summary": "Central Act No. 32 of 2025, with President's assent and Gazette notification dated 22 August 2025 and a corrigendum dated 28 August 2025 (the official compilation also records publication in the Gazette, Extraordinary, Part II, Section 1, dated 22 September 2025). By S.O. 1994(E) of 22 April 2026 the Central Government appointed 1 May 2026 as the commencement date of the Act. Section 5 prohibits offering, aiding, abetting, inducing or otherwise engaging in the offering of an online money game or online money gaming service, whether the game is based on skill, chance or both. Sections 6 and 7 prohibit related advertising and the facilitation of payments. Section 8 provides for an Authority. Section 14 provides for blocking of an online money gaming service. E-sports and online social games (which do not involve staking money or other stakes for monetary gain) are recognised rather than prohibited. The companion Rules are coded as IN-PROG-RULES-2026."
+    },
+    {
+      "id": "IN-IT-RULES-2026",
+      "name": "Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Amendment Rules, 2026",
+      "official_title": "IT (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, as amended including G.S.R. 120(E) of 10 February 2026",
+      "jid": "IN",
+      "jname": "India",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "ai_service",
+        "streaming"
+      ],
+      "source": "https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf",
+      "effective": "2026-02-10",
+      "summary": "2026 amendment to India's 2021 intermediary rules introducing a legal definition of synthetically generated information, mandatory labelling of AI-generated content, compressed takedown clocks and related due-diligence duties. Official MeitY text dated 10 February 2026."
+    },
+    {
+      "id": "VN-DECREE-147-2024",
+      "name": "Decree 147/2024/ND-CP on internet services and online information",
+      "official_title": "Decree No. 147/2024/ND-CP",
+      "jid": "VN",
+      "jname": "Vietnam",
+      "year": 2024,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Vietnamese decree imposing user authentication, content-moderation access, 24-hour removal and data-localisation duties on internet services and online information, as recorded in the source Excel."
+    },
+    {
+      "id": "VN-UNDER16-POST-2026",
+      "name": "Vietnam proposal to ban under-16s from posting on social media",
+      "official_title": null,
+      "jid": "VN",
+      "jname": "Vietnam",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "other",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Policy proposal reported in July 2026 to prohibit under-16 users from posting on social media in Vietnam. Not verified as a bill or as enacted law."
+    },
+    {
+      "id": "JP-MIC-GL-2026",
+      "name": "Japan MIC draft guidelines on social media and election misinformation",
+      "official_title": "Draft guidelines of the Ministry of Internal Affairs and Communications on measures by specified social media operators in relation to election-related misinformation (as reported, official title not independently retrieved)",
+      "jid": "JP",
+      "jname": "Japan",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "consultation",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://japantoday.com/category/politics/japan-unveils-draft-social-media-guidelines-to-curb-election-misinformation",
+      "effective": null,
+      "summary": "Draft Japanese ministry guidelines, reported in October 2026, that would require specified social media operators to mitigate election-related misinformation, including monetisation, bot and labelling measures, with annual disclosure. Reported as going to public consultation and not yet formally adopted."
+    },
+    {
+      "id": "KR-YOUTH-2024",
+      "name": "South Korea Youth Protection Act — youth-harmful media restrictions",
+      "official_title": "Youth Protection Act (youth-harmful media provisions) as recorded in the dashboard",
+      "jid": "KR",
+      "jname": "South Korea",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "streaming",
+        "adult_content"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "South Korean youth-protection provisions concerning youth-harmful media, as recorded in the dashboard with status enforced."
+    },
+    {
+      "id": "KR-BILL-2221679-2026",
+      "name": "Proposed amendment on social network age verification and under-14 protections (Bill No. 2221679)",
+      "official_title": "Amendment to the Act on Promotion of Information and Communications Network Utilization and Information Protection, Bill No. 2221679 (as identified in legislative-notice materials)",
+      "jid": "KR",
+      "jname": "South Korea",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2221679/detailRP",
+      "effective": null,
+      "summary": "Proposed Korean amendment that would require qualifying social network providers to verify age, allow under-14 sign-up only with guardian consent, and cap personalised recommendations for under-14s. Not enacted at the research cutoff."
+    },
+    {
+      "id": "CN-PIPL-2021",
+      "name": "China Personal Information Protection Law (PIPL) — minor protection provisions",
+      "official_title": "Personal Information Protection Law of the People's Republic of China (minor-protection provisions)",
+      "jid": "CN",
+      "jname": "China",
+      "year": 2021,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "other"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "China's personal information statute, included from the dashboard for its minor-protection provisions, commonly including under-14 parental-consent rules for personal information processing."
+    },
+    {
+      "id": "BR-ECA-2025",
+      "name": "Digital Statute of the Child and Adolescent (ECA Digital), Law 15.211/2025",
+      "official_title": "Lei nº 15.211, de 17 de setembro de 2025 (Estatuto Digital da Criança e do Adolescente)",
+      "jid": "BR",
+      "jname": "Brazil",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming"
+      ],
+      "source": "https://planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15211.htm",
+      "effective": "2026-03-17",
+      "summary": "Brazilian statute on the protection of children and adolescents in digital environments. It includes robust age verification, guardian-linked accounts for under-16s, a ban on targeted advertising based on profiling of minors, design restrictions such as limits on infinite scroll and autoplay for minors, and a strict ban on loot boxes in games accessible to minors, as described in the source Excel and official explainers."
+    },
+    {
+      "id": "BR-DEC-12880-2026",
+      "name": "Decree No. 12.880 of 18 March 2026 (regulating the ECA Digital)",
+      "official_title": "Decreto nº 12.880, de 18 de março de 2026",
+      "jid": "BR",
+      "jname": "Brazil",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming"
+      ],
+      "source": "https://planalto.gov.br/ccivil_03/_ato2023-2026/2026/decreto/d12880.htm",
+      "effective": "2026-03-18",
+      "summary": "Presidential decree regulating the Digital Statute of the Child and Adolescent."
+    },
+    {
+      "id": "AE-FD-26-2025",
+      "name": "Federal Decree-Law No. 26 of 2025 on Child Digital Safety",
+      "official_title": "Federal Decree-Law No. 26 of 2025 on Child Digital Safety",
+      "jid": "AE",
+      "jname": "United Arab Emirates",
+      "year": 2025,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "social_media",
+        "other"
+      ],
+      "source": "https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety",
+      "effective": "2026-01-01",
+      "summary": "UAE federal decree-law on child digital safety, recorded in the source Excel as taking effect in January 2026 with a one-year grace period (full enforcement January 2027), including under-13 data bans, a targeted-advertising prohibition, privacy-by-default and a legal definition of virtual worlds."
+    },
+    {
+      "id": "AE-CR-106-2026",
+      "name": "Cabinet Resolution No. 106 of 2026 on children's access to social media platforms",
+      "official_title": "Cabinet Resolution Regarding the Regulation of Children's Access to Social Media Platforms (Cabinet Resolution / Cabinet Decision No. 106 of 2026)",
+      "jid": "AE",
+      "jname": "United Arab Emirates",
+      "year": 2026,
+      "status": "implementation_period",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://uaelegislation.gov.ae/en/legislations/4506",
+      "effective": "2026-06-30",
+      "summary": "UAE Cabinet resolution regulating children's access to social media platforms. It prohibits children under 15 from creating, using or operating personal social media accounts and requires platforms to apply reliable age verification. Parental consent does not exempt a child from the under-15 prohibition, as recorded in official materials and the source Excel. A 12-month transition was recorded in the Excel."
+    },
+    {
+      "id": "MX-EDS-2026",
+      "name": "Decree on safe digital environments for children and adolescents",
+      "official_title": "DECRETO de entornos digitales seguros para niñas, niños y adolescentes",
+      "jid": "MX",
+      "jname": "Mexico",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming",
+        "ai_service"
+      ],
+      "source": "https://sidof.segob.gob.mx/notas/docFuente/5801237",
+      "effective": "2026-10-14",
+      "summary": "Presidential decree published in the Diario Oficial de la Federacion on 14 October 2026, evening edition, publication 282/2026, SIDOF note 5801237, and in force the same day. Founded on LGDNNA articles 101 Bis 2 and 101 Bis 3. Article 3 prohibits digital platforms from allowing children and adolescents access, exposure or recommendation of specified harmful content (cyber-bullying, sexual abuse or exploitation, hate and mass violence, incitement, pornography and explicit sexual material, and suicide, self-harm and eating disorders). Article 4 requires reliable age-identification mechanisms that must not be limited to self-declaration, published takedown and age-classification criteria, immediate removal of Article 3 accounts or content, accessible reporting tools, parental-supervision mechanisms, safety by design, strict privacy and safety defaults for new accounts, and periodic risk assessments plus statistical reports to competent authorities. Article 5 requires a 24/7 justice-authority contact point, preservation of digital evidence for at least 90 business days after a removal, and immediate alerts to national authorities in specified cases. Transitory Article 4 required platforms to document and report the actions taken to comply within a maximum of 30 calendar days from entry into force (that is, by 13 November 2026). Transitory Article 3 instructs the Legal Counsel of the Federal Executive to install a working group to prepare regulatory proposals."
+    },
+    {
+      "id": "GR-5350-2026",
+      "name": "Law 5350/2026 prohibiting use of online social networking services by minors under 15",
+      "official_title": "Νόμος 5350/2026 «Απαγόρευση χρήσης επιγραμμικών υπηρεσιών κοινωνικής δικτύωσης από ανηλίκους» (FEK A’ 177/26.10.2026)",
+      "jid": "GR",
+      "jname": "Greece",
+      "year": 2026,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.hellenicparliament.gr/nomothetiko-ergo/psifisthenta-nomoschedia?law_id=97e0885f-30fe-45f3-bbe9-b4de0151a84f",
+      "effective": "2027-01-01",
+      "summary": "Greek statute adding a new Article 4A to Law 5099/2024 that prohibits access to online social networking services provided by online platforms for children who have not completed their 15th year. The prohibition takes effect on 1 January 2027 and would automatically cease if an EU regulation covers the same issue."
+    },
+    {
+      "id": "CA-C34-2026",
+      "name": "Bill C-34, the Safe Social Media Act",
+      "official_title": "An Act to enact the Digital Safety Act and the Digital Safety Commission of Canada Act and to make consequential amendments to other Acts (short title: Safe Social Media Act)",
+      "jid": "CA",
+      "jname": "Canada",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "social_media",
+        "ai_service"
+      ],
+      "source": "https://www.parl.ca/legisinfo/en/bill/45-1/c-34",
+      "effective": null,
+      "summary": "Government House bill C-34 of the 45th Parliament, first session, sponsored by the Minister of Canadian Identity and Culture. Official LEGISinfo records first reading on 10 June 2026 and second reading and referral to the Standing Committee on Canadian Heritage on 29 October 2026. The committee was still considering the bill in November 2026 (meetings on 17 and 19 November, with later meetings also listed in unofficial trackers). The official Government of Canada fact sheet states that the bill would apply to certain social media services and AI chatbot services, impose a Duty to Protect Children (including a minimum age of 16 for certain social media accounts, supported by age-verification or age-estimation, with a Commission exemption pathway, and an age threshold of 18 for pornographic content), require privacy-protective age assurance, and create a Digital Safety Commission able to issue compliance orders and administrative monetary penalties of up to 3% of gross global revenue or 10 million dollars, whichever is higher. Not enacted."
+    },
+    {
+      "id": "FR-SMA-2023",
+      "name": "France Social Media Age Verification Law (SREN / related measures)",
+      "official_title": "French social media age-verification law as recorded in the dashboard (SREN Bill / subsequent measures)",
+      "jid": "FR",
+      "jname": "France",
+      "year": 2024,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "French age-verification / social media minors-protection measures as recorded in the dashboard. Details and any 2026 amendment requested by the EU were not independently re-verified against the official journal in this update."
+    },
+    {
+      "id": "US-COPPA-RULE-2025",
+      "name": "Children's Online Privacy Protection Rule (2025 amendments, 2026 compliance date)",
+      "official_title": "FTC Children's Online Privacy Protection Rule, as amended (90 Fed. Reg., 22 April 2025)",
+      "jid": "US",
+      "jname": "United States (Federal)",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming",
+        "other"
+      ],
+      "source": "https://www.govinfo.gov/content/pkg/FR-2025-04-22/html/2025-05904.htm",
+      "effective": "2025-06-23",
+      "summary": "Amended US federal COPPA Rule expanding the definition of personal information and updating parental-consent, security and related duties. Effective 23 June 2025, with a general compliance date of 22 April 2026."
+    },
+    {
+      "id": "US-HR-7757-2026",
+      "name": "KIDS Act (H.R. 7757)",
+      "official_title": "H.R. 7757, 119th Congress, KIDS Act",
+      "jid": "US",
+      "jname": "United States (Federal)",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "bill",
+      "services": [
+        "social_media",
+        "gaming",
+        "ai_service",
+        "adult_content"
+      ],
+      "source": "https://www.congress.gov/bill/119th-congress/house-bill/7757",
+      "effective": null,
+      "summary": "US House omnibus child-online-safety bill, passed by the House on 29 June 2026 and referred to the Senate Commerce Committee on 13 July 2026. The source Excel described it as combining measures including COPPA 2.0, the SCREEN Act, the SPY KIDS Act, the SAFE Bots Act and the Safer GAMING Act. It is not enacted."
+    },
+    {
+      "id": "US-CA-AB-2273",
+      "name": "California Age-Appropriate Design Code Act (A.B. 2273)",
+      "official_title": "California Age-Appropriate Design Code Act, A.B. 2273 (2022)",
+      "jid": "US-CA",
+      "jname": "United States - California",
+      "year": 2022,
+      "status": "challenged",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming",
+        "streaming"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "California statute requiring businesses that provide online services likely to be accessed by children to complete impact assessments and apply age-appropriate design, high-privacy defaults and data-minimisation. Litigation has limited or delayed parts of the Act. The source Excel records a March 2026 Ninth Circuit decision restoring some duties and leaving others blocked."
+    },
+    {
+      "id": "US-CA-2025-PACKAGE",
+      "name": "California 2025 online safety and AI statutes package (as cited in the source Excel)",
+      "official_title": "California 2025 package cited in the source Excel, including A.B. 1043, A.B. 56, A.B. 621, A.B. 656 and specified 2025 AI bills",
+      "jid": "US-CA",
+      "jname": "United States - California",
+      "year": 2025,
+      "status": "effective",
+      "kind": "enacted",
+      "services": [
+        "social_media",
+        "ai_service",
+        "app_store"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Residual California 2025 online-safety and AI statutes that were cited as a package in the June 2026 Excel, after S.B. 243 (companion chatbots) and A.B. 1043 (Digital Age Assurance Act) were split into their own rows in this update. The residual package, as cited in the Excel, still includes A.B. 56 (health warning labels), A.B. 621 (deepfake remedies), A.B. 656 (account cancellation) and other 2025 AI-transparency or accountability bills named there (A.B. 316, A.B. 489, A.B. 853, S.B. 53, S.B. 524, A.B. 979). Those residual instruments were not each re-verified against official chapter texts in this update."
+    },
+    {
+      "id": "US-TX-HB-18",
+      "name": "Texas SCOPE Act (H.B. 18)",
+      "official_title": "Texas Securing Children Online through Parental Empowerment Act, H.B. 18 (2023)",
+      "jid": "US-TX",
+      "jname": "United States - Texas",
+      "year": 2023,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Texas statute requiring age registration, parental consent and parental supervision tools for minors on covered digital services."
+    },
+    {
+      "id": "US-TX-SB-2420",
+      "name": "Texas App Store Accountability Act (S.B. 2420, 2025)",
+      "official_title": "Texas App Store Accountability Act, S.B. 2420 (2025)",
+      "jid": "US-TX",
+      "jname": "United States - Texas",
+      "year": 2025,
+      "status": "challenged",
+      "kind": "in force",
+      "services": [
+        "app_store",
+        "os_provider"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Texas statute requiring app-store age verification and affiliation of minors' accounts with parents. After a district-court injunction, the Fifth Circuit allowed the law to take effect in June 2026. A July 2026 monitoring report recorded that the US Supreme Court declined to block it. Official docket confirmation was not re-fetched in this update."
+    },
+    {
+      "id": "US-FL-HB-3",
+      "name": "Florida HB 3 — Social Media Use by Minors",
+      "official_title": "Florida Committee/CS/HB 3 (2025) as cited in the source Excel and dashboard",
+      "jid": "US-FL",
+      "jname": "United States - Florida",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Florida statute recorded as banning under-13 use of covered social media, requiring parental consent for 14-15 year-olds, and targeting addictive design features. The source Excel records that the Eleventh Circuit allowed the law to be enforced from November 2025."
+    },
+    {
+      "id": "US-NY-CDPA-2023",
+      "name": "New York Child Data Protection Act (S.7695B, 2023)",
+      "official_title": "New York Child Data Protection Act, S.7695B (2023)",
+      "jid": "US-NY",
+      "jname": "United States - New York",
+      "year": 2023,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "New York statute recorded in the source Excel as requiring data minimisation for under-18s."
+    },
+    {
+      "id": "US-NY-SAFE-2024",
+      "name": "New York SAFE for Kids Act (S.7694A, 2024)",
+      "official_title": "New York SAFE for Kids Act, S.7694A (2024)",
+      "jid": "US-NY",
+      "jname": "United States - New York",
+      "year": 2024,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.governor.ny.gov/news/governor-hochul-and-attorney-general-james-announce-final-safe-kids-act-rules-protect-children",
+      "effective": "2027-01-25",
+      "summary": "New York Stop Addictive Feeds Exploitation (SAFE) for Kids Act (S.7694A, 2024). It requires social media companies to restrict algorithmically personalised feeds and nighttime notifications for users under 18 unless they obtain parental consent. Official Governor and Attorney General announcement of 28 July 2026: final rules were released that day and were to be published in the State Register on 29 July 2026, with the Act going into effect 180 days later, on 25 January 2027. The rules set criteria for which platforms are in scope and standards for determining age and obtaining parental consent. Duties are not yet operative."
+    },
+    {
+      "id": "US-NY-GOV-PKG-2026",
+      "name": "New York Governor's January 2026 gaming and child-safety package (as cited in the source Excel)",
+      "official_title": null,
+      "jid": "US-NY",
+      "jname": "United States - New York",
+      "year": 2026,
+      "status": "proposed",
+      "kind": "other",
+      "services": [
+        "gaming"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "New York Governor's January 2026 gaming and child-safety package, as cited in the June 2026 Excel (loot-box ban, parental controls and stranger-messaging blocks). Independent official confirmation that this package was enacted in the 2026 legislative session as a single instrument, or as a set of named chapter laws matching that description, was not obtained in this update."
+    },
+    {
+      "id": "US-AR-SB396-2023",
+      "name": "Arkansas Social Media Safety Act (S.B. 396, 2023)",
+      "official_title": "Arkansas Social Media Safety Act, S.B. 396 (2023)",
+      "jid": "US-AR",
+      "jname": "United States - Arkansas",
+      "year": 2023,
+      "status": "enjoined",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Arkansas statute on age verification and parental consent for social media, recorded in the source Excel as enjoined."
+    },
+    {
+      "id": "US-AR-HB1717-2025",
+      "name": "Arkansas Children and Teens' Online Privacy Protection Act (HB 1717, 2025)",
+      "official_title": "Arkansas Children and Teens' Online Privacy Protection Act, HB 1717 (2025)",
+      "jid": "US-AR",
+      "jname": "United States - Arkansas",
+      "year": 2025,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Arkansas statute recorded in the source Excel as banning targeted advertising to minors and imposing data-minimisation duties, and as being in force."
+    },
+    {
+      "id": "US-MD-AADC-2024",
+      "name": "Maryland Age-Appropriate Design Code Act (2024)",
+      "official_title": "Maryland Age-Appropriate Design Code Act (2024)",
+      "jid": "US-MD",
+      "jname": "United States - Maryland",
+      "year": 2024,
+      "status": "challenged",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Maryland age-appropriate design statute, recorded in the source Excel as facing legal challenges."
+    },
+    {
+      "id": "US-VT-AADC-2025",
+      "name": "Vermont Age-Appropriate Design Code (2025)",
+      "official_title": "Vermont Age-Appropriate Design Code (2025)",
+      "jid": "US-VT",
+      "jname": "United States - Vermont",
+      "year": 2025,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": "2027-01-01",
+      "summary": "Vermont age-appropriate design statute, recorded in the source Excel as requiring privacy by default, age verification and a duty of care, effective 1 January 2027."
+    },
+    {
+      "id": "US-NE-LB383-2025",
+      "name": "Nebraska Parental Rights in Social Media Act (LB 383, 2025)",
+      "official_title": "Nebraska Parental Rights in Social Media Act, LB 383 (2025)",
+      "jid": "US-NE",
+      "jname": "United States - Nebraska",
+      "year": 2025,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": "2026-07-01",
+      "summary": "Nebraska statute recorded in the source Excel as requiring age verification and parental consent, effective 1 July 2026."
+    },
+    {
+      "id": "US-NE-LB504-2025",
+      "name": "Nebraska Age-Appropriate Online Design Code Act (LB 504, 2025)",
+      "official_title": "Nebraska Age-Appropriate Online Design Code Act, LB 504 (2025)",
+      "jid": "US-NE",
+      "jname": "United States - Nebraska",
+      "year": 2025,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": "2026-07-01",
+      "summary": "Nebraska design-code statute recorded in the source Excel as addressing compulsive use, effective 1 July 2026."
+    },
+    {
+      "id": "US-UT-SMA-2024",
+      "name": "Utah Social Media Regulation Act (SB 152 and HB 311)",
+      "official_title": "Utah Social Media Regulation Act",
+      "jid": "US-UT",
+      "jname": "United States - Utah",
+      "year": 2023,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": null,
+      "effective": null,
+      "summary": "Utah statutes regulating social media use by minors, included from the dashboard dataset. Details were not re-verified against the official code in this update."
+    },
+    {
+      "id": "TR-LAW-7578-2026",
+      "name": "Law No. 7578 amending Law 5651 (under-15 social media ban and game-platform duties)",
+      "official_title": "Sosyal Hizmetler Kanunu ve Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun (Kanun No. 7578)",
+      "jid": "TR",
+      "jname": "Turkey",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "gaming"
+      ],
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.7578.htm",
+      "effective": "2026-11-01",
+      "summary": "Omnibus Law No. 7578, accepted 22 April 2026 and published in the Official Gazette on 1 May 2026 (No. 33240). Articles 22 and 23 amend Law 5651. Social network providers may not serve children who have not completed the age of 15 and must take measures including age verification. They must offer segregated services and usable parental-control tools for children who have completed 15. Article 23 adds Ek Madde 5 on game platforms (rating, parental controls and, for foreign platforms with daily access above 100,000, a local representative). Articles 22 and 23 entered into force six months after publication, on 1 November 2026."
+    },
+    {
+      "id": "TR-YON-SAS-2026",
+      "name": "Regulation on child-specific segregated social network services and age verification",
+      "official_title": "Sosyal Ağ Sağlayıcı Tarafından Çocuklara Özgü Ayrıştırılmış Hizmet Sunulmasına ve Yaş Doğrulamaya İlişkin Yönetmelik",
+      "jid": "TR",
+      "jname": "Turkey",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46333.pdf",
+      "effective": "2026-11-01",
+      "summary": "Implementing regulation published in the Official Gazette on 10 October 2026 (No. 33396) and in force on 1 November 2026 (Article 13). Social network providers accessible from Turkey may not serve children who have not completed 15. Age must be verified at account creation through an e-Devlet age-verification token that indicates only whether the user has completed 15 and, if so, whether the user has completed 18. Children who have completed 15 receive a segregated service. Existing accounts without a token must be verified at least once by 31 March 2027. Under-15 existing accounts are closed after notice. Executed by the President of Cybersecurity."
+    },
+    {
+      "id": "IN-PROG-RULES-2026",
+      "name": "Promotion and Regulation of Online Gaming Rules, 2026",
+      "official_title": "Promotion and Regulation of Online Gaming Rules, 2026 (G.S.R. 303(E))",
+      "jid": "IN",
+      "jname": "India",
+      "year": 2026,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "gaming"
+      ],
+      "source": "https://www.meity.gov.in/static/uploads/2026/04/7e0b02d37fd07f81fa48578a9996aa85.pdf",
+      "effective": "2026-05-01",
+      "summary": "Central rules made under sections 8(4) and 19 of the Promotion and Regulation of Online Gaming Act, 2025 (32 of 2025). Gazette notification G.S.R. 303(E) dated 22 April 2026, in force on 1 May 2026. They establish procedures for the Online Gaming Authority of India, determination of whether a game is an online money game, registration of e-sports and online social games, grievance redress, and related compliance. User safety features are defined to include age verification or age gating, time restrictions, parental controls, reporting and grievance mechanisms, counselling support and fair-play tools, as appropriate to the risk of the game."
+    },
+    {
+      "id": "US-TAKEITDOWN-2025",
+      "name": "TAKE IT DOWN Act (Public Law 119-12)",
+      "official_title": "Tools to Address Known Exploitation by Immobilizing Technological Deepfakes on Websites and Networks Act",
+      "jid": "US",
+      "jname": "United States (Federal)",
+      "year": 2025,
+      "status": "enforced",
+      "kind": "in force",
+      "services": [
+        "social_media",
+        "ai_service",
+        "other"
+      ],
+      "source": "https://www.congress.gov/119/plaws/publ12/PLAW-119publ12.htm",
+      "effective": "2025-05-19",
+      "summary": "Federal statute enacted as Public Law 119-12 and approved on 19 May 2025. It amends Communications Act section 223 to create criminal offences for the intentional publication of nonconsensual intimate visual depictions, including digital forgeries, of adults and of minors. Covered platforms must, not later than one year after enactment (19 May 2026), establish a notice-and-removal process. After a valid request they must remove the depiction as soon as possible and not later than 48 hours, and make reasonable efforts to remove known identical copies. The Federal Trade Commission enforces the platform duties as an unfair or deceptive act or practice."
+    },
+    {
+      "id": "US-CA-SB243-2025",
+      "name": "California Companion Chatbots Act (S.B. 243)",
+      "official_title": "An act to add Chapter 22.6 (commencing with Section 22601) to Division 8 of the Business and Professions Code, relating to artificial intelligence (SB 243, Chapter 677, Statutes of 2025)",
+      "jid": "US-CA",
+      "jname": "United States - California",
+      "year": 2025,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "ai_service"
+      ],
+      "source": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243",
+      "effective": "2026-01-01",
+      "summary": "Chaptered on 13 October 2025 as Chapter 677 of the Statutes of 2025, adding Business and Professions Code sections 22601 to 22606. Effective 1 January 2026. Operators of companion chatbot platforms must issue a clear notice where a reasonable person would be misled that the chatbot is human, maintain a protocol to prevent suicidal ideation or self-harm content (including a crisis-service referral) and publish that protocol. For a user the operator knows is a minor, the operator must disclose that the user is interacting with AI, give a default break reminder at least every three hours, and take reasonable measures to prevent visually explicit sexual material or direct statements that the minor should engage in sexually explicit conduct. Annual reporting to the Office of Suicide Prevention begins 1 July 2027. A private civil action is authorised for a person who suffers injury in fact."
+    },
+    {
+      "id": "US-CA-AB1043-2025",
+      "name": "California Digital Age Assurance Act (A.B. 1043)",
+      "official_title": "Digital Age Assurance Act (Title 1.81.9, Civil Code sections 1798.500 to 1798.505, added by AB 1043, Chapter 675, Statutes of 2025)",
+      "jid": "US-CA",
+      "jname": "United States - California",
+      "year": 2025,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "other",
+        "social_media",
+        "gaming",
+        "ai_service"
+      ],
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.9.&part=4.",
+      "effective": "2027-01-01",
+      "summary": "Chaptered on 13 October 2025 as Chapter 675 of the Statutes of 2025. The title is effective 1 January 2026 and operative 1 January 2027 (section 1798.505). Operating system providers must, at account setup, collect the user's birth date or age and provide developers with a real-time age-bracket signal (under 13, 13 to under 16, 16 to under 18, and 18 or over). Developers must request the signal when an application is downloaded and launched and must treat it as the primary age indicator unless they have clear and convincing internal information to the contrary. Civil penalties may be recovered only by the Attorney General, at up to 2,500 dollars per affected child for a negligent violation and 7,500 dollars for an intentional violation."
+    },
+    {
+      "id": "US-NY-GBL47-2025",
+      "name": "New York AI Companion Models Law (General Business Law Article 47)",
+      "official_title": "General Business Law Article 47, Artificial Intelligence Companion Models (sections 1700 and following)",
+      "jid": "US-NY",
+      "jname": "United States - New York",
+      "year": 2025,
+      "status": "effective",
+      "kind": "in force",
+      "services": [
+        "ai_service"
+      ],
+      "source": "https://www.governor.ny.gov/news/governor-hochul-pens-letter-ai-companion-companies-notifying-them-safeguard-requirements-are",
+      "effective": "2025-11-05",
+      "summary": "New York enacted AI companion safeguards as General Business Law Article 47 as part of the FY 2026 State Budget. The official Governor's notice dated 10 November 2025 states that the duties took effect on 5 November 2025. Operators must take reasonable efforts to detect and address suicidal ideation or self-harm, including a referral to crisis services such as the 9-8-8 line, and must give a clear notice at the start of an interaction (not required more than once per day) and at least every three hours of continued use that the user is not communicating with a human. The Attorney General enforces the law."
+    },
+    {
+      "id": "US-NY-WARN-2025",
+      "name": "New York Social Media Warning Labels Law (S.4505 / A.5346)",
+      "official_title": "Legislation S4505/A5346 requiring social media platforms with specified features to display warning labels",
+      "jid": "US-NY",
+      "jname": "United States - New York",
+      "year": 2025,
+      "status": "enacted",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.governor.ny.gov/news/governor-hochul-signs-legislation-require-warning-labels-social-media-platforms",
+      "effective": null,
+      "summary": "The Governor of New York announced on 26 December 2025 that she had negotiated a chapter amendment and signed S4505/A5346. Under that announcement, social media platforms that offer addictive feeds, auto play or infinite scroll must display warning labels about the mental-health impact of those features on young users, including when a young user first uses the feature and periodically thereafter, and the warnings may not be bypassed or clicked through."
+    },
+    {
+      "id": "US-MN-CH111-2026",
+      "name": "Minnesota Stop Harms from Addictive Social Media law (Chapter 111, 2026)",
+      "official_title": "H.F. No. 4138, Chapter 111, 2026 Regular Session, adding Minnesota Statutes section 325M.40 and amending section 325M.33",
+      "jid": "US-MN",
+      "jname": "United States - Minnesota",
+      "year": 2026,
+      "status": "implementation_period",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://www.revisor.mn.gov/laws/2026/0/111/",
+      "effective": "2027-07-01",
+      "summary": "Minnesota Session Laws 2026, Chapter 111 (H.F. 4138), presented to the Governor on 20 May 2026 and signed on 26 May 2026. It adds section 325M.40, Stop Harms from Addictive Social Media, and amends the existing social media transparency section 325M.33 to require an explanation of the age-estimation process. The new and amended sections are effective 1 July 2027, and section 325M.40 applies to accounts created before, on or after that date. The official chapter text includes age-estimation, birth-month and year collection, and verifiable parental consent duties for accounts of children aged 15 or younger, plus enforcement including attorney-general authority and a private damages pathway for reckless or knowing violations."
+    },
+    {
+      "id": "US-VA-59.1-577.1",
+      "name": "Virginia social media platform duties relating to minors (2025, c. 703)",
+      "official_title": "Code of Virginia section 59.1-577.1, Social media platforms; responsibilities and prohibitions related to minors (2025, c. 703)",
+      "jid": "US-VA",
+      "jname": "United States - Virginia",
+      "year": 2025,
+      "status": "effective",
+      "kind": "enacted",
+      "services": [
+        "social_media"
+      ],
+      "source": "https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577.1/",
+      "effective": null,
+      "summary": "Virginia Code section 59.1-577.1, added by 2025 Acts of Assembly chapter 703. A controller or processor that operates a social media platform must use commercially reasonable methods, such as a neutral age screen, to determine whether a user is a minor (under 16) and must limit a minor's use to one hour per day per service or application, unless a parent gives verifiable parental consent to change the limit. Age-determination data may not be used for other purposes. The official section text does not itself recite a commencement day, and this row does not invent one."
+    }
+  ],
+  "milestones": [
+    {
+      "rid": "EU-DSA-2022",
+      "type": "effective",
+      "date": "2024-02-17",
+      "desc": "DSA generally applicable across the Union.",
+      "source": "https://eur-lex.europa.eu/eli/reg/2022/2065/oj"
+    },
+    {
+      "rid": "EU-AIA-2024",
+      "type": "signed",
+      "date": "2024-06-13",
+      "desc": "AI Act published in the Official Journal as Regulation (EU) 2024/1689 (date as commonly cited, confirm against OJ if relied on for a legal deadline).",
+      "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "rid": "EU-CSAM-DIR-2026",
+      "type": "proposed",
+      "date": "2026-06-23",
+      "desc": "Political agreement reported (date as in the source Excel). Formal adoption not verified.",
+      "source": "https://www.europarl.europa.eu/news/de/press-room/20260622IPR45906/combating-child-sexual-abuse-agreement-on-updated-rules"
+    },
+    {
+      "rid": "EU-DFA-2026",
+      "type": "introduced",
+      "date": "2026-11-11",
+      "desc": "European Commission adopted the Digital Fairness Act proposal.",
+      "source": "https://commission.europa.eu/news-and-media/news/making-your-online-experience-fairer-2026-11-11_en"
+    },
+    {
+      "rid": "EU-KIDS-2026",
+      "type": "introduced",
+      "date": "2026-09-17",
+      "desc": "European Commission adopted COM(2026) 681 final and transmitted it to the Council and the European Parliament.",
+      "source": "https://commission.europa.eu/news-and-media/news/eu-kids-act-helping-children-navigate-safer-online-world-2026-09-17_en"
+    },
+    {
+      "rid": "UK-OSA-2023",
+      "type": "signed",
+      "date": "2023-10-26",
+      "desc": "Received Royal Assent.",
+      "source": "https://www.legislation.gov.uk/ukpga/2023/50/contents"
+    },
+    {
+      "rid": "UK-OSA-2023",
+      "type": "effective",
+      "date": "2024-03-16",
+      "desc": "First wave of duties came into force (dashboard milestone).",
+      "source": null
+    },
+    {
+      "rid": "UK-OSA-2023",
+      "type": "enforced",
+      "date": "2025-01-16",
+      "desc": "Dashboard records Ofcom beginning enforcement of children's safety duties on this date.",
+      "source": null
+    },
+    {
+      "rid": "UK-OSA-2023",
+      "type": "effective",
+      "date": "2026-04-01",
+      "desc": "Source Excel records mandatory CSEA reporting to the NCA as entering into force in April 2026. Day-level official commencement was not re-derived in this update.",
+      "source": null
+    },
+    {
+      "rid": "UK-CWSA-2026",
+      "type": "signed",
+      "date": null,
+      "desc": "The Act is published on legislation.gov.uk as UK Public General Act 2026 c. 21. The precise Royal Assent date was not copied into this cell pending a contents-page check.",
+      "source": "https://www.legislation.gov.uk/ukpga/2026/21"
+    },
+    {
+      "rid": "UK-CWSA-2026",
+      "type": "proposed",
+      "date": "2026-06-15",
+      "desc": "Source Excel records a government announcement of an under-16 social media ban on 15 June 2026, to be implemented via this Act and later regulations.",
+      "source": "https://www.gov.uk/government/news/social-media-to-be-banned-for-under-16s-in-landmark-government-move-to-givekids-their-childhood-back"
+    },
+    {
+      "rid": "AU-OSA-2024",
+      "type": "introduced",
+      "date": "2024-09-09",
+      "desc": "Bill introduced (dashboard milestone).",
+      "source": null
+    },
+    {
+      "rid": "AU-OSA-2024",
+      "type": "passed",
+      "date": "2024-11-29",
+      "desc": "Passed both houses (dashboard milestone).",
+      "source": null
+    },
+    {
+      "rid": "AU-OSA-2024",
+      "type": "signed",
+      "date": "2024-12-10",
+      "desc": "Received Royal Assent.",
+      "source": "https://www.legislation.gov.au/C2024A00157/asmade"
+    },
+    {
+      "rid": "AU-OSA-2024",
+      "type": "effective",
+      "date": "2025-12-10",
+      "desc": "Day of effect of the social media minimum age obligation (section 63D), specified by official instrument F2025N00628.",
+      "source": "https://www.legislation.gov.au/F2025N00628/asmade/2025-07-30/text/original/pdf"
+    },
+    {
+      "rid": "AU-DDOC-2026",
+      "type": "introduced",
+      "date": "2026-10-15",
+      "desc": "Introduced and read a first time in the House of Representatives. Second reading moved the same day.",
+      "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553"
+    },
+    {
+      "rid": "AU-DDOC-2026",
+      "type": "committee_review",
+      "date": "2026-11-20",
+      "desc": "Senate Environment and Communications Legislation Committee report (referred 15 October 2026).",
+      "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553"
+    },
+    {
+      "rid": "AU-DDOC-2026",
+      "type": "passed",
+      "date": "2026-10-28",
+      "desc": "House of Representatives third reading agreed, with 15 Government and 8 Crossbench amendments. This is not final passage of the bill as a whole.",
+      "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553"
+    },
+    {
+      "rid": "AU-DDOC-2026",
+      "type": "introduced",
+      "date": "2026-11-16",
+      "desc": "Introduced and read a first time in the Senate. Second reading moved the same day.",
+      "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553"
+    },
+    {
+      "rid": "AU-DDOC-2026",
+      "type": "committee_review",
+      "date": "2026-11-24",
+      "desc": "Senate second reading agreed and Committee of the Whole debate held. Official status field still Before Senate.",
+      "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553"
+    },
+    {
+      "rid": "AU-SE-SMMA-2026",
+      "type": "signed",
+      "date": "2026-09-11",
+      "desc": "Royal Assent. Act No. 83 of 2026.",
+      "source": "https://www.legislation.gov.au/C2026A00083/asmade/2026-09-11/text/original/pdf"
+    },
+    {
+      "rid": "AU-SE-SMMA-2026",
+      "type": "effective",
+      "date": "2026-09-12",
+      "desc": "Commenced 12 September 2026.",
+      "source": "https://www.legislation.gov.au/C2026A00083/asmade/2026-09-11/text/original/pdf"
+    },
+    {
+      "rid": "SG-ADS-COP-2025",
+      "type": "effective",
+      "date": "2025-03-31",
+      "desc": "Official commencement of the IMDA App Distribution Services Code.",
+      "source": "https://www.imda.gov.sg/-/media/imda/files/regulations-and-licensing/regulations/codes-of-practice/code-of-practice-app-distribution-services/code-of-practice-for-online-safety-app-distribution-services.pdf"
+    },
+    {
+      "rid": "SG-OSRAA-2025",
+      "type": "passed",
+      "date": "2025-11-05",
+      "desc": "Passed by Parliament (Act 23 of 2025).",
+      "source": "https://sso.agc.gov.sg/Act/OSRAA2025"
+    },
+    {
+      "rid": "SG-OSRAA-2025",
+      "type": "effective",
+      "date": "2026-06-29",
+      "desc": "First commencement, including the Online Safety Commission and the 2026 subsidiary regulations.",
+      "source": "https://sso.agc.gov.sg/SL/OSRAA2025-S396-2026?DocDate=20260625&ViewType=Pdf"
+    },
+    {
+      "rid": "SG-OSRAA-SI-2026",
+      "type": "effective",
+      "date": "2026-06-29",
+      "desc": "The 2026 OSRAA regulations came into operation.",
+      "source": "https://sso.agc.gov.sg/SL/OSRAA2025-S396-2026?DocDate=20260625&ViewType=Pdf"
+    },
+    {
+      "rid": "MY-ONSA-2025",
+      "type": "signed",
+      "date": "2025-05-06",
+      "desc": "Royal Assent. Gazetted 22 May 2025.",
+      "source": null
+    },
+    {
+      "rid": "MY-ONSA-2025",
+      "type": "effective",
+      "date": "2026-01-01",
+      "desc": "Online Safety (Period) Regulations 2025, P.U. (A) 465, in force 1 January 2026.",
+      "source": null
+    },
+    {
+      "rid": "MY-CPC-2026",
+      "type": "effective",
+      "date": "2026-05-22",
+      "desc": "Code published by MCMC.",
+      "source": "https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/ONSA-Child-Protection-Code_1.pdf"
+    },
+    {
+      "rid": "MY-CPC-2026",
+      "type": "effective",
+      "date": "2026-06-01",
+      "desc": "Code came into force. MCMC media statement of 1 June 2026.",
+      "source": "https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/MEDIA-STATEMENT_CHILD_PROTECTION_CODE_AGE_VERIFICATION_20260601_1303HRS.pdf"
+    },
+    {
+      "rid": "MY-GAMING-SUBCODE-2026",
+      "type": "proposed",
+      "date": "2026-09-09",
+      "desc": "Monitoring report records the opening of a 45-day public consultation, to close on 24 October 2026.",
+      "source": "https://www.businesstoday.com.my/2026/09/09/cmcf-seeks-public-feedback-on-new-gaming-safeguards-for-children-loot-boxes-and-in-game-spending/"
+    },
+    {
+      "rid": "MY-RMC-2026",
+      "type": "effective",
+      "date": "2026-06-01",
+      "desc": "Code came into force.",
+      "source": "https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/MEDIA-STATEMENT_MCMC-INTRODUCES-NEW-ONLINE-SAFETY-CODES-220526.pdf"
+    },
+    {
+      "rid": "ID-PP-17-2025",
+      "type": "effective",
+      "date": "2026-03-28",
+      "desc": "Official government statements cited in a prior official-document pack describe under-16 deactivation on high-risk platforms from 28 March 2026. The Excel used a more general March 2026 commencement.",
+      "source": null
+    },
+    {
+      "rid": "IN-PROGA-2025",
+      "type": "signed",
+      "date": "2025-08-22",
+      "desc": "Official compilation: President's assent and Gazette notification dated 22 August 2025, with a corrigendum dated 28 August 2025.",
+      "source": "https://www.meity.gov.in/static/uploads/2025/10/8a7f103cefc68ed8aaa2ebc9a2ed7c13.pdf"
+    },
+    {
+      "rid": "IN-IT-RULES-2026",
+      "type": "effective",
+      "date": "2026-02-10",
+      "desc": "G.S.R. 120(E) of 10 February 2026, official MeitY updated text.",
+      "source": "https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf"
+    },
+    {
+      "rid": "VN-UNDER16-POST-2026",
+      "type": "proposed",
+      "date": "2026-07-24",
+      "desc": "Monitoring report headline date for the reported proposal.",
+      "source": null
+    },
+    {
+      "rid": "JP-MIC-GL-2026",
+      "type": "proposed",
+      "date": "2026-10-25",
+      "desc": "Draft guidelines unveiled, according to the monitoring report and cited news article. Formal adoption not verified.",
+      "source": "https://japantoday.com/category/politics/japan-unveils-draft-social-media-guidelines-to-curb-election-misinformation"
+    },
+    {
+      "rid": "KR-BILL-2221679-2026",
+      "type": "introduced",
+      "date": "2026-09-30",
+      "desc": "Bill No. 2221679 recorded as filed, remaining in committee at the sources reviewed.",
+      "source": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2221679/detailRP"
+    },
+    {
+      "rid": "BR-ECA-2025",
+      "type": "signed",
+      "date": "2025-09-17",
+      "desc": "Sanctioned as Lei nº 15.211 of 17 September 2025.",
+      "source": "https://planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15211.htm"
+    },
+    {
+      "rid": "BR-ECA-2025",
+      "type": "effective",
+      "date": "2026-03-17",
+      "desc": "Entered into force on 17 March 2026.",
+      "source": "https://planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15211.htm"
+    },
+    {
+      "rid": "BR-DEC-12880-2026",
+      "type": "signed",
+      "date": "2026-03-18",
+      "desc": "Decree published on the official Planalto site.",
+      "source": "https://planalto.gov.br/ccivil_03/_ato2023-2026/2026/decreto/d12880.htm"
+    },
+    {
+      "rid": "AE-FD-26-2025",
+      "type": "implementation_period",
+      "date": "2026-01-01",
+      "desc": "Source Excel records entry into a grace period in January 2026, with full enforcement in January 2027.",
+      "source": null
+    },
+    {
+      "rid": "AE-CR-106-2026",
+      "type": "effective",
+      "date": "2026-06-30",
+      "desc": "Official materials describe the resolution as effective 30 June 2026, with a transition window recorded in the source Excel.",
+      "source": "https://uaelegislation.gov.ae/en/legislations/4506"
+    },
+    {
+      "rid": "MX-EDS-2026",
+      "type": "signed",
+      "date": "2026-10-14",
+      "desc": "Published in the DOF evening edition, publication 282/2026, SIDOF note 5801237, and entered into force the same day.",
+      "source": "https://sidof.segob.gob.mx/notas/docFuente/5801237"
+    },
+    {
+      "rid": "MX-EDS-2026",
+      "type": "effective",
+      "date": "2026-10-14",
+      "desc": "In force on the day of publication.",
+      "source": "https://sidof.segob.gob.mx/notas/docFuente/5801237"
+    },
+    {
+      "rid": "GR-5350-2026",
+      "type": "introduced",
+      "date": "2026-10-09",
+      "desc": "Bill submitted to Parliament.",
+      "source": "https://www.hellenicparliament.gr/nomothetiko-ergo/psifisthenta-nomoschedia?law_id=97e0885f-30fe-45f3-bbe9-b4de0151a84f"
+    },
+    {
+      "rid": "GR-5350-2026",
+      "type": "passed",
+      "date": "2026-10-23",
+      "desc": "Passed by the plenary of the Hellenic Parliament.",
+      "source": "https://www.moh.gov.gr/articles/ministry/grafeio-typoy/press-releases/14881-yperpshfi-sthke-apo-thn-olome-leia-ths-boylh-s-to-nomosxe-dio-gia-thn-prostasi-a-twn-anhli-kwn-sta-me-sa-koinwnikh-s-dikty-wshs"
+    },
+    {
+      "rid": "GR-5350-2026",
+      "type": "signed",
+      "date": "2026-10-26",
+      "desc": "Published in the Government Gazette, FEK A’ 177/26.10.2026, as Law 5350/2026.",
+      "source": "https://www.hellenicparliament.gr/nomothetiko-ergo/psifisthenta-nomoschedia?law_id=97e0885f-30fe-45f3-bbe9-b4de0151a84f"
+    },
+    {
+      "rid": "GR-5350-2026",
+      "type": "implementation_period",
+      "date": "2026-10-26",
+      "desc": "Law in existence but operative prohibition commences 1 January 2027.",
+      "source": null
+    },
+    {
+      "rid": "GR-5350-2026",
+      "type": "effective",
+      "date": "2027-01-01",
+      "desc": "Stated commencement of the prohibition, unless an EU regulation covering the same issue is adopted, in which case the law ceases automatically.",
+      "source": null
+    },
+    {
+      "rid": "CA-C34-2026",
+      "type": "introduced",
+      "date": "2026-06-10",
+      "desc": "First reading in the House of Commons.",
+      "source": "https://www.parl.ca/legisInfo/en/bill/45-1/c-34"
+    },
+    {
+      "rid": "CA-C34-2026",
+      "type": "committee_review",
+      "date": "2026-10-29",
+      "desc": "Second reading agreed and referred to the Standing Committee on Canadian Heritage.",
+      "source": "https://www.parl.ca/legisInfo/en/bill/45-1/c-34"
+    },
+    {
+      "rid": "US-COPPA-RULE-2025",
+      "type": "effective",
+      "date": "2025-06-23",
+      "desc": "Amended rule effective date.",
+      "source": "https://www.govinfo.gov/content/pkg/FR-2025-04-22/html/2025-05904.htm"
+    },
+    {
+      "rid": "US-COPPA-RULE-2025",
+      "type": "effective",
+      "date": "2026-04-22",
+      "desc": "General compliance date for most operators under the 2025 amendments.",
+      "source": "https://www.govinfo.gov/content/pkg/FR-2025-04-22/html/2025-05904.htm"
+    },
+    {
+      "rid": "US-HR-7757-2026",
+      "type": "passed",
+      "date": "2026-06-29",
+      "desc": "Passed the House of Representatives. Not passed by the Senate.",
+      "source": "https://www.congress.gov/bill/119th-congress/house-bill/7757/all-actions"
+    },
+    {
+      "rid": "US-HR-7757-2026",
+      "type": "committee_review",
+      "date": "2026-07-13",
+      "desc": "Received in the Senate and referred to the Committee on Commerce, Science and Transportation.",
+      "source": "https://www.congress.gov/bill/119th-congress/house-bill/7757/all-actions"
+    },
+    {
+      "rid": "TR-LAW-7578-2026",
+      "type": "passed",
+      "date": "2026-04-22",
+      "desc": "Law accepted on 22 April 2026 (Kanun No. 7578).",
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.7578.htm"
+    },
+    {
+      "rid": "TR-LAW-7578-2026",
+      "type": "signed",
+      "date": "2026-05-01",
+      "desc": "Published in the Official Gazette, 1 May 2026, number 33240.",
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.7578.htm"
+    },
+    {
+      "rid": "TR-LAW-7578-2026",
+      "type": "effective",
+      "date": "2026-11-01",
+      "desc": "Articles 22 and 23 entered into force six months after publication (Article 27(a)).",
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.7578.htm"
+    },
+    {
+      "rid": "TR-YON-SAS-2026",
+      "type": "signed",
+      "date": "2026-10-10",
+      "desc": "Published in the Official Gazette, 10 October 2026, number 33396.",
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46333.pdf"
+    },
+    {
+      "rid": "TR-YON-SAS-2026",
+      "type": "effective",
+      "date": "2026-11-01",
+      "desc": "Article 13: the regulation enters into force on 1 November 2026.",
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46333.pdf"
+    },
+    {
+      "rid": "TR-YON-SAS-2026",
+      "type": "other",
+      "date": "2027-03-31",
+      "desc": "Temporary Article 1 deadline for at least one e-Devlet token verification of pre-commencement accounts.",
+      "source": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46333.pdf"
+    },
+    {
+      "rid": "IN-PROGA-2025",
+      "type": "effective",
+      "date": "2026-05-01",
+      "desc": "S.O. 1994(E) of 22 April 2026 appoints 1 May 2026 as the date on which the provisions of the Act come into force.",
+      "source": "https://www.meity.gov.in/static/uploads/2026/04/089ca9904b13f019b41a391584ab10ea.pdf"
+    },
+    {
+      "rid": "IN-PROG-RULES-2026",
+      "type": "effective",
+      "date": "2026-05-01",
+      "desc": "G.S.R. 303(E) of 22 April 2026, Rule 1(2): the Rules come into force on 1 May 2026.",
+      "source": "https://www.meity.gov.in/static/uploads/2026/04/7e0b02d37fd07f81fa48578a9996aa85.pdf"
+    },
+    {
+      "rid": "MX-EDS-2026",
+      "type": "other",
+      "date": "2026-11-13",
+      "desc": "Transitory Article 4 deadline: platforms must document and report compliance actions within 30 calendar days of the 14 October 2026 entry into force.",
+      "source": "https://sidof.segob.gob.mx/notas/docFuente/5801237"
+    },
+    {
+      "rid": "CA-C34-2026",
+      "type": "committee_review",
+      "date": "2026-11-19",
+      "desc": "Official CHPC minutes: the committee resumed consideration of Bill C-34 on 19 November 2026 (meeting 54). A previous meeting was held on 17 November 2026 (meeting 53).",
+      "source": "https://www.ourcommons.ca/DocumentViewer/en/45-1/CHPC/meeting-54/minutes"
+    },
+    {
+      "rid": "US-TAKEITDOWN-2025",
+      "type": "signed",
+      "date": "2025-05-19",
+      "desc": "Approved and became Public Law 119-12.",
+      "source": "https://www.congress.gov/119/plaws/publ12/PLAW-119publ12.htm"
+    },
+    {
+      "rid": "US-TAKEITDOWN-2025",
+      "type": "effective",
+      "date": "2026-05-19",
+      "desc": "Deadline by which a covered platform must have established the notice-and-removal process (one year after enactment).",
+      "source": "https://www.congress.gov/119/plaws/publ12/PLAW-119publ12.htm"
+    },
+    {
+      "rid": "US-CA-SB243-2025",
+      "type": "signed",
+      "date": "2025-10-13",
+      "desc": "Approved by the Governor and chaptered as Chapter 677, Statutes of 2025.",
+      "source": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB243"
+    },
+    {
+      "rid": "US-CA-SB243-2025",
+      "type": "effective",
+      "date": "2026-01-01",
+      "desc": "Chapter effective 1 January 2026.",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22601."
+    },
+    {
+      "rid": "US-CA-AB1043-2025",
+      "type": "signed",
+      "date": "2025-10-13",
+      "desc": "Approved by the Governor and chaptered as Chapter 675, Statutes of 2025.",
+      "source": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB1043"
+    },
+    {
+      "rid": "US-CA-AB1043-2025",
+      "type": "effective",
+      "date": "2027-01-01",
+      "desc": "Title becomes operative on 1 January 2027 (Civil Code section 1798.505).",
+      "source": "https://www.leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.9.&part=4."
+    },
+    {
+      "rid": "US-NY-GBL47-2025",
+      "type": "effective",
+      "date": "2025-11-05",
+      "desc": "Official Governor's notice of 10 November 2025: safeguard requirements took effect on 5 November 2025.",
+      "source": "https://www.governor.ny.gov/news/governor-hochul-pens-letter-ai-companion-companies-notifying-them-safeguard-requirements-are"
+    },
+    {
+      "rid": "US-NY-WARN-2025",
+      "type": "signed",
+      "date": "2025-12-26",
+      "desc": "Official Governor's announcement that S4505/A5346 was signed, after a chapter amendment.",
+      "source": "https://www.governor.ny.gov/news/governor-hochul-signs-legislation-require-warning-labels-social-media-platforms"
+    },
+    {
+      "rid": "US-NY-SAFE-2024",
+      "type": "other",
+      "date": "2026-07-29",
+      "desc": "Official announcement: final rules to be published in the State Register on 29 July 2026.",
+      "source": "https://www.governor.ny.gov/news/governor-hochul-and-attorney-general-james-announce-final-safe-kids-act-rules-protect-children"
+    },
+    {
+      "rid": "US-NY-SAFE-2024",
+      "type": "effective",
+      "date": "2027-01-25",
+      "desc": "Official announcement: the Act goes into effect 180 days after the 29 July 2026 State Register publication, on 25 January 2027.",
+      "source": "https://www.governor.ny.gov/news/governor-hochul-and-attorney-general-james-announce-final-safe-kids-act-rules-protect-children"
+    },
+    {
+      "rid": "US-MN-CH111-2026",
+      "type": "signed",
+      "date": "2026-05-26",
+      "desc": "Signed by the Governor on 26 May 2026 at 9:12 a.m., after presentation on 20 May 2026.",
+      "source": "https://www.revisor.mn.gov/laws/2026/0/111/"
+    },
+    {
+      "rid": "US-MN-CH111-2026",
+      "type": "effective",
+      "date": "2027-07-01",
+      "desc": "Official chapter: this section is effective 1 July 2027 and applies to accounts created before, on or after that date.",
+      "source": "https://www.revisor.mn.gov/laws/2026/0/111/"
+    }
+  ],
+  "snapshot_note": "Test fixture only. AU-DDOC-2026 status is proposed, as in the v2 workbook before the 25 November 2026, 18:21 Hong Kong time official-source check. Milestones dated 25 November 2026 for this instrument have been omitted so the passage event can be replayed."
+}

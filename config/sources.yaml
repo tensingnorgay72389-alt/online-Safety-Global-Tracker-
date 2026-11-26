@@ -1,0 +1,509 @@
+# Curated official and news sources for Trust and Safety regulatory monitoring.
+# A hit may be marked significant and auto-apply eligible only when the source is official
+# and the classifier finds a qualifying instrument event. News sources are for discovery only.
+# Ministerial media releases are official in origin but cannot be auto-applied on their own.
+
+sources:
+  # --- Australia (official) ---
+  - id: au-parlinfo-ddoc
+    name: Australia official bill homepage, Online Safety Amendment (Digital Duty of Care) Bill 2026 (r7553)
+    url: "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/r7553"
+    method: official_page
+    jurisdiction: AU
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+    notes: Parser should record the official status field and whether Royal Assent is listed.
+
+  - id: au-parlinfo
+    name: Parliament of Australia ParlInfo
+    url: https://parlinfo.aph.gov.au/
+    method: html_index
+    jurisdiction: AU
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: au-legislation
+    name: Federal Register of Legislation (Australia)
+    url: https://www.legislation.gov.au/
+    method: html_index
+    jurisdiction: AU
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: au-esafety-newsroom
+    name: eSafety Commissioner newsroom
+    url: https://www.esafety.gov.au/newsroom
+    method: html_index
+    jurisdiction: AU
+    official: true
+    auto_apply_eligible: true
+    role: regulator_newsroom
+    notes: Official regulator releases may record enforcement. Joint network statements without a binding instrument are not auto-applied.
+
+  - id: au-minister-communications
+    name: Minister for Communications media releases (infrastructure.gov.au)
+    url: https://minister.infrastructure.gov.au/wells/media-release/australias-digital-duty-care-becomes-law
+    method: official_page
+    jurisdiction: AU
+    official: true
+    auto_apply_eligible: false
+    role: ministerial_release
+    notes: Ministerial language such as "becomes law" is not Royal Assent and must not be auto-applied alone.
+
+  # --- United Kingdom (official) ---
+  - id: uk-ofcom
+    name: Ofcom
+    url: https://www.ofcom.org.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: regulator_newsroom
+
+  - id: uk-ofcom-ii-consultation
+    name: Ofcom consultation on intimate-image abuse takedown codes
+    url: https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/intimate-image-abuse-takedown
+    method: official_page
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: uk-legislation
+    name: legislation.gov.uk
+    url: https://www.legislation.gov.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: uk-bills
+    name: UK Parliament bills
+    url: https://bills.parliament.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: uk-parliament
+    name: UK Parliament
+    url: https://www.parliament.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: uk-committees
+    name: UK Parliament committees
+    url: https://committees.parliament.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: uk-hansard
+    name: Hansard
+    url: https://hansard.parliament.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: uk-gov
+    name: GOV.UK
+    url: https://www.gov.uk/
+    method: html_index
+    jurisdiction: GB
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  # --- European Union (official) ---
+  - id: eu-digital-strategy
+    name: Shaping Europe's digital future
+    url: https://digital-strategy.ec.europa.eu/
+    method: html_index
+    jurisdiction: EU
+    official: true
+    auto_apply_eligible: true
+    role: regulator_newsroom
+
+  - id: eu-eurlex
+    name: EUR-Lex
+    url: https://eur-lex.europa.eu/
+    method: html_index
+    jurisdiction: EU
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  # --- United States federal and states already in the register ---
+  - id: us-congress
+    name: Congress.gov
+    url: https://www.congress.gov/
+    method: html_index
+    jurisdiction: US
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+    notes: An optional CONGRESS_GOV_API_KEY environment variable may be used if the HTML index is insufficient. Do not commit the key.
+
+  - id: us-ca-leginfo
+    name: California Legislative Information
+    url: https://leginfo.legislature.ca.gov/
+    method: html_index
+    jurisdiction: US-CA
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: us-ny-governor
+    name: Governor of New York
+    url: https://www.governor.ny.gov/
+    method: html_index
+    jurisdiction: US-NY
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: us-tx-capitol
+    name: Texas Legislature Online
+    url: https://capitol.texas.gov/
+    method: html_index
+    jurisdiction: US-TX
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: us-mn-revisor
+    name: Minnesota Office of the Revisor of Statutes
+    url: https://www.revisor.mn.gov/
+    method: html_index
+    jurisdiction: US-MN
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: us-va-lis
+    name: Virginia Legislative Information System
+    url: https://law.lis.virginia.gov/
+    method: html_index
+    jurisdiction: US-VA
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  # --- Canada (official) ---
+  - id: ca-parl-c34
+    name: LEGISinfo Bill C-34, Safe Social Media Act
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-34
+    method: official_page
+    jurisdiction: CA
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: ca-parl
+    name: Parliament of Canada
+    url: https://www.parl.ca/
+    method: html_index
+    jurisdiction: CA
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: ca-heritage-c34
+    name: Canadian Heritage, Bill C-34 fact sheet
+    url: https://www.canada.ca/en/canadian-heritage/services/safe-social-media-act.html
+    method: official_page
+    jurisdiction: CA
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: ca-canada
+    name: Government of Canada
+    url: https://www.canada.ca/
+    method: html_index
+    jurisdiction: CA
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  # --- India (official) ---
+  - id: in-meity
+    name: Ministry of Electronics and Information Technology
+    url: https://www.meity.gov.in/
+    method: html_index
+    jurisdiction: IN
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: in-egazette
+    name: Gazette of India
+    url: https://egazette.gov.in/
+    method: html_index
+    jurisdiction: IN
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: in-prs
+    name: PRS Legislative Research
+    url: https://prsindia.org/
+    method: html_index
+    jurisdiction: IN
+    official: false
+    auto_apply_eligible: false
+    role: news
+    notes: PRS is a legislative tracker, not a primary official instrument page. Use it for discovery. Cite a gazette or ministry page before auto-apply.
+
+  # --- Other markets justified by the register or monitoring reports ---
+  - id: sg-sso
+    name: Singapore Statutes Online
+    url: https://sso.agc.gov.sg/
+    method: html_index
+    jurisdiction: SG
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: sg-imda
+    name: IMDA
+    url: https://www.imda.gov.sg/
+    method: html_index
+    jurisdiction: SG
+    official: true
+    auto_apply_eligible: true
+    role: regulator_newsroom
+
+  - id: my-mcmc
+    name: Malaysian Communications and Multimedia Commission
+    url: https://www.mcmc.gov.my/
+    method: html_index
+    jurisdiction: MY
+    official: true
+    auto_apply_eligible: true
+    role: regulator_newsroom
+
+  - id: id-bpk
+    name: Peraturan BPK (Indonesia)
+    url: https://peraturan.bpk.go.id/
+    method: html_index
+    jurisdiction: ID
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: jp-soumu
+    name: Ministry of Internal Affairs and Communications (Japan)
+    url: https://www.soumu.go.jp/
+    method: html_index
+    jurisdiction: JP
+    official: true
+    auto_apply_eligible: true
+    role: regulator_newsroom
+
+  - id: kr-lawmaking
+    name: Korean National Assembly legislative opinion portal
+    url: https://opinion.lawmaking.go.kr/
+    method: html_index
+    jurisdiction: KR
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: br-planalto
+    name: Presidência da República, planalto.gov.br
+    url: https://www.planalto.gov.br/
+    method: html_index
+    jurisdiction: BR
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: mx-sidof
+    name: DOF / SIDOF (Mexico)
+    url: https://sidof.segob.gob.mx/
+    method: html_index
+    jurisdiction: MX
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  - id: tr-mevzuat
+    name: mevzuat.gov.tr
+    url: https://www.mevzuat.gov.tr/
+    method: html_index
+    jurisdiction: TR
+    official: true
+    auto_apply_eligible: true
+    role: instrument
+
+  # --- News and discovery only. Never auto-apply on press copy alone. ---
+  - id: news-reuters
+    name: Reuters
+    url: https://www.reuters.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-bloomberg
+    name: Bloomberg
+    url: https://www.bloomberg.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-guardian
+    name: The Guardian
+    url: https://www.theguardian.com/uk/rss
+    method: rss
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-politico
+    name: Politico
+    url: https://www.politico.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-politico-eu
+    name: Politico Europe
+    url: https://www.politico.eu/
+    method: html_index
+    jurisdiction: EU
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-bbc
+    name: BBC News
+    url: https://feeds.bbci.co.uk/news/rss.xml
+    method: rss
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-independent
+    name: The Independent
+    url: https://www.independent.co.uk/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-straitstimes
+    name: The Straits Times
+    url: https://www.straitstimes.com/
+    method: html_index
+    jurisdiction: SG
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-techcrunch
+    name: TechCrunch
+    url: https://techcrunch.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-nytimes
+    name: The New York Times
+    url: https://www.nytimes.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-thetimes
+    name: The Times
+    url: https://www.thetimes.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-abc-au
+    name: ABC News (Australia)
+    url: https://www.abc.net.au/news/
+    method: html_index
+    jurisdiction: AU
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-economictimes
+    name: The Economic Times
+    url: https://economictimes.indiatimes.com/
+    method: html_index
+    jurisdiction: IN
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-cna
+    name: Channel News Asia
+    url: https://www.channelnewsasia.com/
+    method: html_index
+    jurisdiction: SG
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-ap
+    name: Associated Press
+    url: https://apnews.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-ft
+    name: Financial Times
+    url: https://www.ft.com/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+  - id: news-gamesindustry
+    name: GamesIndustry.biz
+    url: https://www.gamesindustry.biz/
+    method: html_index
+    jurisdiction: null
+    official: false
+    auto_apply_eligible: false
+    role: news
+
+fetch:
+  timeout_seconds: 20
+  user_agent: "ts-regulatory-monitor/0.1 (research monitoring; polite fetch)"
+  max_index_links: 40

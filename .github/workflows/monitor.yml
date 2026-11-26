@@ -1,0 +1,56 @@
+name: Weekday monitor
+
+on:
+  schedule:
+    # 09:00 Hong Kong time, Monday to Friday (01:00 UTC).
+    - cron: "0 1 * * 1-5"
+  workflow_dispatch:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the package
+        run: pip install -e ".[dev]"
+
+      - name: Run tests
+        run: pytest
+
+      - name: Run the monitor
+        env:
+          CONGRESS_GOV_API_KEY: ${{ secrets.CONGRESS_GOV_API_KEY }}
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "schedule" ] || [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            SINCE="$(date -u -d 'yesterday' +%F 2>/dev/null || date -u -v-1d +%F)"
+            ts-monitor run --since "${SINCE}" --out out
+          else
+            ts-monitor run --since 2026-11-24 \
+              --file tests/fixtures/inbox/all_required.json \
+              --register tests/fixtures/register_pre_ddoc_passage.json \
+              --offline \
+              --out out
+          fi
+
+      - name: Upload monitor artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monitor-output
+          path: |
+            out/inbox/
+            out/proposals/
+            out/significant/
+          if-no-files-found: warn
