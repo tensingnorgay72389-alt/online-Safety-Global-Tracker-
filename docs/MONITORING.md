@@ -1,6 +1,6 @@
 # Monitoring process
 
-This note is the operating process for a human operator or a companion routine. The backend discovers and classifies Trust and Safety regulatory items. It does not itself update any dashboard.
+This note is the operating process for a human operator or a companion routine. The backend discovers and classifies Trust and Safety regulatory items. It does not itself update any dashboard. The static site in `dashboard/` is published separately by `.github/workflows/deploy-pages.yml`. The weekday monitor does not write into that site.
 
 The live tracker that this backend is built to update is the working 2026 Trust and Safety instrument register at https://cursor.com/canvas/store-ebf3ffb9-7e41-4683-935a-adf799982e56/6246d529-8c4f-4535-9f6a-670da7b635fa. This repository does not edit that Page automatically.
 

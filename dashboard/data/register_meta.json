@@ -1,0 +1,20 @@
+{
+  "baseline_date": "2026-07-16",
+  "register_date": "2026-11-27",
+  "as_of": "Page register after 27 November 2026 11:52 HKT official refresh. Australia Digital Duty of Care remained Passed Both Houses with no Royal Assent listed. Canada Bill C-34 remained in committee, with official meetings on 24 and 26 November 2026 added. The Children's Wellbeing and Schools Act 2026 Royal Assent date of 29 April 2026 was recorded from the official introduction. Workbook v2 cutoff 25 November 2026 10:14 HKT was not overwritten. July 2026 map scores were left unchanged.",
+  "verified_counts": {
+    "regulations": 74,
+    "obligations": 138,
+    "milestones": 84,
+    "markets": 31,
+    "heatmap_markets": 26
+  },
+  "market_count": 158,
+  "lifted_markets": [
+    "AU",
+    "BR",
+    "MX",
+    "TR",
+    "GR"
+  ]
+}
