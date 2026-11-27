@@ -12,6 +12,8 @@ The static site in `dashboard/` is this repository's Global Trust and Safety Das
 
 https://tensingnorgay72389-alt.github.io/online-Safety-Global-Tracker-/
 
+The first deploy creates the Pages site with GitHub Actions as the source. GitHub Pages on the free plan is available only for a public repository. A private repository needs GitHub Pro, GitHub Team or Enterprise before that URL can be published. In Settings → Pages, the source must be GitHub Actions.
+
 The weekday monitor does not write into that site. Python files under `src/` and `tests/` are unchanged by the dashboard.
 
 ## Live tracker
