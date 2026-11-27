@@ -70,6 +70,16 @@ Fetches use a short timeout and a declared user-agent. Optional environment vari
 
 See `docs/REGULATOR-MAP.md` for what is mapped, what is scraped, which official pages could not be retrieved live from this environment and which roster names or handles were left unverified.
 
+## Signals intake
+
+`data/official_sources.json` is the 28 November 2026 official-source inventory. All 671 original rows are preserved, including the retired DSIT row. Added rows keep their verification status. A 403 or another block stays `unverified-blocked`. It is not treated as a dead source and the row is not deleted. Mexico and Türkiye are included.
+
+`ts-monitor intake` polls that inventory first. It prefers RSS or Atom, then a discovered feed, then a few candidate links. GNews at `https://gnews.io/api/v4/search` is the secondary source. NewsAPI.org is not used. If the GNews key is missing or a GNews request fails, official intake continues.
+
+The classifier calls `https://api.x.ai/v1` with `XAI_API_KEY` and does not read `OPENAI_API_KEY`. Confidence of 0.70 or above, and 0.50 up to but not including 0.70, is written only to `out/signals/review_queue.json`. Below 0.50 is discarded. 0.85 is flagged urgent. An unmatched high-confidence development is queued for review. None of these paths edit regulations or market scores.
+
+The weekday workflow runs intake only on the schedule and on manual dispatch. Pull requests stay on the offline fixture run.
+
 ## Provenance
 
 Record fetch timestamps in Asia/Hong_Kong and in UTC. Every proposed legal fact needs an official URL. Do not invent a fact, quote, date, provision number or link.

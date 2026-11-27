@@ -6,6 +6,7 @@ import './styles/index.css'
 
 const HeatmapPage = lazy(() => import('./pages/HeatmapPage'))
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
+const SignalsPage = lazy(() => import('./pages/SignalsPage'))
 const RegisterPage = lazy(() => import('./pages/RegisterPage'))
 const EditorPage = lazy(() => import('./pages/EditorPage'))
 
@@ -32,6 +33,7 @@ function Header() {
   const navItems = [
     { to: '/', label: 'Heatmap', icon: '🗺️' },
     { to: '/database', label: 'Database', icon: '📋' },
+    { to: '/signals', label: 'Signals', icon: '📣' },
     { to: '/register', label: 'Register', icon: '📚' },
     { to: '/editor', label: 'Edit Scores & Wording', icon: '✏️' },
   ]
@@ -116,6 +118,7 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<HeatmapPage />} />
             <Route path="/database" element={<DatabasePage />} />
+            <Route path="/signals" element={<SignalsPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/editor" element={<EditorPage />} />
           </Routes>

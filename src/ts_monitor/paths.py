@@ -39,6 +39,10 @@ def default_sources_path() -> Path:
     return config_dir() / "sources.yaml"
 
 
+def default_official_inventory_path() -> Path:
+    return data_dir() / "official_sources.json"
+
+
 def default_vocabularies_path() -> Path:
     return config_dir() / "vocabularies.yaml"
 
