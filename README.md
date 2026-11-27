@@ -6,6 +6,14 @@ Significant draft bills and official status changes are marked for automatic app
 
 This repository does not edit any Grok Bot Page or any other external dashboard. It produces verified, typed JSON that can be applied out of band after an official-source check.
 
+## Dashboard
+
+The static site in `dashboard/` is this repository's Global Trust and Safety Dashboard. It covers the 158-market heatmap, the market database, the regulations register and a browser-local score and wording editor. `.github/workflows/deploy-pages.yml` builds it with Node 20 and publishes `dashboard/dist` to GitHub Pages on every push to `main`:
+
+https://tensingnorgay72389-alt.github.io/online-Safety-Global-Tracker-/
+
+The weekday monitor does not write into that site. Python files under `src/` and `tests/` are unchanged by the dashboard.
+
 ## Live tracker
 
 This backend is built to update the working 2026 Trust and Safety instrument register, which is the live tracker for this project:
@@ -112,7 +120,7 @@ If an official page returns 403 or times out, the failure is recorded in `out/in
 
 One snapshot row, `US-NY-WARN-2025`, is recorded with status `enacted`, which is not a frozen RegulationStatus value. Review that row against official chaptered text before any later patch overwrites it.
 
-This project uses published category labels from the Global Trust and Safety Dashboard vocabularies. It is not a clone or a presentation of that dashboard.
+This project uses the published Global Trust and Safety Dashboard category labels. The site in `dashboard/` is maintained here.
 
 ## Secrets
 
