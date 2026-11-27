@@ -32,10 +32,15 @@ jobs:
       - name: Run the monitor
         env:
           CONGRESS_GOV_API_KEY: ${{ secrets.CONGRESS_GOV_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          NEWS_API_KEY_FREE: ${{ secrets.NEWS_API_KEY_FREE }}
+          GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
         run: |
           if [ "${GITHUB_EVENT_NAME}" = "schedule" ] || [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
             SINCE="$(date -u -d 'yesterday' +%F 2>/dev/null || date -u -v-1d +%F)"
             ts-monitor run --since "${SINCE}" --out out
+            ts-monitor intake --since "${SINCE}" --out out
           else
             ts-monitor run --since 2026-11-24 \
               --file tests/fixtures/inbox/all_required.json \
@@ -53,4 +58,5 @@ jobs:
             out/inbox/
             out/proposals/
             out/significant/
+            out/signals/
           if-no-files-found: warn

@@ -7,10 +7,18 @@ import json
 import sys
 from pathlib import Path
 
-from ts_monitor.paths import default_out_dir, default_register_path, default_regulators_path, default_sources_path
+from ts_monitor.intake import run_intake
+from ts_monitor.paths import (
+    default_official_inventory_path,
+    default_out_dir,
+    default_register_path,
+    default_regulators_path,
+    default_sources_path,
+)
 from ts_monitor.pipeline import ingest_path, load_context, run_pipeline
 from ts_monitor.fetchers import Fetcher
 from ts_monitor.matcher import match_all
+from ts_monitor.official_inventory import load_official_inventory, sources_for_poll
 from ts_monitor.regulators import load_regulator_map, merge_source_catalog, sources_from_regulators
 from ts_monitor.writers import dump, write_inbox, write_proposals
 
@@ -39,6 +47,15 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--offline", action="store_true", help="Do not fetch the network. Requires --file unless the inbox already exists.")
     run.add_argument("--official-only", action="store_true", help="When fetching, only request official sources.")
     run.add_argument("--skip-regulators", action="store_true", help="Do not add scrape targets from the regulator map.")
+    run.add_argument(
+        "--include-official-inventory",
+        action="store_true",
+        help=(
+            "Also poll data/official_sources.json on this fetch. "
+            "Blocked official URLs stay in the poll set. "
+            "Hits are not auto-apply eligible and are not written into the register."
+        ),
+    )
 
     ingest = sub.add_parser("ingest", parents=[common], help="Ingest a Word-report-like JSON file or fixture items.")
     ingest.add_argument("--file", type=Path, required=True, help="Path to a JSON file or a directory of JSON files.")
@@ -51,12 +68,37 @@ def build_parser() -> argparse.ArgumentParser:
     regs = sub.add_parser("regulators", parents=[common], help="Show the regulator map counts or write a JSON summary.")
     regs.add_argument("--json", action="store_true", help="Write a JSON summary to standard output.")
 
+    inventory = sub.add_parser(
+        "inventory",
+        help="Show the official-source inventory counts without fetching or editing the register.",
+    )
+    inventory.add_argument("--json", action="store_true", help="Write the counts as JSON.")
+
+    intake = sub.add_parser(
+        "intake",
+        help=(
+            "Collect official sources and GNews into a Signals review queue. "
+            "Does not edit regulations or market scores."
+        ),
+    )
+    intake.add_argument("--since", default=None, help="Keep items dated on or after YYYY-MM-DD when a date is present.")
+    intake.add_argument("--out", type=Path, default=None, help="Output directory (default: ./out).")
+    intake.add_argument("--seen", type=Path, default=None, help="Seen URL file. Defaults to data/seen_urls.json.")
+    intake.add_argument("--file", type=Path, default=None, help="Classify this JSON file instead of fetching.")
+    intake.add_argument("--skip-official", action="store_true", help="Do not poll the official-source inventory.")
+    intake.add_argument("--skip-gnews", action="store_true", help="Do not call GNews.")
+    intake.add_argument("--skip-classify", action="store_true", help="Fetch only. Do not call the xAI classifier.")
+
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.command == "inventory":
+        return _inventory_command(args)
+    if args.command == "intake":
+        return _intake_command(args)
     out_dir = _out_dir(str(args.out) if args.out else None)
     register_path = Path(args.register) if args.register else default_register_path()
     sources_path = Path(args.sources) if args.sources else default_sources_path()
@@ -110,6 +152,8 @@ def main(argv: list[str] | None = None) -> int:
         else:
             if regulator_map is not None and not args.skip_regulators:
                 catalog = merge_source_catalog(catalog, sources_from_regulators(regulator_map))
+            if args.include_official_inventory:
+                catalog = merge_source_catalog(catalog, sources_for_poll(load_official_inventory()))
             fetcher = Fetcher(catalog=catalog)
             items = fetcher.fetch_all(since=args.since, official_only=bool(args.official_only))
             errors = fetcher.errors
@@ -163,6 +207,46 @@ def main(argv: list[str] | None = None) -> int:
 
     parser.error(f"unknown command {args.command}")
     return 2
+
+
+def _intake_command(args) -> int:
+    out_dir = _out_dir(str(args.out) if args.out else None)
+    summary = run_intake(
+        out_dir=out_dir,
+        since=args.since,
+        seen_path=Path(args.seen) if args.seen else None,
+        article_file=Path(args.file) if args.file else None,
+        skip_official=bool(args.skip_official),
+        skip_gnews=bool(args.skip_gnews),
+        skip_classify=bool(args.skip_classify),
+    )
+    print(
+        f"Signals intake: {summary['unique_articles']} unique article(s), "
+        f"{summary['signals']} queued signal(s), {summary['review']} review item(s), "
+        f"{summary['discarded']} discarded. Classifier: {summary['classifier']}. "
+        "Regulations and market scores were not changed."
+    )
+    return 0
+
+
+def _inventory_command(args) -> int:
+    path = default_official_inventory_path()
+    if not path.is_file():
+        print(f"No official-source inventory at {path}", file=sys.stderr)
+        return 1
+    inventory = load_official_inventory(path)
+    counts = inventory.counts()
+    if args.json:
+        print(json.dumps({"path": str(path), "as_of": inventory.as_of, "counts": counts}, indent=2))
+        return 0
+    print(
+        f"Official-source inventory as of {inventory.as_of}: "
+        f"{counts['rows']} rows ({counts['original']} original and {counts['added']} added). "
+        f"{counts['pollable']} rows are pollable. "
+        f"Added rows: {counts['verified']} verified, "
+        f"{counts['unverified_blocked']} unverified-blocked and {counts['unverified']} unverified."
+    )
+    return 0
 
 
 def _print_summary(items, proposals, errors) -> None:

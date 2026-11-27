@@ -14,7 +14,7 @@ https://tensingnorgay72389-alt.github.io/online-Safety-Global-Tracker-/
 
 The first deploy creates the Pages site with GitHub Actions as the source. GitHub Pages on the free plan is available only for a public repository. A private repository needs GitHub Pro, GitHub Team or Enterprise before that URL can be published. In Settings → Pages, the source must be GitHub Actions.
 
-The weekday monitor does not write into that site. Python files under `src/` and `tests/` are unchanged by the dashboard.
+The weekday monitor does not write market scores or regulation records into that site. The Signals page lists sourced regulatory signals and is separate from the heatmap and the market database. Python files under `src/` and `tests/` classify new items into a review queue. They do not overwrite `dashboard/data/markets.json` or `dashboard/data/regulations.json`.
 
 ## Live tracker
 
@@ -114,7 +114,7 @@ If an official page returns 403 or times out, the failure is recorded in `out/in
 
 ## Weekday workflow
 
-`.github/workflows/monitor.yml` runs tests and then `ts-monitor run` at 09:00 Hong Kong time on weekday mornings (01:00 UTC, cron `0 1 * * 1-5`). Artefacts are uploaded. The workflow does not edit an external dashboard. If a Congress.gov API token is ever needed, set the repository secret `CONGRESS_GOV_API_KEY` and expose it as that environment variable. Never commit tokens.
+`.github/workflows/monitor.yml` runs tests and then `ts-monitor run` at 09:00 Hong Kong time on weekday mornings (01:00 UTC, cron `0 1 * * 1-5`). Artefacts are uploaded. The workflow does not edit an external dashboard. If a Congress.gov API token is ever needed, set the repository secret `CONGRESS_GOV_API_KEY` and expose it as that environment variable. The Signals intake reads `XAI_API_KEY` for the xAI classifier and reads `NEWS_API_KEY_FREE`, then `GNEWS_API_KEY`, then `NEWS_API_KEY` for GNews only. Never commit tokens.
 
 ## Register snapshot
 
