@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sys
+from http.client import HTTPMessage
 
 import pytest
 
@@ -195,6 +196,121 @@ def test_invalid_url_is_recorded_without_logging_secrets(capsys: pytest.CaptureF
     ipv6 = _default_fetch("http://[")
     assert ipv6.error == "invalid_url"
     assert ipv6.url == "http://["
+
+
+class _HeaderResponse:
+    """Response whose charset is parsed from a real Content-Type header."""
+
+    def __init__(self, url: str, body: bytes, content_type: str) -> None:
+        self.status = 200
+        self.headers = HTTPMessage()
+        self.headers["Content-Type"] = content_type
+        self._body = body
+        self._url = url
+
+    def read(self) -> bytes:
+        return self._body
+
+    def geturl(self) -> str:
+        return self._url
+
+    def __enter__(self) -> _HeaderResponse:
+        return self
+
+    def __exit__(self, *args: object) -> bool:
+        return False
+
+
+@pytest.mark.parametrize(
+    ("content_type", "charset"),
+    [
+        ("text/html; charset=utf-8,gbk", "utf-8,gbk"),
+        ('text/html; charset="utf-8,gbk"', "utf-8,gbk"),
+        ("text/html; charset=x-not-a-charset", "x-not-a-charset"),
+    ],
+)
+def test_unknown_charset_is_recorded(
+    content_type: str,
+    charset: str,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+):
+    def fake_urlopen(request, timeout=None):
+        return _HeaderResponse(request.full_url, b"<html><title>Notice</title></html>", content_type)
+
+    monkeypatch.setattr(official_intake, "urlopen", fake_urlopen)
+    url = "https://example.test/mixed-charset?api_key=test-not-a-real-secret"
+    page = _default_fetch(url)
+    assert page.error == "encoding"
+    assert page.status is None
+    assert page.body == ""
+    assert page.url == url
+    logged = capsys.readouterr().err
+    expected = (
+        "official fetch encoding error for "
+        f"https://example.test/mixed-charset?api_key=***: unknown encoding: {charset}"
+    )
+    assert expected in logged
+    assert "test-not-a-real-secret" not in logged
+
+
+def test_known_gbk_charset_still_decodes(monkeypatch: pytest.MonkeyPatch):
+    def fake_urlopen(request, timeout=None):
+        return _HeaderResponse(request.full_url, "儿童安全".encode("gbk"), "text/html; charset=gbk")
+
+    monkeypatch.setattr(official_intake, "urlopen", fake_urlopen)
+    page = _default_fetch("https://example.test/gbk")
+    assert page.error is None
+    assert page.status == 200
+    assert "儿童安全" in page.body
+
+
+def test_unknown_charset_does_not_abort_remaining_sources(monkeypatch: pytest.MonkeyPatch):
+    opened: list[str] = []
+
+    def fake_urlopen(request, timeout=None):
+        url = request.full_url
+        opened.append(url)
+        if url.endswith("/mixed-charset"):
+            return _HeaderResponse(url, b"<html><title>Bad charset</title></html>", "text/html; charset=utf-8,gbk")
+        if url.endswith("/after.xml"):
+            return _Response(url, RSS, "application/rss+xml")
+        raise AssertionError(f"unexpected fetch {url}")
+
+    monkeypatch.setattr(official_intake, "urlopen", fake_urlopen)
+    articles, errors = collect_official(
+        [
+            {
+                "source_id": "mixed",
+                "source_name": "Mixed charset",
+                "url": "https://example.test/mixed-charset",
+                "adapter": "html-list",
+                "verification_status": "verified",
+            },
+            {
+                "source_id": "after",
+                "source_name": "After",
+                "url": "https://example.test/after.xml",
+                "adapter": "rss",
+                "verification_status": "verified",
+            },
+        ]
+    )
+    assert opened == [
+        "https://example.test/mixed-charset",
+        "https://example.test/after.xml",
+    ]
+    assert [article["title"] for article in articles] == ["Later child safety bill"]
+    assert errors == [
+        {
+            "source_id": "mixed",
+            "url": "https://example.test/mixed-charset",
+            "status": None,
+            "error": "encoding",
+            "verification_status": "verified",
+            "dead": False,
+        }
+    ]
 
 
 def test_encoding_error_log_survives_an_ascii_stderr(monkeypatch: pytest.MonkeyPatch):
