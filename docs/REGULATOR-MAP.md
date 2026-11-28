@@ -16,7 +16,7 @@ The repository does not edit that Page automatically. The published Global Trust
 
 ## How the pipeline uses the map
 
-`ts-monitor run --since YYYY-MM-DD` loads the map, turns each scrape target into a catalogue source and merges those sources into `config/sources.yaml` by host and path. Pass `--skip-regulators` to use only `sources.yaml`. Pass `--regulators PATH` to load another map file.
+`ts-monitor run --since YYYY-MM-DD` loads the map, turns each scrape target into a catalogue source and merges those sources into `config/sources.yaml` by host and path. The weekday fetch then keeps official sources whose jurisdiction is in the approved priority market set, plus the existing Timor-Leste legislative source. Official targets for other jurisdictions remain in the map and are not requested. Pass `--skip-regulators` to use only `sources.yaml`. Pass `--regulators PATH` to load another map file.
 
 `ts-monitor regulators` prints body and spokesperson counts. `--json` writes a machine-readable summary.
 
@@ -28,7 +28,7 @@ The closed UK Department for Science, Innovation and Technology is recorded for 
 
 ## Counts
 
-This version lists 108 bodies, 28 spokespersons named on official pages retrieved for the map, two personal X handles, five institutional X handles and 175 scrape targets. Of those bodies, 40 are legislatures or legislative boards, 32 are regulators, 26 are ministries, eight are gazettes, one is an executive office and one is a statutory commission. After deduplication against `config/sources.yaml`, `ts-monitor run` adds 146 net new official targets.
+This version lists 108 bodies, 28 spokespersons named on official pages retrieved for the map, two personal X handles, five institutional X handles and 175 scrape targets. Of those bodies, 40 are legislatures or legislative boards, 32 are regulators, 26 are ministries, eight are gazettes, one is an executive office and one is a statutory commission. After deduplication against `config/sources.yaml` and the weekday market gate, `ts-monitor run` adds 142 net new official targets. The nine official targets for Greece, China, the United Arab Emirates and the five United States state pages remain in the map and are not requested on that run.
 
 ## Legislatures, bills in drafting and politician comments
 
