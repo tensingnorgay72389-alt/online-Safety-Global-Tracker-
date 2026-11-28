@@ -5,7 +5,8 @@ RSS or Atom is preferred. Otherwise a feed link is discovered, then a few
 candidate article links are scraped. HTTP 403 is recorded and the source stays
 in the inventory. A block is not treated as proof that the source is dead.
 A URL that cannot be encoded or sent is recorded the same way, and collection
-continues with the next candidate.
+continues with the next candidate. A successful response whose character-set
+header is not a known encoding, such as "utf-8,gbk", is recorded the same way.
 """
 
 from __future__ import annotations
@@ -282,8 +283,13 @@ def _default_fetch(url: str, timeout: int | None = None) -> PageFetch:
     try:
         with urlopen(request, timeout=limit) as response:
             status = int(getattr(response, "status", 200) or 200)
+            raw = response.read()
+            # "utf-8,gbk" is not a codec. decode() raises LookupError, not UnicodeError.
             charset = response.headers.get_content_charset() or "utf-8"
-            body = response.read().decode(charset, errors="replace")
+            try:
+                body = raw.decode(charset, errors="replace")
+            except LookupError as exc:
+                return _fetch_failure(url, exc, "encoding")
             content_type = response.headers.get("Content-Type") or ""
             final_url = str(response.geturl() or url)
             return PageFetch(url=url, status=status, body=body, content_type=content_type, final_url=final_url)
