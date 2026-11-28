@@ -6,6 +6,7 @@ from pathlib import Path
 
 from ts_monitor.official_inventory import load_official_inventory, sources_for_poll
 from ts_monitor.sources import load_catalog
+from ts_monitor.weekday_scope import is_weekday_official_market
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,7 +52,7 @@ def test_official_inventory_preserves_rows_and_blocked_urls():
         "verified": 161,
         "unverified_blocked": 70,
         "unverified": 70,
-        "pollable": 971,
+        "pollable": 364,
     }
     mx = [row for row in inventory.rows if row["market_id"] == "mx"]
     tr = [row for row in inventory.rows if row["market_id"] == "tr"]
@@ -64,12 +65,17 @@ def test_official_inventory_preserves_rows_and_blocked_urls():
     assert "goran" not in dsit["verification_note"].lower()
     pollable = sources_for_poll(inventory)
     poll_urls = {source.url for source in pollable}
-    assert len(pollable) == 971
-    assert len({source.id for source in pollable}) == 971
+    assert len(pollable) == 364
+    assert len({source.id for source in pollable}) == 364
     assert all(source.auto_apply_eligible is False for source in pollable)
     assert dsit["url"] not in poll_urls
     blocked = [row for row in inventory.rows if row["verification_status"] == "unverified-blocked"]
     assert blocked
-    assert all(row["url"] in poll_urls for row in blocked)
+    approved_blocked = [row for row in blocked if is_weekday_official_market(row["market_id"])]
+    other_blocked = [row for row in blocked if not is_weekday_official_market(row["market_id"])]
+    assert approved_blocked
+    assert other_blocked
+    assert all(row["url"] in poll_urls for row in approved_blocked)
+    assert all(row["url"] not in poll_urls for row in other_blocked)
     assert any(row["http_status"] == "403" for row in blocked)
     assert len(load_catalog().sources) == 54

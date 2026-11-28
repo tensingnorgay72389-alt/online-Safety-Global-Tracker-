@@ -2,6 +2,9 @@
 # A hit may be marked significant and auto-apply eligible only when the source is official
 # and the classifier finds a qualifying instrument event. News sources are for discovery only.
 # Ministerial media releases are official in origin but cannot be auto-applied on their own.
+# Weekday `ts-monitor run` fetches official sources only for the approved priority markets
+# in ts_monitor.weekday_scope. Entries outside that set stay in this file for matching.
+# News discovery sources stay on the weekday fetch. GNews queries are unchanged.
 
 sources:
   # --- Australia (official) ---
@@ -146,7 +149,8 @@ sources:
     auto_apply_eligible: true
     role: instrument
 
-  # --- United States federal and states already in the register ---
+  # --- United States federal sources, plus state pages kept for matching ---
+  # Weekday run fetches jurisdiction US. State jurisdictions stay in this file and are not fetched.
   - id: us-congress
     name: Congress.gov
     url: https://www.congress.gov/

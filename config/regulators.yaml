@@ -12,6 +12,9 @@ notes: Sourced map of online-safety, child-safety, platform, gaming and AI-servi
   Those records are never auto-applied to the register. A 403, 429, 404, timeout or connection failure
   is not evidence that a page does not exist. Those official URLs are retained and remain scrape targets.
   Brand-mention watching is out of scope. Ministerial language such as 'becomes law' is not enactment.
+  Weekday `ts-monitor run` requests official scrape targets whose jurisdiction is in the approved
+  priority market set (ts_monitor.weekday_scope). The existing Timor-Leste legislative source stays
+  on that run. Bodies outside the set remain in this map with their official URLs.
 bodies:
 - id: us-ftc
   jurisdiction: US

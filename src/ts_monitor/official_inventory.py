@@ -1,11 +1,13 @@
 """Load the expanded official-source inventory for a later poll.
 
-The weekday monitor does not fetch this file unless a run passes
-``--include-official-inventory``. Rows stay in the inventory when an official
-URL returns 403, times out or is otherwise blocked. Those rows are not treated
-as dead and they are not deleted. Pollable rows are official addresses only.
-They are not auto-apply eligible and this module does not write the register
-or change a market score.
+``ts-monitor intake`` polls this file. ``ts-monitor run`` polls it only when a
+run passes ``--include-official-inventory``. A weekday poll requests a row
+when it has a URL, ``poll`` is not false, ``weekday_poll`` is not false, and
+``market_id`` is in the approved weekday set. Rows outside that set stay in
+the file. A 403, timeout or other block does not delete a row and does not
+mark it dead. Pollable rows are official addresses only. They are not
+auto-apply eligible and this module does not write the register or change a
+market score.
 """
 
 from __future__ import annotations
@@ -17,6 +19,7 @@ from typing import Any
 
 from ts_monitor.paths import default_official_inventory_path
 from ts_monitor.sources import Source
+from ts_monitor.weekday_scope import is_weekday_official_market
 
 _METHODS = {
     "rss": "rss",
@@ -51,18 +54,29 @@ def load_official_inventory(path: str | Path | None = None) -> OfficialInventory
     return OfficialInventory(as_of=str(raw.get("as_of") or ""), rows=rows)
 
 
+def _flag_is_false(value: Any) -> bool:
+    if value is False:
+        return True
+    if isinstance(value, str) and value.strip().upper() == "FALSE":
+        return True
+    return False
+
+
 def row_is_pollable(row: dict[str, Any]) -> bool:
-    """True when a later poll should request this official URL.
+    """True when a weekday poll should request this official URL.
 
     ``unverified-blocked``, ``unverified``, a blank verification status and
-    HTTP 403 all stay pollable. Only a missing URL or ``poll: false`` is skipped.
+    HTTP 403 stay pollable when the row is in an approved weekday market.
+    A missing URL, ``poll: false``, ``weekday_poll: false`` or a market outside
+    the approved set is skipped. The row stays in the inventory either way.
     """
     if not str(row.get("url") or "").strip():
         return False
-    poll = row.get("poll")
-    if poll is False:
+    if _flag_is_false(row.get("poll")):
         return False
-    if isinstance(poll, str) and poll.strip().upper() == "FALSE":
+    if _flag_is_false(row.get("weekday_poll")):
+        return False
+    if not is_weekday_official_market(row.get("market_id")):
         return False
     return True
 

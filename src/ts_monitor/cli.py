@@ -20,6 +20,8 @@ from ts_monitor.fetchers import Fetcher
 from ts_monitor.matcher import match_all
 from ts_monitor.official_inventory import load_official_inventory, sources_for_poll
 from ts_monitor.regulators import load_regulator_map, merge_source_catalog, sources_from_regulators
+from ts_monitor.sources import Source
+from ts_monitor.weekday_scope import restrict_catalog_to_weekday_run
 from ts_monitor.writers import dump, write_inbox, write_proposals
 
 
@@ -150,11 +152,15 @@ def main(argv: list[str] | None = None) -> int:
                 parser.error("--offline requires --file or an existing out/inbox/items.json")
             items = ingest_path(inbox_path)
         else:
+            extras: list[Source] = []
             if regulator_map is not None and not args.skip_regulators:
-                catalog = merge_source_catalog(catalog, sources_from_regulators(regulator_map))
+                extras.extend(sources_from_regulators(regulator_map))
             if args.include_official_inventory:
-                catalog = merge_source_catalog(catalog, sources_for_poll(load_official_inventory()))
-            fetcher = Fetcher(catalog=catalog)
+                extras.extend(sources_for_poll(load_official_inventory()))
+            catalog = merge_source_catalog(catalog, extras)
+            # Matching still sees every sourced official URL. The weekday fetch does not request
+            # official URLs outside the approved market set.
+            fetcher = Fetcher(catalog=restrict_catalog_to_weekday_run(catalog))
             items = fetcher.fetch_all(since=args.since, official_only=bool(args.official_only))
             errors = fetcher.errors
             if args.until:
