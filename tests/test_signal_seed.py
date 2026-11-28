@@ -4,7 +4,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from ts_monitor.official_inventory import load_official_inventory, sources_for_poll
+from ts_monitor.official_inventory import load_official_inventory, row_on_weekly_poll, sources_for_poll
 from ts_monitor.sources import load_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,14 +62,16 @@ def test_official_inventory_preserves_rows_and_blocked_urls():
     assert dsit["verification_status"] == "stale-or-conflicting"
     assert dsit["poll"] is False
     assert "goran" not in dsit["verification_note"].lower()
-    pollable = sources_for_poll(inventory)
-    poll_urls = {source.url for source in pollable}
-    assert len(pollable) == 971
-    assert len({source.id for source in pollable}) == 971
-    assert all(source.auto_apply_eligible is False for source in pollable)
-    assert dsit["url"] not in poll_urls
+    weekly = sources_for_poll(inventory)
+    weekly_urls = {source.url for source in weekly}
+    assert len(weekly) == 364
+    assert len({source.id for source in weekly}) == 364
+    assert all(source.auto_apply_eligible is False for source in weekly)
+    assert dsit["url"] not in weekly_urls
     blocked = [row for row in inventory.rows if row["verification_status"] == "unverified-blocked"]
-    assert blocked
-    assert all(row["url"] in poll_urls for row in blocked)
+    assert len(blocked) == 70
     assert any(row["http_status"] == "403" for row in blocked)
+    weekly_blocked = [row for row in blocked if row_on_weekly_poll(row)]
+    assert weekly_blocked
+    assert all(row["url"] in weekly_urls for row in weekly_blocked)
     assert len(load_catalog().sources) == 54

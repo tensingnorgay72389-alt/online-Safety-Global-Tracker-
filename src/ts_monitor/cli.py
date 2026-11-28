@@ -18,8 +18,10 @@ from ts_monitor.paths import (
 from ts_monitor.pipeline import ingest_path, load_context, run_pipeline
 from ts_monitor.fetchers import Fetcher
 from ts_monitor.matcher import match_all
-from ts_monitor.official_inventory import load_official_inventory, sources_for_poll
-from ts_monitor.regulators import load_regulator_map, merge_source_catalog, sources_from_regulators
+from ts_monitor.official_inventory import load_official_inventory, row_on_weekly_poll, sources_for_poll
+from ts_monitor.regulators import load_regulator_map, merge_source_catalog, sources_for_weekly_run
+from ts_monitor.sources import SourceCatalog
+from ts_monitor.weekly_markets import catalog_for_weekly_official_run, weekly_since
 from ts_monitor.writers import dump, write_inbox, write_proposals
 
 
@@ -41,7 +43,14 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     run = sub.add_parser("run", parents=[common], help="Fetch or ingest, classify, and write inbox and proposals.")
-    run.add_argument("--since", required=True, help="Inclusive start date, YYYY-MM-DD.")
+    run.add_argument(
+        "--since",
+        required=True,
+        help=(
+            "Inclusive start date, YYYY-MM-DD. "
+            "The weekly monitor passes the date from `ts-monitor weekly-since` (seven UTC days)."
+        ),
+    )
     run.add_argument("--until", default=None, help="Optional inclusive end date, YYYY-MM-DD.")
     run.add_argument("--file", type=Path, default=None, help="Ingest this JSON file or fixture directory instead of fetching.")
     run.add_argument("--offline", action="store_true", help="Do not fetch the network. Requires --file unless the inbox already exists.")
@@ -51,8 +60,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--include-official-inventory",
         action="store_true",
         help=(
-            "Also poll data/official_sources.json on this fetch. "
-            "Blocked official URLs stay in the poll set. "
+            "Also poll the weekly approved markets in data/official_sources.json. "
+            "Blocked official URLs in those markets stay in the poll set. "
             "Hits are not auto-apply eligible and are not written into the register."
         ),
     )
@@ -74,6 +83,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     inventory.add_argument("--json", action="store_true", help="Write the counts as JSON.")
 
+    sub.add_parser(
+        "weekly-since",
+        help="Print the inclusive YYYY-MM-DD start date for the weekly official monitor (seven UTC days).",
+    )
+
     intake = sub.add_parser(
         "intake",
         help=(
@@ -81,7 +95,14 @@ def build_parser() -> argparse.ArgumentParser:
             "Does not edit regulations or market scores."
         ),
     )
-    intake.add_argument("--since", default=None, help="Keep items dated on or after YYYY-MM-DD when a date is present.")
+    intake.add_argument(
+        "--since",
+        default=None,
+        help=(
+            "Keep dated items on or after YYYY-MM-DD. "
+            "The weekly monitor passes the date from `ts-monitor weekly-since`."
+        ),
+    )
     intake.add_argument("--out", type=Path, default=None, help="Output directory (default: ./out).")
     intake.add_argument("--seen", type=Path, default=None, help="Seen URL file. Defaults to data/seen_urls.json.")
     intake.add_argument("--file", type=Path, default=None, help="Classify this JSON file instead of fetching.")
@@ -95,6 +116,9 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.command == "weekly-since":
+        print(weekly_since())
+        return 0
     if args.command == "inventory":
         return _inventory_command(args)
     if args.command == "intake":
@@ -150,10 +174,12 @@ def main(argv: list[str] | None = None) -> int:
                 parser.error("--offline requires --file or an existing out/inbox/items.json")
             items = ingest_path(inbox_path)
         else:
-            if regulator_map is not None and not args.skip_regulators:
-                catalog = merge_source_catalog(catalog, sources_from_regulators(regulator_map))
-            if args.include_official_inventory:
-                catalog = merge_source_catalog(catalog, sources_for_poll(load_official_inventory()))
+            catalog = assemble_weekly_fetch_catalog(
+                catalog,
+                regulator_map,
+                skip_regulators=bool(args.skip_regulators),
+                include_official_inventory=bool(args.include_official_inventory),
+            )
             fetcher = Fetcher(catalog=catalog)
             items = fetcher.fetch_all(since=args.since, official_only=bool(args.official_only))
             errors = fetcher.errors
@@ -229,6 +255,27 @@ def _intake_command(args) -> int:
     return 0
 
 
+def assemble_weekly_fetch_catalog(
+    catalog: SourceCatalog,
+    regulator_map,
+    *,
+    skip_regulators: bool = False,
+    include_official_inventory: bool = False,
+) -> SourceCatalog:
+    """Catalogue the live weekly ``ts-monitor run`` fetches.
+
+    Official sources outside the approved set are omitted. Non-official discovery
+    sources stay. The Timor-Leste parliament source stays with the regulator map.
+    The official inventory is added only when requested, and only for the weekly markets.
+    """
+    narrowed = catalog_for_weekly_official_run(catalog)
+    if regulator_map is not None and not skip_regulators:
+        narrowed = merge_source_catalog(narrowed, sources_for_weekly_run(regulator_map))
+    if include_official_inventory:
+        narrowed = merge_source_catalog(narrowed, sources_for_poll(load_official_inventory()))
+    return narrowed
+
+
 def _inventory_command(args) -> int:
     path = default_official_inventory_path()
     if not path.is_file():
@@ -236,13 +283,20 @@ def _inventory_command(args) -> int:
         return 1
     inventory = load_official_inventory(path)
     counts = inventory.counts()
+    weekly = sum(1 for row in inventory.rows if row_on_weekly_poll(row))
     if args.json:
-        print(json.dumps({"path": str(path), "as_of": inventory.as_of, "counts": counts}, indent=2))
+        print(
+            json.dumps(
+                {"path": str(path), "as_of": inventory.as_of, "counts": counts, "weekly_poll": weekly},
+                indent=2,
+            )
+        )
         return 0
     print(
         f"Official-source inventory as of {inventory.as_of}: "
         f"{counts['rows']} rows ({counts['original']} original and {counts['added']} added). "
-        f"{counts['pollable']} rows are pollable. "
+        f"{counts['pollable']} rows have a URL and are not marked poll false. "
+        f"{weekly} of those rows are on the weekly official poll. "
         f"Added rows: {counts['verified']} verified, "
         f"{counts['unverified_blocked']} unverified-blocked and {counts['unverified']} unverified."
     )

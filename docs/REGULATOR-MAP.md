@@ -16,7 +16,7 @@ The repository does not edit that Page automatically. The published Global Trust
 
 ## How the pipeline uses the map
 
-`ts-monitor run --since YYYY-MM-DD` loads the map, turns each scrape target into a catalogue source and merges those sources into `config/sources.yaml` by host and path. Pass `--skip-regulators` to use only `sources.yaml`. Pass `--regulators PATH` to load another map file.
+`ts-monitor run --since YYYY-MM-DD` loads the map and merges scrape targets into `config/sources.yaml` by host and path. The weekly official run fetches targets whose jurisdiction is in the approved market set, and it keeps the existing Timor-Leste parliament source. Greece, China, the United Arab Emirates and United States state bodies remain in the map with their official URLs. Pass `--skip-regulators` to use only `sources.yaml`. Pass `--regulators PATH` to load another map file.
 
 `ts-monitor regulators` prints body and spokesperson counts. `--json` writes a machine-readable summary.
 
@@ -28,7 +28,7 @@ The closed UK Department for Science, Innovation and Technology is recorded for 
 
 ## Counts
 
-This version lists 108 bodies, 28 spokespersons named on official pages retrieved for the map, two personal X handles, five institutional X handles and 175 scrape targets. Of those bodies, 40 are legislatures or legislative boards, 32 are regulators, 26 are ministries, eight are gazettes, one is an executive office and one is a statutory commission. After deduplication against `config/sources.yaml`, `ts-monitor run` adds 146 net new official targets.
+This version lists 108 bodies, 28 spokespersons named on official pages retrieved for the map, two personal X handles, five institutional X handles and 175 scrape targets. Of those bodies, 40 are legislatures or legislative boards, 32 are regulators, 26 are ministries, eight are gazettes, one is an executive office and one is a statutory commission. The weekly official run keeps 166 of those scrape targets. After deduplication against the weekly `config/sources.yaml` entries, that run fetches 173 official URLs (191 catalogue entries, including 18 non-official news sources). All 175 scrape targets stay in the map.
 
 ## Legislatures, bills in drafting and politician comments
 

@@ -12,6 +12,7 @@ import yaml
 
 from ts_monitor.paths import default_regulators_path
 from ts_monitor.sources import Source, SourceCatalog
+from ts_monitor.weekly_markets import jurisdiction_on_weekly_official_run
 
 ALLOWED_BODY_TYPES = {"regulator", "ministry", "parliament", "executive", "gazette", "commission"}
 ALLOWED_HANDLE_STATUSES = {
@@ -212,6 +213,21 @@ def sources_from_regulators(reg_map: RegulatorMap) -> list[Source]:
                 )
             )
     return sources
+
+
+def sources_for_weekly_run(reg_map: RegulatorMap) -> list[Source]:
+    """Scrape targets the weekly official monitor fetches.
+
+    The map file is unchanged. Bodies outside the approved set stay on the map
+    with their official URLs. Timor-Leste stays because that parliament source
+    is already in the map. United States state jurisdictions stay on the map
+    and are left off this list.
+    """
+    return [
+        source
+        for source in sources_from_regulators(reg_map)
+        if jurisdiction_on_weekly_official_run(source.jurisdiction)
+    ]
 
 
 def merge_source_catalog(catalog: SourceCatalog, extras: list[Source]) -> SourceCatalog:
