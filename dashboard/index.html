@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Global Trust and Safety Dashboard. Regulatory severity, China sentiment and key obligations across 158 markets." />
     <title>Global Trust and Safety Dashboard</title>
+    <script>
+      // GitHub Pages serves this file after 404.html rewrites a missing path into the query.
+      // Restore the path before the app reads the address.
+      (function (location) {
+        if (location.search[1] !== '/') return
+        var decoded = location.search.slice(1).split('&').map(function (part) {
+          return part.replace(/~and~/g, '&')
+        }).join('?')
+        if (decoded.length > 1 && decoded.endsWith('/')) decoded = decoded.slice(0, -1)
+        window.history.replaceState(null, '', location.pathname.slice(0, -1) + decoded + location.hash)
+      }(window.location))
+    </script>
   </head>
   <body>
     <div id="root"></div>
