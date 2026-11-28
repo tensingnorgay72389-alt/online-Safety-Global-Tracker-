@@ -11,6 +11,7 @@ notes: Sourced map of online-safety, child-safety, platform, gaming and AI-servi
   and parliament newsrooms) are collected so that on-the-record member and minister comments can be reviewed.
   Those records are never auto-applied to the register. A 403, 429, 404, timeout or connection failure
   is not evidence that a page does not exist. Those official URLs are retained and remain scrape targets.
+  The weekly official monitor fetches scrape targets for the approved markets, and keeps the existing Timor-Leste parliament source. Every other jurisdiction stays in this file with its official URLs.
   Brand-mention watching is out of scope. Ministerial language such as 'becomes law' is not enactment.
 bodies:
 - id: us-ftc

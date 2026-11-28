@@ -146,7 +146,9 @@ sources:
     auto_apply_eligible: true
     role: instrument
 
-  # --- United States federal and states already in the register ---
+  # --- United States federal sources, plus state pages kept on file ---
+  # The weekly official run fetches jurisdiction US. State pages below stay listed
+  # and are left off that run. Their URLs are the ones already recorded here.
   - id: us-congress
     name: Congress.gov
     url: https://www.congress.gov/

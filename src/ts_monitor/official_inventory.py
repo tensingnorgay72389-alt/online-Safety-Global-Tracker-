@@ -1,11 +1,13 @@
-"""Load the expanded official-source inventory for a later poll.
+"""Load the expanded official-source inventory for the weekly official poll.
 
-The weekday monitor does not fetch this file unless a run passes
-``--include-official-inventory``. Rows stay in the inventory when an official
-URL returns 403, times out or is otherwise blocked. Those rows are not treated
-as dead and they are not deleted. Pollable rows are official addresses only.
-They are not auto-apply eligible and this module does not write the register
-or change a market score.
+``ts-monitor intake`` fetches the approved weekly markets from this file.
+``ts-monitor run`` fetches it only when a run passes
+``--include-official-inventory``, and then only those same markets. Rows stay
+in the inventory when an official URL returns 403, times out or is otherwise
+blocked, and when the market is outside the weekly set. Those rows are not
+treated as dead and they are not deleted. Weekly poll rows are official
+addresses only. They are not auto-apply eligible and this module does not
+write the register or change a market score.
 """
 
 from __future__ import annotations
@@ -17,6 +19,7 @@ from typing import Any
 
 from ts_monitor.paths import default_official_inventory_path
 from ts_monitor.sources import Source
+from ts_monitor.weekly_markets import WEEKLY_OFFICIAL_MARKET_IDS
 
 _METHODS = {
     "rss": "rss",
@@ -52,10 +55,12 @@ def load_official_inventory(path: str | Path | None = None) -> OfficialInventory
 
 
 def row_is_pollable(row: dict[str, Any]) -> bool:
-    """True when a later poll should request this official URL.
+    """True when the row has an official URL and ``poll`` is not false.
 
     ``unverified-blocked``, ``unverified``, a blank verification status and
-    HTTP 403 all stay pollable. Only a missing URL or ``poll: false`` is skipped.
+    HTTP 403 all stay in this set. Only a missing URL or ``poll: false`` is
+    skipped. The weekly monitor then keeps the approved markets; see
+    ``row_on_weekly_poll``.
     """
     if not str(row.get("url") or "").strip():
         return False
@@ -67,8 +72,24 @@ def row_is_pollable(row: dict[str, Any]) -> bool:
     return True
 
 
+def row_on_weekly_poll(row: dict[str, Any]) -> bool:
+    """True when the weekly official monitor should request this URL.
+
+    A row stays in the inventory either way. A missing URL, ``poll: false``
+    (the retired UK DSIT row) and any ``market_id`` outside the approved set
+    are left off the weekly poll. Blocked URLs inside the approved set stay on it.
+    """
+    if not row_is_pollable(row):
+        return False
+    market_id = str(row.get("market_id") or "").strip().lower()
+    return market_id in WEEKLY_OFFICIAL_MARKET_IDS
+
+
 def sources_for_poll(inventory: OfficialInventory) -> list[Source]:
-    """Build fetch sources for pollable rows without dropping blocked URLs.
+    """Build fetch sources for the weekly approved markets.
+
+    Blocked URLs in those markets stay in the poll. Rows for every other
+    market stay in the inventory and are not returned.
 
     Duplicate ``source_id`` values are kept as separate sources. The second and
     later copies gain a row suffix so the catalogue can hold both URLs.
@@ -76,7 +97,7 @@ def sources_for_poll(inventory: OfficialInventory) -> list[Source]:
     seen: dict[str, int] = {}
     sources: list[Source] = []
     for row in inventory.rows:
-        if not row_is_pollable(row):
+        if not row_on_weekly_poll(row):
             continue
         base = str(row.get("source_id") or f"official-row-{row.get('row_number')}").strip()
         seen[base] = seen.get(base, 0) + 1

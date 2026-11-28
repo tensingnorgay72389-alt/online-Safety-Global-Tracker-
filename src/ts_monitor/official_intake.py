@@ -21,7 +21,7 @@ from urllib.parse import quote, urljoin, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
-from ts_monitor.official_inventory import OfficialInventory, row_is_pollable
+from ts_monitor.official_inventory import OfficialInventory, row_on_weekly_poll
 
 CANDIDATE_LINKS_PER_SOURCE = 4
 DISCOVERY_KEYWORDS = (
@@ -82,8 +82,11 @@ class PageFetch:
 
 
 def sources_to_collect(inventory: OfficialInventory) -> list[dict[str, Any]]:
-    """Every pollable inventory row, including unverified-blocked URLs."""
-    return [row for row in inventory.rows if row_is_pollable(row)]
+    """Weekly poll rows for the approved markets, including unverified-blocked URLs.
+
+    Markets outside that set stay in the inventory and are not fetched.
+    """
+    return [row for row in inventory.rows if row_on_weekly_poll(row)]
 
 
 # ASCII characters stay literal. quote() then percent-encodes only non-ASCII

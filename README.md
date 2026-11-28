@@ -14,7 +14,7 @@ https://tensingnorgay72389-alt.github.io/online-Safety-Global-Tracker-/
 
 The first deploy creates the Pages site with GitHub Actions as the source. GitHub Pages on the free plan is available only for a public repository. A private repository needs GitHub Pro, GitHub Team or Enterprise before that URL can be published. In Settings → Pages, the source must be GitHub Actions.
 
-The weekday monitor does not write market scores or regulation records into that site. The Signals page lists sourced regulatory signals and is separate from the heatmap and the market database. Python files under `src/` and `tests/` classify new items into a review queue. They do not overwrite `dashboard/data/markets.json` or `dashboard/data/regulations.json`.
+The weekly official monitor does not write market scores or regulation records into that site. The Signals page lists sourced regulatory signals and is separate from the heatmap and the market database. Python files under `src/` and `tests/` classify new items into a review queue. They do not overwrite `dashboard/data/markets.json` or `dashboard/data/regulations.json`.
 
 ## Live tracker
 
@@ -27,7 +27,7 @@ The repository does not edit that Page automatically. It writes typed JSON patch
 
 ## What is in scope
 
-Priority markets are the United States (federal and notable states), the United Kingdom, the European Union and Australia, then Singapore, India, Malaysia, Japan, Korea, Indonesia, Brazil, Canada, Mexico and Turkey. The official map also covers all ASEAN member states and Timor-Leste where an official legislative source was retrieved. Additional EU institutions and sourced EU member-state bodies are included where official URLs were sourced. Official legislatures, bill trackers and parliamentary records are included so that proposed and drafting-stage bills and on-the-record political comments can be reviewed. Precedent-setting developments in other markets are also recorded.
+Priority markets are the United States (federal and notable states), the United Kingdom, the European Union and Australia, then Singapore, India, Malaysia, Japan, Korea, Indonesia, Brazil, Canada, Mexico and Turkey. The official map also covers all ASEAN member states and Timor-Leste where an official legislative source was retrieved. Additional EU institutions and sourced EU member-state bodies are included where official URLs were sourced. Official legislatures, bill trackers and parliamentary records are included so that proposed and drafting-stage bills and on-the-record political comments can be reviewed. Precedent-setting developments in other markets are also recorded. The weekly official monitor fetches the approved market list in the workflow section below. United States state pages and the other inventory markets stay on file.
 
 Out of scope are brand mention watching (including a dedicated Tencent Mentions scrape), general cybersecurity, data protection with no online-safety hook, AI industrial policy, election campaigning except where the item is about platform rules, AI content or enforcement, campaign websites and invented politician social accounts. Official legislative records of member or minister comments are collected but are never auto-applied. Political or company statements that do not change an instrument's legal status stay in the inbox.
 
@@ -110,9 +110,11 @@ Never auto-apply on ministerial or political statements alone, regulator-network
 
 If an official page returns 403 or times out, the failure is recorded in `out/inbox/fetch_errors.json`. That failure is not evidence that the page does not exist. Do not auto-apply on press copy alone.
 
-## Weekday workflow
+## Weekly official monitor
 
-`.github/workflows/monitor.yml` runs tests and then `ts-monitor run` at 09:00 Hong Kong time on weekday mornings (01:00 UTC, cron `0 1 * * 1-5`). Artefacts are uploaded. The workflow does not edit an external dashboard. If a Congress.gov API token is ever needed, set the repository secret `CONGRESS_GOV_API_KEY` and expose it as that environment variable. The Signals intake reads `XAI_API_KEY` for the xAI classifier and reads `NEWS_API_KEY_FREE`, then `GNEWS_API_KEY`, then `NEWS_API_KEY` for GNews only. Never commit tokens.
+`.github/workflows/monitor.yml` runs tests and then, on the Monday schedule and on manual dispatch, `ts-monitor run` and `ts-monitor intake`. The clock is 09:00 Hong Kong time (01:00 UTC, cron `0 1 * * 1`). `ts-monitor weekly-since` sets the inclusive start date to seven UTC days before the run, so the Monday job covers the period since the previous Monday. Push and pull request runs stay on the offline fixture check and do not call intake.
+
+The weekly official inventory poll is 364 URLs for the European Union institutions, the United Kingdom, Australia, Germany, United States federal sources, Brazil, France, Singapore, Ireland, Myanmar, the Netherlands, Mexico, Türkiye, Indonesia, Italy, Spain, South Korea, India, Malaysia, Austria, Vietnam, Japan, the Philippines, Thailand, Canada, Cambodia, Laos, Brunei Darussalam and Pakistan. Other inventory rows stay in `data/official_sources.json`. The retired UK DSIT row stays unpolled. The run catalogue also keeps the existing Timor-Leste parliament source. Artefacts are uploaded. The workflow does not edit an external dashboard. If a Congress.gov API token is ever needed, set the repository secret `CONGRESS_GOV_API_KEY` and expose it as that environment variable. The Signals intake reads `XAI_API_KEY` for the xAI classifier and reads `NEWS_API_KEY_FREE`, then `GNEWS_API_KEY`, then `NEWS_API_KEY` for GNews only. Never commit tokens.
 
 ## Register snapshot
 

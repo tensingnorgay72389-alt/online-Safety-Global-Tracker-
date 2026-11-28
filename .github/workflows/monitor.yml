@@ -1,9 +1,9 @@
-name: Weekday monitor
+name: Weekly official monitor
 
 on:
   schedule:
-    # 09:00 Hong Kong time, Monday to Friday (01:00 UTC).
-    - cron: "0 1 * * 1-5"
+    # 09:00 Hong Kong time (Asia/Hong_Kong, UTC+8), Monday (01:00 UTC).
+    - cron: "0 1 * * 1"
   workflow_dispatch:
   push:
   pull_request:
@@ -43,7 +43,7 @@ jobs:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
         run: |
           if [ "${GITHUB_EVENT_NAME}" = "schedule" ] || [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
-            SINCE="$(date -u -d 'yesterday' +%F 2>/dev/null || date -u -v-1d +%F)"
+            SINCE="$(ts-monitor weekly-since)"
             ts-monitor run --since "${SINCE}" --out out
             ts-monitor intake --since "${SINCE}" --out out
           else
