@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <title>Global Trust and Safety Dashboard</title>
+    <script>
+      // GitHub Pages has no rewrite rule for client routes such as /signals.
+      // Keep the first path segment (the project site) and hand the rest back to the app.
+      var pathSegmentsToKeep = 1
+      var locationRef = window.location
+      var rest = locationRef.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/')
+      if (rest.endsWith('/')) rest = rest.slice(0, -1)
+      locationRef.replace(
+        locationRef.protocol + '//' + locationRef.hostname + (locationRef.port ? ':' + locationRef.port : '') +
+        locationRef.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        rest.replace(/&/g, '~and~') +
+        (locationRef.search ? '&' + locationRef.search.slice(1).replace(/&/g, '~and~') : '') +
+        locationRef.hash
+      )
+    </script>
+  </head>
+  <body>
+    <p>Opening the dashboard.</p>
+  </body>
+</html>

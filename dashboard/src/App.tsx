@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react'
-import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { DataProvider, useData } from './context/DataContext'
 import { FilterProvider } from './context/FilterContext'
 import './styles/index.css'
@@ -129,13 +129,15 @@ function AppContent() {
   )
 }
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 export default function App() {
   return (
     <DataProvider>
       <FilterProvider>
-        <HashRouter>
+        <BrowserRouter basename={routerBasename || undefined}>
           <AppContent />
-        </HashRouter>
+        </BrowserRouter>
       </FilterProvider>
     </DataProvider>
   )

@@ -34,6 +34,7 @@ export interface OfficialSourceCount {
 export type SignalSortKey = 'market' | 'date' | 'weight' | 'actor' | 'focus'
 
 export const signals = signalsFile.signals as RegulatorySignal[]
+export const signalsAsOf = signalsFile.as_of
 export const signalCounts = signalsFile.counts
 export const officialSourceCounts = signalsFile.official_source_counts as Record<string, OfficialSourceCount>
 
