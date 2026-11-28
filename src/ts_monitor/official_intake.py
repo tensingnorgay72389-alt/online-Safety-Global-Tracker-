@@ -4,16 +4,20 @@ There is no cap of 20 and the original curated list is not the limit.
 RSS or Atom is preferred. Otherwise a feed link is discovered, then a few
 candidate article links are scraped. HTTP 403 is recorded and the source stays
 in the inventory. A block is not treated as proof that the source is dead.
+A URL that cannot be encoded or sent is recorded the same way, and collection
+continues with the next candidate.
 """
 
 from __future__ import annotations
 
 import os
+import sys
 from dataclasses import dataclass
 from html.parser import HTMLParser
+from http.client import InvalidURL
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
-from urllib.parse import urljoin, urlparse
+from urllib.parse import quote, urljoin, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
@@ -82,16 +86,196 @@ def sources_to_collect(inventory: OfficialInventory) -> list[dict[str, Any]]:
     return [row for row in inventory.rows if row_is_pollable(row)]
 
 
+# ASCII characters stay literal. quote() then percent-encodes only non-ASCII
+# characters, so an already-encoded octet, query delimiter or fragment is not
+# rewritten. Do not unquote first: decoding %2F would change the path.
+_ASCII_LITERALS = "".join(chr(code) for code in range(128))
+_SENSITIVE_QUERY_NAMES = frozenset(
+    {
+        "access_token",
+        "api_key",
+        "api-key",
+        "apikey",
+        "auth",
+        "authorization",
+        "key",
+        "passwd",
+        "password",
+        "secret",
+        "sig",
+        "signature",
+        "token",
+    }
+)
+
+
+def _percent_encode_non_ascii(part: str) -> str:
+    if not part or part.isascii():
+        return part
+    return quote(part, safe=_ASCII_LITERALS, encoding="utf-8", errors="strict")
+
+
+def _split_hostport(hostport: str) -> tuple[str, str]:
+    if hostport.startswith("["):
+        end = hostport.find("]")
+        if end == -1:
+            return hostport, ""
+        host = hostport[: end + 1]
+        rest = hostport[end + 1 :]
+        if rest.startswith(":"):
+            return host, rest[1:]
+        return host, ""
+    host, colon, port = hostport.rpartition(":")
+    if colon and port.isdigit():
+        return host, port
+    return hostport, ""
+
+
+def _ascii_netloc(netloc: str) -> str:
+    """IDNA-encode a non-ASCII host. Leave userinfo, port and ASCII hosts alone."""
+    if netloc.isascii():
+        return netloc
+    userinfo, separator, hostport = netloc.rpartition("@")
+    if not separator:
+        userinfo = ""
+        hostport = netloc
+    host, port = _split_hostport(hostport)
+    if not host.isascii():
+        wrapped = host.startswith("[") and host.endswith("]")
+        bare = host[1:-1] if wrapped else host
+        # Same codec http.client uses for the Host header. Percent-encoding a
+        # domain would make the name unresolvable.
+        encoded = bare.encode("idna").decode("ascii")
+        host = f"[{encoded}]" if wrapped else encoded
+    if userinfo and not userinfo.isascii():
+        userinfo = _percent_encode_non_ascii(userinfo)
+    rebuilt = f"{host}:{port}" if port else host
+    if separator:
+        rebuilt = f"{userinfo}@{rebuilt}"
+    return rebuilt
+
+
+def _ascii_request_url(url: str) -> str:
+    """Return an ASCII URL for urllib without rewriting parts that are already safe.
+
+    Non-ASCII path, query and fragment characters are UTF-8 percent-encoded.
+    Internationalised hosts become A-labels. An all-ASCII URL, including one
+    that is already percent-encoded, is returned unchanged.
+    """
+    if url.isascii():
+        return url
+    parts = urlsplit(url)
+    prepared = urlunsplit(
+        (
+            parts.scheme,
+            _ascii_netloc(parts.netloc),
+            _percent_encode_non_ascii(parts.path),
+            _percent_encode_non_ascii(parts.query),
+            _percent_encode_non_ascii(parts.fragment),
+        )
+    )
+    prepared.encode("ascii")
+    return prepared
+
+
+def _sensitive_query_name(name: str) -> bool:
+    lowered = name.lower()
+    if lowered in _SENSITIVE_QUERY_NAMES:
+        return True
+    return lowered.endswith(("_key", "-key", "_token", "-token", "_secret", "-secret"))
+
+
+def _redact_netloc(netloc: str) -> str:
+    userinfo, separator, hostport = netloc.rpartition("@")
+    if not separator:
+        return netloc
+    name, colon, _password = userinfo.partition(":")
+    if not colon:
+        return netloc
+    return f"{name}:***@{hostport}"
+
+
+def _redact_query(query: str) -> str:
+    if not query:
+        return query
+    pieces: list[str] = []
+    changed = False
+    for chunk in query.split("&"):
+        name, separator, _value = chunk.partition("=")
+        if separator and _sensitive_query_name(name):
+            pieces.append(f"{name}{separator}***")
+            changed = True
+        else:
+            pieces.append(chunk)
+    if not changed:
+        return query
+    return "&".join(pieces)
+
+
+def _url_for_log(url: str) -> str:
+    """URL safe to print. Passwords and credential query values are removed."""
+    try:
+        parts = urlsplit(url)
+        netloc = _redact_netloc(parts.netloc)
+        query = _redact_query(parts.query)
+        if netloc == parts.netloc and query == parts.query:
+            return url
+        return urlunsplit((parts.scheme, netloc, parts.path, query, parts.fragment))
+    except Exception:
+        head, separator, _tail = url.partition("?")
+        return head + separator + "<redacted>" if separator else head
+
+
+def _exception_detail(exc: BaseException) -> str:
+    """Describe a fetch failure without repeating the URL or a query secret."""
+    if isinstance(exc, UnicodeEncodeError):
+        end = max(exc.start, exc.end - 1)
+        return (
+            f"{exc.encoding} codec cannot encode characters "
+            f"in position {exc.start}-{end}: {exc.reason}"
+        )
+    if exc.args and isinstance(exc.args[0], str):
+        text = exc.args[0].splitlines()[0].strip()
+        if text and len(text) <= 160 and not any(token in text for token in ("/", "?", "&", "=", "://", "@")):
+            return text
+    return type(exc).__name__
+
+
+def _write_stderr(message: str) -> None:
+    try:
+        print(message, file=sys.stderr)
+    except UnicodeError:
+        safe = message.encode("ascii", errors="backslashreplace").decode("ascii")
+        try:
+            print(safe, file=sys.stderr)
+        except UnicodeError:
+            return
+
+
+def _fetch_failure(url: str, exc: BaseException, kind: str) -> PageFetch:
+    try:
+        _write_stderr(f"official fetch {kind} error for {_url_for_log(url)}: {_exception_detail(exc)}")
+    except Exception:
+        pass
+    return PageFetch(url=url, status=None, error=kind)
+
+
 def _default_fetch(url: str, timeout: int | None = None) -> PageFetch:
     limit = timeout or int(os.environ.get("TS_MONITOR_HTTP_TIMEOUT") or 12)
-    request = Request(
-        url,
-        headers={
-            "User-Agent": os.environ.get("TS_MONITOR_USER_AGENT")
-            or "ts-regulatory-monitor/0.1 (research monitoring; polite fetch)",
-            "Accept": "text/html,application/rss+xml,application/atom+xml,application/xml,text/xml,*/*",
-        },
-    )
+    try:
+        request_target = _ascii_request_url(url)
+        request = Request(
+            request_target,
+            headers={
+                "User-Agent": os.environ.get("TS_MONITOR_USER_AGENT")
+                or "ts-regulatory-monitor/0.1 (research monitoring; polite fetch)",
+                "Accept": "text/html,application/rss+xml,application/atom+xml,application/xml,text/xml,*/*",
+            },
+        )
+    except UnicodeError as exc:
+        return _fetch_failure(url, exc, "encoding")
+    except ValueError as exc:
+        return _fetch_failure(url, exc, "invalid_url")
     try:
         with urlopen(request, timeout=limit) as response:
             status = int(getattr(response, "status", 200) or 200)
@@ -102,10 +286,24 @@ def _default_fetch(url: str, timeout: int | None = None) -> PageFetch:
             return PageFetch(url=url, status=status, body=body, content_type=content_type, final_url=final_url)
     except HTTPError as exc:
         return PageFetch(url=url, status=int(exc.code), error=f"http_{exc.code}")
+    except InvalidURL as exc:
+        return _fetch_failure(url, exc, "invalid_url")
+    except UnicodeError as exc:
+        return _fetch_failure(url, exc, "encoding")
     except (URLError, TimeoutError, OSError) as exc:
         reason = str(getattr(exc, "reason", exc))
         kind = "timeout" if "timed out" in reason.lower() else "connection"
         return PageFetch(url=url, status=None, error=kind)
+
+
+def _fetch_page(getter: Callable[[str], PageFetch], url: str) -> PageFetch:
+    """Call a fetcher. An encoding or invalid-URL failure is a result, not a crash."""
+    try:
+        return getter(url)
+    except UnicodeError as exc:
+        return _fetch_failure(url, exc, "encoding")
+    except InvalidURL as exc:
+        return _fetch_failure(url, exc, "invalid_url")
 
 
 class _LinkParser(HTMLParser):
@@ -243,7 +441,7 @@ def collect_official(
         source_name = str(row.get("source_name") or row.get("source_id") or source_url)
         if not source_url:
             continue
-        page = getter(source_url)
+        page = _fetch_page(getter, source_url)
         if page.blocked or page.error or (page.status is not None and page.status >= 400):
             errors.append(
                 {
@@ -279,7 +477,7 @@ def collect_official(
         loaded_feed = False
         for href in parser.feed_links[:1]:
             feed_url = urljoin(page.final_url or source_url, href)
-            feed_page = getter(feed_url)
+            feed_page = _fetch_page(getter, feed_url)
             parsed = parse_feed_items(feed_page.body, source_name, source_url) if feed_page.body else []
             if parsed:
                 articles.extend(parsed)
@@ -288,7 +486,7 @@ def collect_official(
         if loaded_feed:
             continue
         for candidate in _candidate_urls(page.final_url or source_url, parser):
-            candidate_page = getter(candidate)
+            candidate_page = _fetch_page(getter, candidate)
             if candidate_page.blocked or candidate_page.error or not candidate_page.body:
                 errors.append(
                     {
