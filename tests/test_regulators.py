@@ -131,5 +131,5 @@ def test_readme_includes_live_tracker_link():
     text = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "https://cursor.com/canvas/store-ebf3ffb9-7e41-4683-935a-adf799982e56/6246d529-8c4f-4535-9f6a-670da7b635fa" in text
     assert "Live tracker" in text or "live tracker" in text
-    # The published vocabulary dashboard must not be presented as this tracker.
-    assert "not this tracker" in text.lower() or "is not this tracker" in text
+    # The vocabulary dashboard is not this tracker. The README no longer links it.
+    assert "patriciayyzhai.github.io/global-trust-safety-dashboard" not in text
