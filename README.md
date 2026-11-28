@@ -24,8 +24,6 @@ https://cursor.com/canvas/store-ebf3ffb9-7e41-4683-935a-adf799982e56/6246d529-8c
 
 The repository does not edit that Page automatically. It writes typed JSON patches that can be applied out of band after an official-source check.
 
-The register uses published category labels and visual conventions from the Global Trust and Safety Dashboard vocabularies as a reference. That published dashboard is a vocabulary and visual reference only. It is not this tracker: https://patriciayyzhai.github.io/global-trust-safety-dashboard/
-
 
 ## What is in scope
 
